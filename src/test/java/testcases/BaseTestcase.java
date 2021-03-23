@@ -57,6 +57,10 @@ public class BaseTestcase {
         secureAppPage = new SecureAppPage(driver);
         customerProfilePage = new CustomerProfilePage(driver);
         chooseModemPage = new ChooseModemPage(driver);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 715eb676d7ea77bb723bd714f2aecac209cd3beb
     }
 
     public void setupAppium() throws IOException {
