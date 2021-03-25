@@ -32,7 +32,7 @@ public class ActionUtilities {
     }
 
 
-    public MobileElement getElement(String key) {
+    public MobileElement getElement(String key) throws Exception {
         MobileElement element = null;
         String[] locator = excel.getLocator(key);
         String locatorType = locator[0];
