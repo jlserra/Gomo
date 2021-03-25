@@ -89,14 +89,15 @@ public class ExcelUtilities {
 
     }
 
-    public String getTestdata(String testdata) {
+    public String getTestdata(String testdata) throws Exception {
         String value = "";
         try {
             JSONObject json = (JSONObject) testData.get(config.getTestcase().toLowerCase());
             log.info("Able to get testdata "+ json.get(testdata.toLowerCase()));
             value = json.get(testdata.toLowerCase()).toString().replaceAll("[\n\r]", "");
         } catch (Exception e) {
-            System.out.println("Testcase or testdata not found with parameter : " + testdata);
+            log.error(e, "Testcase or testdata not found with parameter : " + testdata);
+            throw new Exception("Testcase or testdata not found with parameter : " + testdata);
         }
         return value;
     }
@@ -157,13 +158,17 @@ public class ExcelUtilities {
 
     }
 
-    String[] getLocator(String key) {
+    String[] getLocator(String key) throws Exception {
         String[] value = new String[2];
 
         JSONObject json = (JSONObject) locators.get(key.toLowerCase());
         JSONObject json1 = (JSONObject) json.get(config.getPlatform().toLowerCase());
         value[0] = (String) json1.get("type");
         value[1] = (String) json1.get("locator");
+
+        if (value[0] == null || value[0] == ""){
+            throw new Exception("Locator not found with parameter : "+ key);
+        }
 
         return value;
     }
