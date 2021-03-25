@@ -12,148 +12,101 @@ import static org.testng.Assert.assertTrue;
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyChooseModem extends BaseTestcase {
 
-    @Test(testName = "VerifyChooseModem1", priority = 2)
+    @Test(testName = "VerifyChooseModem1", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check for the first modem")
-    @Story("Story: Choose modem ")
+    @Story("Story: Choose modem 1")
     public void verifyChooseModemOne() throws Exception {
-        chooseModemPage.verifyChooseModemOne();
+        getStartedPage.verifyIfGetStartedPage();
+        getStartedPage.clickBtnGetStarted();
+        welcomePage.verifyIfLoginPage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        welcomePage.verifyIfBtnNextIsEnabled();
+        welcomePage.clickBtnNext();
+        secureAppPage.verifyIfSecurePage();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        secureAppPage.verifyIfSecurePageConfirmation();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        customerProfilePage.verifyIfCustomerProfilePage();
+        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
+        customerProfilePage.verifyIfBtnNextIsEnabled();
+        customerProfilePage.clickBtnNext();
+        chooseModemPage.verifyChooseModemTwo();
     }
 
-//    @Test(testName = "VerifyChooseModem1", priority = 2)
-//    @Severity(SeverityLevel.NORMAL)
-//    @Description("Test Description: User will check for the first modem")
-//    @Story("Story: Choose modem 1")
-//    public void verifyChooseModemOne() throws Exception {
-//
-//        assertTrue(getStartedPage.verifyIfGetStartedPage());
-//        getStartedPage.clickBtnGetStarted();
-//        welcomePage.enterPrepaidNumber("09271080510");
-//        welcomePage.clickBtnNext();
-//
-//        assertTrue(secureAppPage.verifyIfSecurePage());
-//        secureAppPage.enterPin("1111");
-//        secureAppPage.verifyIfBtnNextIsEnabled();
-//        secureAppPage.clickBtnNext();
-//
-//        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
-//        secureAppPage.enterPin("1111");
-//        secureAppPage.verifyIfBtnNextIsEnabled();
-//        secureAppPage.clickBtnNext();
-//
-//        customerProfilePage.enterNickname("Abe");
-//        assertTrue(customerProfilePage.verifyIfBtnNextIsEnabled());
-//        customerProfilePage.clickBtnNext();
-//
-//        chooseModemPage.clickCheckBox();
-//        chooseModemPage.clickLetsGoBtn();
-//
-//        chooseModemPage.clickSkipBtn();
-//        chooseModemPage.clickCloseModalBtn();
-//        chooseModemPage.clickModemOneBtn();
-//
-//    }
-//
-//    @Test(testName = "VerifyChooseModem2", priority = 2)
-//    @Severity(SeverityLevel.NORMAL)
-//    @Description("Test Description: User will check for the second modem")
-//    @Story("Story: Choose modem 2")
-//    public void verifyChooseModemTwo() throws Exception {
-//
-//        assertTrue(getStartedPage.verifyIfGetStartedPage());
-//        getStartedPage.clickBtnGetStarted();
-//        welcomePage.enterPrepaidNumber("09271080510");
-//        welcomePage.clickBtnNext();
-//
-//        assertTrue(secureAppPage.verifyIfSecurePage());
-//        secureAppPage.enterPin("1111");
-//        secureAppPage.verifyIfBtnNextIsEnabled();
-//        secureAppPage.clickBtnNext();
-//
-//        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
-//        secureAppPage.enterPin("1111");
-//        secureAppPage.verifyIfBtnNextIsEnabled();
-//        secureAppPage.clickBtnNext();
-//
-//        customerProfilePage.enterNickname("Abe");
-//        assertTrue(customerProfilePage.verifyIfBtnNextIsEnabled());
-//        customerProfilePage.clickBtnNext();
-//
-//        chooseModemPage.clickCheckBox();
-//        chooseModemPage.clickLetsGoBtn();
-//
-//        chooseModemPage.clickSkipBtn();
-//        chooseModemPage.clickCloseModalBtn();
-//        chooseModemPage.clickModemTwoBtn();
-//
-//    }
-//
-//    @Test(testName = "VerifyChooseModem3", priority = 2)
-//    @Severity(SeverityLevel.NORMAL)
-//    @Description("Test Description: User will check for the third modem")
-//    @Story("Story: Choose modem 3")
-//    public void verifyChooseModemThree() throws Exception {
-//
-//        assertTrue(getStartedPage.verifyIfGetStartedPage());
-//        getStartedPage.clickBtnGetStarted();
-//        welcomePage.enterPrepaidNumber("09271080510");
-//        welcomePage.clickBtnNext();
-//
-//        assertTrue(secureAppPage.verifyIfSecurePage());
-//        secureAppPage.enterPin("1111");
-//        secureAppPage.verifyIfBtnNextIsEnabled();
-//        secureAppPage.clickBtnNext();
-//
-//        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
-//        secureAppPage.enterPin("1111");
-//        secureAppPage.verifyIfBtnNextIsEnabled();
-//        secureAppPage.clickBtnNext();
-//
-//        customerProfilePage.enterNickname("Abe");
-//        assertTrue(customerProfilePage.verifyIfBtnNextIsEnabled());
-//        customerProfilePage.clickBtnNext();
-//
-//        chooseModemPage.clickCheckBox();
-//        chooseModemPage.clickLetsGoBtn();
-//
-//        chooseModemPage.clickSkipBtn();
-//        chooseModemPage.clickCloseModalBtn();
-//        chooseModemPage.clickModemThreeBtn();
-//
-//    }
-//
-//    @Test(testName = "VerifyChooseModem4", priority = 2)
-//    @Severity(SeverityLevel.NORMAL)
-//    @Description("Test Description: User will check for the fourth modem")
-//    @Story("Story: Choose modem 4")
-//    public void verifyChooseModemFour() throws Exception {
-//
-//        assertTrue(getStartedPage.verifyIfGetStartedPage());
-//        getStartedPage.clickBtnGetStarted();
-//        welcomePage.enterPrepaidNumber("09271080510");
-//        welcomePage.clickBtnNext();
-//
-//        assertTrue(secureAppPage.verifyIfSecurePage());
-//        secureAppPage.enterPin("1111");
-//        secureAppPage.verifyIfBtnNextIsEnabled();
-//        secureAppPage.clickBtnNext();
-//
-//        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
-//        secureAppPage.enterPin("1111");
-//        secureAppPage.verifyIfBtnNextIsEnabled();
-//        secureAppPage.clickBtnNext();
-//
-//        customerProfilePage.enterNickname("Abe");
-//        assertTrue(customerProfilePage.verifyIfBtnNextIsEnabled());
-//        customerProfilePage.clickBtnNext();
-//
-//        chooseModemPage.clickCheckBox();
-//        chooseModemPage.clickLetsGoBtn();
-//
-//        chooseModemPage.clickSkipBtn();
-//        chooseModemPage.clickCloseModalBtn();
-//        chooseModemPage.clickModemFourBtn();
-//
-//    }
+
+    @Test(testName = "VerifyChooseModem2", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will check for the second modem")
+    @Story("Story: Choose modem 2")
+    public void verifyChooseModemTwo() throws Exception {
+        getStartedPage.verifyIfGetStartedPage();
+        getStartedPage.clickBtnGetStarted();
+        welcomePage.verifyIfLoginPage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        welcomePage.verifyIfBtnNextIsEnabled();
+        welcomePage.clickBtnNext();
+        secureAppPage.verifyIfSecurePage();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        secureAppPage.verifyIfSecurePageConfirmation();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        customerProfilePage.verifyIfCustomerProfilePage();
+        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
+        customerProfilePage.verifyIfBtnNextIsEnabled();
+        customerProfilePage.clickBtnNext();
+        chooseModemPage.verifyChooseModemTwo();
+    }
+
+    @Test(testName = "VerifyChooseModem3", priority = 3)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will check for the third modem")
+    @Story("Story: Choose modem 3")
+    public void verifyChooseModemThree() throws Exception {
+        getStartedPage.verifyIfGetStartedPage();
+        getStartedPage.clickBtnGetStarted();
+        welcomePage.verifyIfLoginPage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        welcomePage.verifyIfBtnNextIsEnabled();
+        welcomePage.clickBtnNext();
+        secureAppPage.verifyIfSecurePage();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        secureAppPage.verifyIfSecurePageConfirmation();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        customerProfilePage.verifyIfCustomerProfilePage();
+        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
+        customerProfilePage.verifyIfBtnNextIsEnabled();
+        customerProfilePage.clickBtnNext();
+        chooseModemPage.verifyChooseModemThree();
+    }
+
+    @Test(testName = "VerifyChooseModem4", priority = 4)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will check for the fourth modem")
+    @Story("Story: Choose modem 4")
+    public void verifyChooseModemFour() throws Exception {
+        getStartedPage.verifyIfGetStartedPage();
+        getStartedPage.clickBtnGetStarted();
+        welcomePage.verifyIfLoginPage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        welcomePage.verifyIfBtnNextIsEnabled();
+        welcomePage.clickBtnNext();
+        secureAppPage.verifyIfSecurePage();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        secureAppPage.verifyIfSecurePageConfirmation();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        customerProfilePage.verifyIfCustomerProfilePage();
+        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
+        customerProfilePage.verifyIfBtnNextIsEnabled();
+        customerProfilePage.clickBtnNext();
+        chooseModemPage.verifyChooseModemFour();
+    }
 
 }

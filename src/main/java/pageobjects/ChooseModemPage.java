@@ -14,17 +14,26 @@ import utilities.ConfigUtilities;
 import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertEqualsDeep;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class ChooseModemPage extends BasePage {
 
+    MobileDriver driver;
+
     public ChooseModemPage(MobileDriver driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        this.driver = driver;
     }
 
-
-
     //    ================ REFACTORED SECTION =====================
+
+    @Step("Step: Verify if user is in Get Started Page")
+    public boolean verifyIfUserPolicyPage() throws Exception {
+        log.info("Step: Verify if user is in Policy Page");
+        Assert.assertTrue(action.waitForElementToBeVisible("policyCheckbox", ConfigUtilities.Timers.slow));
+        action.takeSnapShot("User is in User Policy Page");
+        return action.isDisplayed("policyCheckbox");
+    }
 
     @Step("Step: Policy Checkbox")
     public void clickCheckBox() throws IOException {
@@ -33,24 +42,121 @@ public class ChooseModemPage extends BasePage {
         action.click("policyCheckbox");
     }
 
-    @Step("Step: Verify if user is in Get Started Page")
-    public boolean verifyIfGetStartedPage() throws Exception {
-        log.info("Step: Verify if user is in Get Started Page");
-        Assert.assertTrue(action.waitForElementToBeVisible("btnGetStarted", ConfigUtilities.Timers.slow));
-        action.takeSnapShot("User is in Get Started Page");
-        return action.isDisplayed("btnGetStarted");
+    @Step("Step: Verify if Button Next is Enabled")
+    public Boolean verifyIfBtnLetsGoEnabled() {
+        log.info("Step: Verify if Let's Go Button is Enabled");
+        return action.isEnabled("letsGoButton");
     }
 
-    @Step("Step: Verify Get Started Pages")
-    public void verifyChooseModemOne() throws Exception {
-        log.info("Step: Verify Get Started Pages");
-        verifyIfGetStartedPage();
-        assertEquals(excel.getTestdata("text1"), action.getText("txtGetStartedTitle"));
-        action.takeSnapShot(excel.getTestdata("text1"));
-        verifyIfGetStartedPage();
-        action.click("txtGetStartedTitle");
-        action.sendKeys("txtMobileNumber",excel.getTestdata("mobileNumber"));
+    @Step("Step: Let's Go Button")
+    public void clickLetsGoBtn() throws IOException {
+        log.info("Step: Click Policy Checkbox");
+        action.takeSnapShot("User clicked the Let's Go Button");
+        action.click("letsGoButton");
     }
+
+    @Step("Step: Skip Page")
+    public void clickSkipBtn() throws IOException {
+        log.info("Step: Click Policy Checkbox");
+        action.takeSnapShot("User skip the page");
+        action.click("skipBtn");
+    }
+
+
+    @Step("Step: Verify if Button Next is Enabled")
+    public Boolean verifyIfModalPopOutEnabled() {
+        log.info("Step: Verify if Let's Go Button is Enabled");
+        return action.isEnabled("modalPopOut");
+    }
+
+    @Step("Step: Close Button")
+    public void clickCloseBtn() throws IOException {
+        log.info("Step: Click Close Button");
+        action.takeSnapShot("User clicked the Close Button");
+        action.waitForElementToBeClickable("closeModalBtn", ConfigUtilities.Timers.normal);
+        action.click("closeModalBtn");
+    }
+
+    @Step("Step: Modem 1 Button")
+    public void clickModemOneBtn() throws IOException {
+        log.info("Step: Click First Modem Button");
+        action.takeSnapShot("User clicked the First Modem");
+        action.waitForElementToBeClickable("modemOneBtn", ConfigUtilities.Timers.normal);
+        action.click("modemOneBtn");
+    }
+
+    @Step("Step: Modem 2 Button")
+    public void clickModemTwoBtn() throws IOException {
+        log.info("Step: Click Second Modem Button");
+        action.takeSnapShot("User clicked the Second Modem");
+        action.waitForElementToBeClickable("modemTwoBtn", ConfigUtilities.Timers.normal);
+        action.click("modemTwoBtn");
+    }
+
+    @Step("Step: Modem 3 Button")
+    public void clickModemThreeBtn() throws IOException {
+        log.info("Step: Click Second Third Button");
+        action.takeSnapShot("User clicked the Third Modem");
+        action.waitForElementToBeClickable("modemThreeBtn", ConfigUtilities.Timers.normal);
+        action.click("modemThreeBtn");
+    }
+
+    @Step("Step: Modem 4 Button")
+    public void clickModemFourBtn() throws IOException {
+        log.info("Step: Click Fourth Modem Button");
+        action.takeSnapShot("User clicked the Fourth Modem");
+        action.waitForElementToBeClickable("modemFourBtn", ConfigUtilities.Timers.normal);
+        action.click("modemFourBtn");
+    }
+
+    @Step("Step: Verify choosing the first modem")
+    public void verifyChooseModemOne() throws Exception {
+        verifyIfUserPolicyPage();
+        clickCheckBox();
+        verifyIfBtnLetsGoEnabled();
+        clickLetsGoBtn();
+        clickSkipBtn();
+        verifyIfModalPopOutEnabled();
+        clickCloseBtn();
+        clickModemOneBtn();
+    }
+
+    @Step("Step: Verify choosing the second modem")
+    public void verifyChooseModemTwo() throws Exception {
+        verifyIfUserPolicyPage();
+        clickCheckBox();
+        verifyIfBtnLetsGoEnabled();
+        clickLetsGoBtn();
+        clickSkipBtn();
+        verifyIfModalPopOutEnabled();
+        clickCloseBtn();
+        clickModemTwoBtn();
+    }
+
+    @Step("Step: Verify choosing the third modem")
+    public void verifyChooseModemThree() throws Exception {
+        verifyIfUserPolicyPage();
+        clickCheckBox();
+        verifyIfBtnLetsGoEnabled();
+        clickLetsGoBtn();
+        clickSkipBtn();
+        verifyIfModalPopOutEnabled();
+        clickCloseBtn();
+        clickModemThreeBtn();
+    }
+
+    @Step("Step: Verify choosing the fourth modem")
+    public void verifyChooseModemFour() throws Exception {
+        verifyIfUserPolicyPage();
+        clickCheckBox();
+        verifyIfBtnLetsGoEnabled();
+        clickLetsGoBtn();
+        clickSkipBtn();
+        verifyIfModalPopOutEnabled();
+        clickCloseBtn();
+        clickModemFourBtn();
+    }
+
 
     //   ================= END OF REFACTORED SECTION =============
 
@@ -166,8 +272,6 @@ public class ChooseModemPage extends BasePage {
 //        log.info("Step: Click Modem 4");
 //        action.click(modemFourBtn);
 //    }
-
-
 
 
 }
