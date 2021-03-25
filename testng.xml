@@ -6,10 +6,10 @@
         <classes>
             <class name="testcases.VerifyChooseModem">
                 <methods>
-<!--                    <include name="verifyChooseModemOne"/>-->
+                    <include name="verifyChooseModemOne"/>
                     <include name="verifyChooseModemTwo"/>
-<!--                    <include name="verifyChooseModemThree"/>-->
-<!--                    <include name="verifyChooseModemFour"/>-->
+                    <include name="verifyChooseModemThree"/>
+                    <include name="verifyChooseModemFour"/>
                 </methods>
             </class>
         </classes>
