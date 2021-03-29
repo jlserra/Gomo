@@ -26,6 +26,9 @@ public class HomePage extends BasePage{
 
     @Step("Step: Verify Home Page Content")
     public void verifyHomePage() throws Exception {
+        log.info("Step: Verify if user is in Home Page");
+        Assert.assertTrue(action.waitForElementToBeVisible("", ConfigUtilities.Timers.slow));
+        action.takeSnapShot("User is in Home Page");
 
     }
 }

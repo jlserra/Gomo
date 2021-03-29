@@ -15,7 +15,8 @@ public class VerifyHomePage extends BaseTestcase{
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check for the Home Page")
     @Story("Story: Home Page")
-    public void verifyChooseModemOne() throws Exception {
+    public void verifyHomePage() throws Exception {
+        chooseModemPage.verifyChooseModemOne();
 
     }
 

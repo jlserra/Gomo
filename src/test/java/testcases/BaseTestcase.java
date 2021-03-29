@@ -36,6 +36,7 @@ public class BaseTestcase {
     public SecureAppPage secureAppPage;
     public CustomerProfilePage customerProfilePage;
     public ChooseModemPage chooseModemPage;
+    public ModemConfigurationPage modemConfigPage;
 
 //    Utilities
     ActionUtilities action;
@@ -57,6 +58,7 @@ public class BaseTestcase {
         secureAppPage = new SecureAppPage(driver);
         customerProfilePage = new CustomerProfilePage(driver);
         chooseModemPage = new ChooseModemPage(driver);
+        modemConfigPage = new ModemConfigurationPage(driver);
 
     }
 

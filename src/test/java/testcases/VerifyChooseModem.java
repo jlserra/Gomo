@@ -33,9 +33,8 @@ public class VerifyChooseModem extends BaseTestcase {
         customerProfilePage.enterNickname(excel.getTestdata("nickname"));
         customerProfilePage.verifyIfBtnNextIsEnabled();
         customerProfilePage.clickBtnNext();
-        chooseModemPage.verifyChooseModemTwo();
+        chooseModemPage.verifyChooseModemOne();
     }
-
 
     @Test(testName = "VerifyChooseModem2", priority = 2)
     @Severity(SeverityLevel.NORMAL)
