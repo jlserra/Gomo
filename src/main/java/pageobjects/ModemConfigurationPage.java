@@ -2,6 +2,10 @@ package pageobjects;
 
 import io.appium.java_client.MobileDriver;
 import io.qameta.allure.Step;
+import org.testng.Assert;
+import utilities.ConfigUtilities;
+
+import java.io.IOException;
 
 public class ModemConfigurationPage extends BasePage{
 
@@ -11,14 +15,45 @@ public class ModemConfigurationPage extends BasePage{
         this.driver = driver;
     }
 
-    @Step("Step: Verify if Button Next is Enabled")
-    public Boolean verifyUserAlreadyConnectedBtnEnabled() {
+    @Step("Step: Verify if Button I'm Already Connected is Enabled")
+    public Boolean verifyUserAlreadyConnectedBtnIsEnabled() {
         log.info("Step: Verify I'm Already Connected Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("imAlreadyConnBtn", ConfigUtilities.Timers.slow));
         return action.isEnabled("imAlreadyConnBtn");
     }
 
-    @Step("Step: Verify choosing the fourth modem")
+    @Step("Step: I'm Already Connected Button")
+    public void clickUserAlreadyConnectedBtn() throws IOException {
+        log.info("Step: Click the I'm Already Connected Button");
+        action.takeSnapShot("User clicked the I'm already Connected button");
+        action.waitForElementToBeClickable("imAlreadyConnBtn",ConfigUtilities.Timers.slow);
+        action.click("imAlreadyConnBtn");
+    }
+
+    @Step("Step: Verify if Button Show Me How To Connect is Enabled")
+    public Boolean verifyShowMeHowToConnectBtnIsEnabled() {
+        log.info("Step: Verify Show Me How To Connect is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("showMeHowToConnBtn", ConfigUtilities.Timers.slow));
+        return action.isEnabled("showMeHowToConnBtn");
+    }
+
+    @Step("Step: Show Me How To Connect Button")
+    public void clickShowMeHowToConnectBtn() throws IOException {
+        log.info("Step: Click the Show Me How To Connect Button");
+        action.takeSnapShot("User clicked the Show Me How To Connect button");
+        action.waitForElementToBeClickable("showMeHowToConnBtn",ConfigUtilities.Timers.slow);
+        action.click("showMeHowToConnBtn");
+    }
+
+    @Step("Step: Verify User Already Connected button")
     public void verifyUserAlreadyConnected() throws Exception {
-        verifyUserAlreadyConnectedBtnEnabled();
+        verifyUserAlreadyConnectedBtnIsEnabled();
+        clickUserAlreadyConnectedBtn();
+    }
+
+    @Step("Step: Verify Show Me How to Connect button")
+    public void verifyShowMeHowToConnect() throws Exception {
+        verifyShowMeHowToConnectBtnIsEnabled();
+        clickShowMeHowToConnectBtn();
     }
 }

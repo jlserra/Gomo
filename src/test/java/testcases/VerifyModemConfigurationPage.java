@@ -16,8 +16,49 @@ public class VerifyModemConfigurationPage extends BaseTestcase {
     @Description("Test Description: User will click the I'm already connected button")
     @Story("Story: User already connected")
     public void verifyUserAlreadyConnected() throws Exception {
-        chooseModemPage.verifyChooseModemTwo();
+        getStartedPage.verifyIfGetStartedPage();
+        getStartedPage.clickBtnGetStarted();
+        welcomePage.verifyIfLoginPage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        welcomePage.verifyIfBtnNextIsEnabled();
+        welcomePage.clickBtnNext();
+        secureAppPage.verifyIfSecurePage();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        secureAppPage.verifyIfSecurePageConfirmation();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        customerProfilePage.verifyIfCustomerProfilePage();
+        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
+        customerProfilePage.verifyIfBtnNextIsEnabled();
+        customerProfilePage.clickBtnNext();
+        chooseModemPage.verifyChooseModemOne();
         modemConfigPage.verifyUserAlreadyConnected();
+    }
+
+    @Test(testName = "VerifyShowMeHowToConnect", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will click the Show Me How to Connect button")
+    @Story("Story: User clicked the Show Me How to Connect")
+    public void verifyShowMeHowToConnect() throws Exception {
+        getStartedPage.verifyIfGetStartedPage();
+        getStartedPage.clickBtnGetStarted();
+        welcomePage.verifyIfLoginPage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        welcomePage.verifyIfBtnNextIsEnabled();
+        welcomePage.clickBtnNext();
+        secureAppPage.verifyIfSecurePage();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        secureAppPage.verifyIfSecurePageConfirmation();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        customerProfilePage.verifyIfCustomerProfilePage();
+        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
+        customerProfilePage.verifyIfBtnNextIsEnabled();
+        customerProfilePage.clickBtnNext();
+        chooseModemPage.verifyChooseModemOne();
+        modemConfigPage.verifyShowMeHowToConnect();
     }
 
 }
