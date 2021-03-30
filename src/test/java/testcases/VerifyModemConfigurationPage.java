@@ -16,7 +16,7 @@ public class VerifyModemConfigurationPage extends BaseTestcase {
     @Description("Test Description: User will click the I'm already connected button")
     @Story("Story: User already connected")
     public void verifyUserAlreadyConnected() throws Exception {
-        chooseModemPage.verifyChooseModemOne();
+        chooseModemPage.verifyChooseModemTwo();
         modemConfigPage.verifyUserAlreadyConnected();
     }
 

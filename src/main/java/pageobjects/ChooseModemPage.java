@@ -39,12 +39,14 @@ public class ChooseModemPage extends BasePage {
     public void clickCheckBox() throws IOException {
         log.info("Step: Click Policy Checkbox");
         action.takeSnapShot("User clicked the checkbox");
+        action.waitForElementToBeClickable("policyCheckbox", ConfigUtilities.Timers.normal);
         action.click("policyCheckbox");
     }
 
     @Step("Step: Verify if Button Next is Enabled")
     public Boolean verifyIfBtnLetsGoEnabled() {
         log.info("Step: Verify if Let's Go Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("letsGoButton", ConfigUtilities.Timers.slow));
         return action.isEnabled("letsGoButton");
     }
 
@@ -52,6 +54,7 @@ public class ChooseModemPage extends BasePage {
     public void clickLetsGoBtn() throws IOException {
         log.info("Step: Click Policy Checkbox");
         action.takeSnapShot("User clicked the Let's Go Button");
+        action.waitForElementToBeClickable("letsGoButton", ConfigUtilities.Timers.normal);
         action.click("letsGoButton");
     }
 
@@ -59,6 +62,7 @@ public class ChooseModemPage extends BasePage {
     public void clickSkipBtn() throws IOException {
         log.info("Step: Click Policy Checkbox");
         action.takeSnapShot("User skip the page");
+        action.waitForElementToBeClickable("skipBtn", ConfigUtilities.Timers.normal);
         action.click("skipBtn");
     }
 
@@ -66,6 +70,7 @@ public class ChooseModemPage extends BasePage {
     @Step("Step: Verify if Button Next is Enabled")
     public Boolean verifyIfModalPopOutEnabled() {
         log.info("Step: Verify if Let's Go Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("modalPopOut", ConfigUtilities.Timers.slow));
         return action.isEnabled("modalPopOut");
     }
 
