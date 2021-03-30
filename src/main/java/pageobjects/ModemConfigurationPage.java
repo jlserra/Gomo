@@ -45,6 +45,27 @@ public class ModemConfigurationPage extends BasePage{
         action.click("showMeHowToConnBtn");
     }
 
+    @Step("Step: Verify if Button Next Step is Enabled")
+    public Boolean verifyBtnNext1() {
+        log.info("Step: Verify if Button Next Step is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnNextSTep1", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnNextSTep1");
+    }
+
+    @Step("Step: Verify if Button Next Step is Enabled")
+    public Boolean verifyBtnNext2() {
+        log.info("Step: Verify if Button Next Step is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnNextSTep2", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnNextSTep2");
+    }
+
+    @Step("Step: Verify if Button Connect Now is Enabled")
+    public Boolean verifyBtnConnectNow() {
+        log.info("Step: Verify if Button Connect Now is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnConnectNow", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnConnectNow");
+    }
+
     @Step("Step: Verify User Already Connected button")
     public void verifyUserAlreadyConnected() throws Exception {
         verifyUserAlreadyConnectedBtnIsEnabled();

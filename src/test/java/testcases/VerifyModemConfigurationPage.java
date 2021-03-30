@@ -32,7 +32,7 @@ public class VerifyModemConfigurationPage extends BaseTestcase {
         customerProfilePage.enterNickname(excel.getTestdata("nickname"));
         customerProfilePage.verifyIfBtnNextIsEnabled();
         customerProfilePage.clickBtnNext();
-        chooseModemPage.verifyChooseModemOne();
+        chooseModemPage.verifyChooseModemFour();
         modemConfigPage.verifyUserAlreadyConnected();
     }
 
@@ -57,7 +57,7 @@ public class VerifyModemConfigurationPage extends BaseTestcase {
         customerProfilePage.enterNickname(excel.getTestdata("nickname"));
         customerProfilePage.verifyIfBtnNextIsEnabled();
         customerProfilePage.clickBtnNext();
-        chooseModemPage.verifyChooseModemOne();
+        chooseModemPage.verifyChooseModemFour();
         modemConfigPage.verifyShowMeHowToConnect();
     }
 
