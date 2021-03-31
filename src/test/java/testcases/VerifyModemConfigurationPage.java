@@ -7,6 +7,7 @@ import io.qameta.allure.Story;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageobjects.BasePage;
+import pageobjects.ModemConfigurationPage;
 
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyModemConfigurationPage extends BaseTestcase {
@@ -59,6 +60,7 @@ public class VerifyModemConfigurationPage extends BaseTestcase {
         customerProfilePage.clickBtnNext();
         chooseModemPage.verifyChooseModemFour();
         modemConfigPage.verifyShowMeHowToConnect();
+
     }
 
 }

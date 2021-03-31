@@ -46,17 +46,18 @@ public class ModemConfigurationPage extends BasePage{
     }
 
     @Step("Step: Verify if Button Next Step is Enabled")
-    public Boolean verifyBtnNext1() {
+    public Boolean verifyBtnNext1IsEnabled() {
         log.info("Step: Verify if Button Next Step is Enabled");
-        Assert.assertTrue(action.waitForElementToBeVisible("btnNextSTep1", ConfigUtilities.Timers.slow));
-        return action.isEnabled("btnNextSTep1");
+        action.implicitlyWait();
+        Assert.assertTrue(action.waitForElementToBeVisible("btnNextStep1", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnNextStep1");
     }
 
     @Step("Step: Verify if Button Next Step is Enabled")
     public Boolean verifyBtnNext2() {
         log.info("Step: Verify if Button Next Step is Enabled");
-        Assert.assertTrue(action.waitForElementToBeVisible("btnNextSTep2", ConfigUtilities.Timers.slow));
-        return action.isEnabled("btnNextSTep2");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnNextStep2", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnNextStep2");
     }
 
     @Step("Step: Verify if Button Connect Now is Enabled")
@@ -76,5 +77,6 @@ public class ModemConfigurationPage extends BasePage{
     public void verifyShowMeHowToConnect() throws Exception {
         verifyShowMeHowToConnectBtnIsEnabled();
         clickShowMeHowToConnectBtn();
+        verifyBtnNext1IsEnabled();
     }
 }
