@@ -134,14 +134,14 @@ public class ExcelUtilities {
                         locatorname = value.toLowerCase();
                         break;
                     case 2:
-                        tempJson1.put("type", value);
+                        tempJson1.put("type", value.toLowerCase());
                         break;
                     case 3:
                         tempJson1.put("locator", value);
                         tempJson.put("android", tempJson1);
                         break;
                     case 4:
-                        tempJson2.put("type", value);
+                        tempJson2.put("type", value.toLowerCase());
                         break;
                     case 5:
                         tempJson2.put("locator", value);
