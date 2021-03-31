@@ -53,6 +53,14 @@ public class ModemConfigurationPage extends BasePage{
         return action.isEnabled("btnNextStep1");
     }
 
+    @Step("Step: Next Step Button")
+    public void clickNxtStpBtn() throws IOException {
+        log.info("Step: Click the Next Step Button");
+        action.takeSnapShot("User clicked Next Step button");
+        action.waitForElementToBeClickable("btnNextStep1",ConfigUtilities.Timers.slow);
+        action.click("btnNextStep1");
+    }
+
     @Step("Step: Verify if Button Next Step is Enabled")
     public Boolean verifyBtnNext2() {
         log.info("Step: Verify if Button Next Step is Enabled");
@@ -78,5 +86,6 @@ public class ModemConfigurationPage extends BasePage{
         verifyShowMeHowToConnectBtnIsEnabled();
         clickShowMeHowToConnectBtn();
         verifyBtnNext1IsEnabled();
+        clickNxtStpBtn();
     }
 }
