@@ -62,10 +62,18 @@ public class ModemConfigurationPage extends BasePage{
     }
 
     @Step("Step: Verify if Button Next Step is Enabled")
-    public Boolean verifyBtnNext2() {
+    public Boolean verifyBtnNext2IsEnabled() {
         log.info("Step: Verify if Button Next Step is Enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnNextStep2", ConfigUtilities.Timers.slow));
         return action.isEnabled("btnNextStep2");
+    }
+
+    @Step("Step: Next Step Button")
+    public void clickNxtStp2Btn() throws IOException {
+        log.info("Step: Click the Next Step Button");
+        action.takeSnapShot("User clicked Next Step button");
+        action.waitForElementToBeClickable("btnNextStep2",ConfigUtilities.Timers.slow);
+        action.click("btnNextStep2");
     }
 
     @Step("Step: Verify if Button Connect Now is Enabled")
@@ -73,6 +81,14 @@ public class ModemConfigurationPage extends BasePage{
         log.info("Step: Verify if Button Connect Now is Enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnConnectNow", ConfigUtilities.Timers.slow));
         return action.isEnabled("btnConnectNow");
+    }
+
+    @Step("Step: Connect Now Button")
+    public void clickConnectNowBtn() throws IOException {
+        log.info("Step: Click the Connect Now Button");
+        action.takeSnapShot("User clicked Connect Now button");
+        action.waitForElementToBeClickable("btnConnectNow",ConfigUtilities.Timers.slow);
+        action.click("btnConnectNow");
     }
 
     @Step("Step: Verify User Already Connected button")
@@ -87,5 +103,9 @@ public class ModemConfigurationPage extends BasePage{
         clickShowMeHowToConnectBtn();
         verifyBtnNext1IsEnabled();
         clickNxtStpBtn();
+        verifyBtnNext2IsEnabled();
+        clickNxtStp2Btn();
+        verifyBtnConnectNow();
+        clickConnectNowBtn();
     }
 }
