@@ -6,6 +6,7 @@ import org.testng.Assert;
 import utilities.ConfigUtilities;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class ModemConfigurationPage extends BasePage{
 
@@ -91,10 +92,47 @@ public class ModemConfigurationPage extends BasePage{
         action.click("btnConnectNow");
     }
 
+    @Step("Step: Verify if Button Manually Verify Account is Enabled")
+    public Boolean verifyBtnManuallyVerifyAccnt() {
+        log.info("Step: Verify if Manually Verify Account button Now is Enabled");
+        action.implicitlyWait(ConfigUtilities.Timers.superslow);
+        Assert.assertTrue(action.waitForElementToBeVisible("btnManuallyVerifyAccnt", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnManuallyVerifyAccnt");
+    }
+
+    @Step("Step: Manually Verify Account Button")
+    public void clickBtnManuallyVerifyAccnt() throws IOException {
+        log.info("Step: Click the Manually Verify Account Button");
+        action.takeSnapShot("User clicked Manually Verify Account button");
+        action.waitForElementToBeClickable("btnManuallyVerifyAccnt",ConfigUtilities.Timers.slow);
+        action.click("btnManuallyVerifyAccnt");
+    }
+
+    @Step("Step: Verify if Button Skip For Now is Enabled")
+    public Boolean verifyBtnSkipForNow() {
+        log.info("Step: Verify if Skip For Now button Now is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnSkipForNow", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnSkipForNow");
+    }
+
+    @Step("Step: Skip For Now Button")
+    public void clickBtnSkipForNow() throws IOException {
+        log.info("Step: Click the Skip For Now Button");
+        action.takeSnapShot("User clicked Skip For Now button");
+        action.waitForElementToBeClickable("btnSkipForNow",ConfigUtilities.Timers.slow);
+        action.click("btnSkipForNow");
+    }
+
+    // **************** TEST STEPS **************
+
     @Step("Step: Verify User Already Connected button")
     public void verifyUserAlreadyConnected() throws Exception {
         verifyUserAlreadyConnectedBtnIsEnabled();
         clickUserAlreadyConnectedBtn();
+        verifyBtnManuallyVerifyAccnt();
+        clickBtnManuallyVerifyAccnt();
+        verifyBtnSkipForNow();
+        clickBtnSkipForNow();
     }
 
     @Step("Step: Verify Show Me How to Connect button")
