@@ -4,74 +4,80 @@ package testcases;
 import io.qameta.allure.*;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import static org.testng.Assert.assertTrue;
 
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifySecurePageAppPageTestCase extends BaseTestcase {
 
-    @Test(testName = "verifyWelcomePage", priority = 0)
+    @Test(testName = "verifySecureAppMatchingPin", priority = 1)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: Welcome page should be displayed")
-    @Story("Story: Login")
-    public void verifyWelcomePage() throws Exception {
+    @Description("Test Description: User will enter matching PIN in Secure App page")
+    @Story("Story: Secure App")
+    public void verifySecureAppMatchingPin() throws Exception {
+
+        //Get Started
+        assertTrue(getStartedPage.verifyIfGetStartedPage());
         getStartedPage.clickBtnGetStarted();
+
+        //Welcome Page
         assertTrue(welcomePage.verifyIfLoginPage());
-    }
-
-    @Test(testName = "verifyLoggingUsingValidNumber", priority = 2)
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User should get an error message")
-    @Story("Story: Login")
-    public void verifyLoginInUsingValidNumber() throws Exception {
-        welcomePage.enterPrepaidNumber("09271080510");
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        assertTrue(welcomePage.verifyIfMobileNumberIsEntered(excel.getTestdata("mobileNumber")));
+        assertTrue(welcomePage.verifyIfBtnNextIsEnabled());
         welcomePage.clickBtnNext();
-    }
 
-    @Test(testName = "verifySecureAppPage", priority = 3)
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: SecureApp page should be displayed")
-    @Story("Story: Security")
-    public void verifySecureAppPage() throws Exception {
-        secureAppPage.clickBtnNext();
+        //Secure App Page
         assertTrue(secureAppPage.verifyIfSecurePage());
-    }
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.verifyIfBtnNextIsEnabled();
+        secureAppPage.clickBtnNext();
 
-    @Test(testName = "verifyEnteringSecureCode", priority = 4)
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: SecureApp page should be displayed")
-    @Story("Story: Security")
-    public void verifyEnteringSecureCode() throws Exception {
-        secureAppPage.enterPin("1111");
+        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
+        secureAppPage.enterPin(excel.getTestdata("pin"));
         secureAppPage.verifyIfBtnNextIsEnabled();
         secureAppPage.clickBtnNext();
     }
 
-    @Test(testName = "verifyReEnteringUnmatchedSecureCode", priority = 5)
+    @Test(testName = "verifySecureAppMismatchPin", priority = 2)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: SecureApp page should be displayed")
-    @Story("Story: Security")
-    public void verifyReEnteringUnmatchedSecureCode() throws Exception {
-        String errorSpiel = "App PIN did not match. Try again";
-        secureAppPage.enterPin("1234");
+    @Description("Test Description: User will enter mismatching PIN in Secure App page")
+    @Story("Story: Secure App")
+    public void verifySecureAppMismatchPin() throws Exception {
+
+        //Get Started
+        assertTrue(getStartedPage.verifyIfGetStartedPage());
+        getStartedPage.clickBtnGetStarted();
+
+        //Welcome Page
+        assertTrue(welcomePage.verifyIfLoginPage());
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        assertTrue(welcomePage.verifyIfMobileNumberIsEntered(excel.getTestdata("mobileNumber")));
+        assertTrue(welcomePage.verifyIfBtnNextIsEnabled());
+        welcomePage.clickBtnNext();
+
+        //Secure App Page
+        assertTrue(secureAppPage.verifyIfSecurePage());
+        secureAppPage.enterPin(excel.getTestdata("pin"));
         secureAppPage.verifyIfBtnNextIsEnabled();
         secureAppPage.clickBtnNext();
-        assertTrue(secureAppPage.verifyUnmatchedSecurePinErrorSpiel(errorSpiel));
-    }
 
-    @Test(testName = "verifyReEnteringMatchedSecureCode", priority = 6)
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: SecureApp page should be displayed")
-    @Story("Story: Security")
-    public void verifyReEnteringMatchedSecureCode() throws Exception {
+        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
+        secureAppPage.enterPin(excel.getTestdata("pin2"));
+        secureAppPage.verifyIfBtnNextIsEnabled();
+        secureAppPage.clickBtnNext();
+        assertTrue(secureAppPage.verifyUnmatchedSecurePinErrorSpiel());
+
+        //Secure App Confirmation Page - Re-enter PIN
         int secureAppPin;
-        for(secureAppPin=0;secureAppPin<4;) {
+        int length = excel.getTestdata("pin2").length();
+        for(secureAppPin=0;secureAppPin<length;) {
             secureAppPage.clickBtnDelete();
             secureAppPin++;
         }
-        secureAppPage.enterPin("1111");
+        secureAppPage.enterPin(excel.getTestdata("pin"));
         secureAppPage.verifyIfBtnNextIsEnabled();
         secureAppPage.clickBtnNext();
-        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
+        assertTrue(secureAppPage.verifyIfCustomerProfilePage());
     }
+
 }
