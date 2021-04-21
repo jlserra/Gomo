@@ -46,7 +46,7 @@ public class ChooseModemPage extends BasePage {
     @Step("Step: Verify if Button Next is Enabled")
     public Boolean verifyIfBtnLetsGoEnabled() {
         log.info("Step: Verify if Let's Go Button is Enabled");
-        Assert.assertTrue(action.waitForElementToBeVisible("letsGoButton", ConfigUtilities.Timers.slow));
+        Assert.assertTrue(action.waitForElementToBeVisible("letsGoButton", ConfigUtilities.Timers.verySlow));
         return action.isEnabled("letsGoButton");
     }
 
@@ -54,7 +54,7 @@ public class ChooseModemPage extends BasePage {
     public void clickLetsGoBtn() throws IOException {
         log.info("Step: Click Policy Checkbox");
         action.takeSnapShot("User clicked the Let's Go Button");
-        action.waitForElementToBeClickable("letsGoButton", ConfigUtilities.Timers.normal);
+        action.waitForElementToBeClickable("letsGoButton", ConfigUtilities.Timers.slow);
         action.click("letsGoButton");
     }
 
@@ -70,7 +70,7 @@ public class ChooseModemPage extends BasePage {
     @Step("Step: Verify if Button Next is Enabled")
     public Boolean verifyIfModalPopOutEnabled() {
         log.info("Step: Verify if Let's Go Button is Enabled");
-        Assert.assertTrue(action.waitForElementToBeVisible("modalPopOut", ConfigUtilities.Timers.slow));
+        Assert.assertTrue(action.waitForElementToBeVisible("modalPopOut", ConfigUtilities.Timers.verySlow));
         return action.isEnabled("modalPopOut");
     }
 
@@ -161,122 +161,4 @@ public class ChooseModemPage extends BasePage {
         clickCloseBtn();
         clickModemFourBtn();
     }
-
-
-    //   ================= END OF REFACTORED SECTION =============
-
-    // This object is displayed after entering your nickname
-
-    /*
-      TERMS AND AGREEMENT CHECKBOX SECTION
-     */
-//    @AndroidFindBy(xpath = "//android.widget.CheckBox[@resource-id='ph.com.globe.mybusiness:id/cb_kyc_consent_promo_updates']")
-//    @iOSXCUITFindBy(id = "a")
-//    private MobileElement policyCheckbox;
-//
-//    @Step("Step: Policy Checkbox")
-//    public void clickCheckBox() {
-//        log.info("Step: Click Policy Checkbox");
-//        action.click(policyCheckbox);
-//    }
-
-    /*
-    This is for Let's Go button in Term Agreement
-     */
-
-//    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id='ph.com.globe.mybusiness:id/btn_next']")
-//    @iOSXCUITFindBy(id = "a")
-//    private MobileElement letsGoBtn;
-//
-//    @Step("Step: Policy Let's Go Button")
-//    public void clickLetsGoBtn() {
-//        log.info("Step: Step: Click Policy Let's Go Button");
-//        action.click(letsGoBtn);
-//    }
-
-    /*
-    This is for Skip link button
-     */
-
-//    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id='ph.com.globe.mybusiness:id/tv_skip']")
-//    @iOSXCUITFindBy(id = "a")
-//    private MobileElement skipBtn;
-//
-//    @Step("Step: Skip Button in Profile Details")
-//    public void clickSkipBtn() {
-//        log.info("Step: Click Skip Button in Profile Details");
-//        action.click(skipBtn);
-//    }
-
-    /*
-    This is for Modal Close Button
-     */
-
-//    @AndroidFindBy(xpath = "//android.widget.RelativeLayout[@resource-id='ph.com.globe.mybusiness:id/rl_dialog_button_container']")
-//    @iOSXCUITFindBy(id = "a")
-//    private MobileElement closeModalBtn;
-//
-//    @Step("Step: Close Modal Button")
-//    public void clickCloseModalBtn() {
-//        log.info("Step: Click Close Modal Button");
-//        action.click(closeModalBtn);
-//    }
-
-    /*
-    This is for the First Modem Selection
-     */
-
-//    @AndroidFindBy(xpath = "(//android.widget.ImageView)[1]")
-//    @iOSXCUITFindBy(id = "a")
-//    private MobileElement modemOneBtn;
-//
-//    @Step("Step: Modem1 ")
-//    public void clickModemOneBtn() {
-//        log.info("Step: Click Modem 1");
-//        action.click(modemOneBtn);
-//    }
-
-    /*
-    This is for the Second Modem Selection
-     */
-
-//    @AndroidFindBy(xpath = "//android.widget.ImageView)[2]")
-//    @iOSXCUITFindBy(id = "a")
-//    private MobileElement modemTwoBtn;
-//
-//    @Step("Step: Modem2 ")
-//    public void clickModemTwoBtn() {
-//        log.info("Step: Click Modem 2");
-//        action.click(modemTwoBtn);
-//    }
-
-    /*
-    This is for the Third Modem Selection
-     */
-
-//    @AndroidFindBy(xpath = "//android.widget.ImageView)[3]")
-//    @iOSXCUITFindBy(id = "a")
-//    private MobileElement modemThreeBtn;
-//
-//    @Step("Step: Modem 3 ")
-//    public void clickModemThreeBtn() {
-//        log.info("Step: Click Modem 3");
-//        action.click(modemThreeBtn);
-//    }
-
-    /*
-    This is for the Third Modem Selection
-     */
-
-//    @AndroidFindBy(xpath = "//android.widget.ImageView)[4]")
-//    @iOSXCUITFindBy(id = "a")
-//    private MobileElement modemFourBtn;
-//
-//    @Step("Step: Modem 4 ")
-//    public void clickModemFourBtn() {
-//        log.info("Step: Click Modem 4");
-//        action.click(modemFourBtn);
-//    }
-
-
 }

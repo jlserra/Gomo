@@ -85,7 +85,7 @@ public class ConfigUtilities extends BasePage {
         normal(6000),
         appStandard(12000),
         slow(24000),
-        verySlow(48000),
+        verySlow(30000),
         superslow(120000);
 
         public int getValue() {
