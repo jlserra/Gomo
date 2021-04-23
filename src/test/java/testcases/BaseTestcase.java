@@ -38,6 +38,7 @@ public class BaseTestcase {
     public ChooseModemPage chooseModemPage;
     public ModemConfigurationPage modemConfigPage;
     public HomePage homePage;
+    public NotificationPage notificationPage;
 
 //    Utilities
     ActionUtilities action;
@@ -61,6 +62,7 @@ public class BaseTestcase {
         chooseModemPage = new ChooseModemPage(driver);
         modemConfigPage = new ModemConfigurationPage(driver);
         homePage = new HomePage(driver);
+        notificationPage = new NotificationPage(driver);
 
     }
 
