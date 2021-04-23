@@ -2,6 +2,7 @@ package pageobjects;
 
 import io.appium.java_client.MobileDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.Keys;
 import utilities.ConfigUtilities;
 
 import java.io.IOException;
@@ -42,15 +43,22 @@ public class NotificationPage extends BasePage {
     @Step("Step: Click first notification")
     public void clickFirstNotif() throws InterruptedException {
         log.info("Step: Click the first notification");
-        action.click("firstNotif");
+        action.click("btnNotification");
     }
 
     @Step("Step: Verify if user is in Notification Content Page")
     public Boolean verifyIfNotifContentPage() throws IOException {
         log.info("Step: Verify if user is in Notification Content Page");
-        assertTrue(action.waitForElementToBeVisible("notifContent", ConfigUtilities.Timers.slow));
+        assertTrue(action.waitForElementToBeVisible("txtNotifContent", ConfigUtilities.Timers.slow));
         action.takeSnapShot("User is in Notification Content Page");
-        return action.isDisplayed("notifContent");
+        return action.isDisplayed("txtNotifContent");
+    }
+
+    @Step("Step: Enter value in the Searchbox")
+    public void enterValueInSearchBox(String text) throws IOException, InterruptedException {
+        log.info("Step: Enter value in the Searchbox");
+        action.sendKeys("txtfieldSearch", text);
+        action.takeSnapShot("Enter value in Searchbox");
     }
 
     @Step("Step: Verify Notification Page")
@@ -63,7 +71,7 @@ public class NotificationPage extends BasePage {
     }
 
     @Step("Step: Verify Notification Content Page")
-    public void verifyNotifContentPage() throws Exception {
+    public void verifyViewNotifContentPage() throws Exception {
         log.info("Step: Verify Notification Content Page");
         clickFirstNotif();
         verifyIfNotifContentPage();

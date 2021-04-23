@@ -6,5 +6,6 @@
             <class name="testcases.VerifyNotificationPage">
                 <methods>
                     <include name="verifyNotificationPage"/>
-                    <include name="verifyViewNotification"/>
+                    <include name="verifyViewNotificationContent"/>
+                    <include name="verifyNotifSearchResults"/>
                 </methods></class></classes></test></suite>
