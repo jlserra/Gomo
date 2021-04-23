@@ -15,7 +15,7 @@ public class VerifyHomePage extends BaseTestcase{
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check for the Home Page")
     @Story("Story: Home Page")
-    public void verifyHomePage() throws Exception {
+    public void navigateToHomePage() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();
         welcomePage.verifyIfLoginPage();
@@ -34,7 +34,61 @@ public class VerifyHomePage extends BaseTestcase{
         customerProfilePage.clickBtnNext();
         chooseModemPage.verifyChooseModemFour();
         modemConfigPage.verifyUserAlreadyConnected();
-        homePage.verifyHomePage();
+        homePage.navigateToHomePage();
+    }
+
+    @Test(testName = "VerifyNickname", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will check for the Nickname")
+    @Story("Story: Verify Nickname")
+    public void verifyNickname() throws Exception {
+        getStartedPage.verifyIfGetStartedPage();
+        getStartedPage.clickBtnGetStarted();
+        welcomePage.verifyIfLoginPage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        welcomePage.verifyIfBtnNextIsEnabled();
+        welcomePage.clickBtnNext();
+        secureAppPage.verifyIfSecurePage();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        secureAppPage.verifyIfSecurePageConfirmation();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        customerProfilePage.verifyIfCustomerProfilePage();
+        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
+        customerProfilePage.verifyIfBtnNextIsEnabled();
+        customerProfilePage.clickBtnNext();
+        chooseModemPage.verifyChooseModemFour();
+        modemConfigPage.verifyUserAlreadyConnected();
+        homePage.navigateToHomePage();
+        homePage.verifyNickname();
+    }
+
+    @Test(testName = "VerifyNotificationBell", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will check for the Notification")
+    @Story("Story: Verify Notification")
+    public void verifyNotificationBell() throws Exception {
+        getStartedPage.verifyIfGetStartedPage();
+        getStartedPage.clickBtnGetStarted();
+        welcomePage.verifyIfLoginPage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        welcomePage.verifyIfBtnNextIsEnabled();
+        welcomePage.clickBtnNext();
+        secureAppPage.verifyIfSecurePage();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        secureAppPage.verifyIfSecurePageConfirmation();
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        customerProfilePage.verifyIfCustomerProfilePage();
+        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
+        customerProfilePage.verifyIfBtnNextIsEnabled();
+        customerProfilePage.clickBtnNext();
+        chooseModemPage.verifyChooseModemFour();
+        modemConfigPage.verifyUserAlreadyConnected();
+        homePage.navigateToHomePage();
+        homePage.verifyNotificationBell();
     }
 
 }

@@ -40,10 +40,46 @@ public class HomePage extends BasePage{
         action.click("btnProceed");
     }
 
-    @Step("Step: Verify Home Page")
-    public void verifyHomePage() throws Exception {
+    @Step("Step: Verify if Nickname is Enabled")
+    public Boolean verifyNicknameIsDisplayed() {
+        log.info("Step: Verify if Nickname field is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("txtNickname", ConfigUtilities.Timers.verySlow));
+        return action.isDisplayed("txtNickname");
+    }
+
+
+    @Step("Step: Verify if Notification Bell Button is Enabled")
+    public Boolean verifyNotificationBellIsEnabled() {
+        log.info("Step: Verify if Notification Bell Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnNotificationBell", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnNotificationBell");
+    }
+
+    @Step("Step: Notification Bell Button")
+    public void clickNotificationBell() throws IOException {
+        log.info("Step: Click the Notification Bell");
+        action.takeSnapShot("User clicked the Notification Bell");
+        action.waitForElementToBeClickable("btnNotificationBell",ConfigUtilities.Timers.slow);
+        action.click("btnNotificationBell");
+    }
+
+    // ****************** STEPS ****************************** //
+
+    @Step("Step: Navigate to Home Page")
+    public void navigateToHomePage() throws Exception {
         verifyBtnProceed();
         clickBtnProceed();
+    }
+
+    @Step("Step: Verify Nickname")
+    public void verifyNickname() throws Exception {
+        verifyNicknameIsDisplayed();
+    }
+
+    @Step("Step: Verify Notification")
+    public void verifyNotificationBell() throws Exception {
+        verifyNotificationBellIsEnabled();
+        clickNotificationBell();
     }
 
 
