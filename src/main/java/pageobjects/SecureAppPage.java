@@ -16,9 +16,8 @@ public class SecureAppPage extends BasePage {
     }
 
     @Step("Step: Verify if User is in Secure Application Page")
-    public Boolean verifyIfSecurePage() throws IOException, InterruptedException {
+    public Boolean verifyIfSecurePage() throws Exception {
         log.info("Step: Verify if User is in Secure Application Page");
-        //Thread.sleep(3000);
         action.implicitlyWait(ConfigUtilities.Timers.slow);
         assertTrue(action.waitForElementToBeVisible("txtSecureApp", ConfigUtilities.Timers.normal));
         action.takeSnapShot("User is in Secure App Page");
@@ -26,10 +25,9 @@ public class SecureAppPage extends BasePage {
     }
 
     @Step("Step: Verify if User is in Secure Application Confirmation Page")
-    public Boolean verifyIfSecurePageConfirmation() throws InterruptedException, IOException, IOException {
+    public Boolean verifyIfSecurePageConfirmation() throws Exception {
         log.info("Step: Verify if User is in Secure Application Confirmation Page");
         new SecureAppPage(driver);
-        //Thread.sleep(1000);
         action.implicitlyWait(ConfigUtilities.Timers.slow);
         assertTrue(action.waitForElementToBeVisible("txtSecureAppConfirm", ConfigUtilities.Timers.normal));
         action.takeSnapShot("User is in Secure App Confirmation Page");
@@ -45,26 +43,26 @@ public class SecureAppPage extends BasePage {
     }
 
     @Step("Step: Click Button Next")
-    public void clickBtnNext() {
+    public void clickBtnNext() throws Exception {
         log.info("Step: Click Button Next");
         action.click("btnNextSecurePage");
         action.implicitlyWait(ConfigUtilities.Timers.quick);
     }
 
     @Step("Step: Verify if Button next is enabled")
-    public void verifyIfBtnNextIsEnabled() {
+    public void verifyIfBtnNextIsEnabled() throws Exception {
         log.info("Step: Verify if Button next is enabled");
         action.waitForElementToBeClickable("btnNextSecurePage", ConfigUtilities.Timers.appStandard);
     }
 
     @Step("Step: Delete Secure Pin")
-    public void clickBtnDelete() {
+    public void clickBtnDelete() throws Exception {
         log.info("Step: Delete Secure Pin");
         action.click("btnDelete");
     }
 
     @Step("Step: Enter Pin")
-    public void enterPin(String text) {
+    public void enterPin(String text) throws Exception {
         for (char c : text.toCharArray()) {
             log.info("Step: Enter Pin" + c);
             switch (c) {
@@ -85,7 +83,7 @@ public class SecureAppPage extends BasePage {
         }
     }
     @Step("Step: Verify if user is in Customer Profile Page")
-    public Boolean verifyIfCustomerProfilePage(){
+    public Boolean verifyIfCustomerProfilePage() throws Exception {
         log.info("Step: Verify if user is in Customer Profile Page");
         Assert.assertTrue(action.waitForElementToBeVisible("txtCustomerProfile", ConfigUtilities.Timers.slow));
         return action.isDisplayed("txtCustomerProfile");

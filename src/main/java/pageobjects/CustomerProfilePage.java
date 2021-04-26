@@ -18,32 +18,32 @@ public class CustomerProfilePage extends BasePage {
     }
 
     @Step("Step: Click Button Next")
-    public void clickBtnNext(){
+    public void clickBtnNext() throws Exception {
         log.info("Step: Click Button Next");
         action.click("btnNext");
     }
 
     @Step("Step: Click Button Skip")
-    public void clickBtnSkip() {
+    public void clickBtnSkip() throws Exception {
         log.info("Step: Click Button Skip");
         action.click("btnSkip");
     }
 
     @Step("Step: Click Button Skip")
-    public Boolean verifyIfBtnNextIsEnabled(){
+    public Boolean verifyIfBtnNextIsEnabled() throws Exception {
         log.info("Step: Verify if Button Next is Enabled");
         return action.isEnabled("btnNext");
     }
 
     @Step("Step: Enter Nickname")
-    public void enterNickname(String text) throws IOException {
+    public void enterNickname(String text) throws Exception {
         log.info("Step: Enter Prepaid Number");
         action.sendKeys("txtfieldNickname", text);
         action.takeSnapShot("Enter nickname");
     }
 
     @Step("Step: Verify if user is in Customer Profile Page")
-    public Boolean verifyIfCustomerProfilePage(){
+    public Boolean verifyIfCustomerProfilePage() throws Exception {
         log.info("Step: Verify if user is in Customer Profile Page");
         assertTrue(action.waitForElementToBeVisible("txtCustomerProfile", ConfigUtilities.Timers.slow));
         return action.isDisplayed("txtCustomerProfile");

@@ -1,25 +1,26 @@
 package pageobjects;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.qameta.allure.Step;
-import org.openqa.selenium.Keys;
 import utilities.ConfigUtilities;
-
 import java.io.IOException;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class NotificationPage extends BasePage {
 
-    MobileDriver driver;
+    MobileDriver<MobileElement> driver;
 
-    public NotificationPage(MobileDriver driver) {
+    public NotificationPage(MobileDriver<MobileElement> driver) {
         this.driver = driver;
     }
 
     @Step("Step: Verify if user is in Notification Page")
-    public Boolean verifyIfNotificationPage() throws IOException {
+    public Boolean verifyIfNotificationPage() throws Exception {
         log.info("Step: Verify if user is in Notification Page");
         assertTrue(action.waitForElementToBeVisible("txtfieldSearch", ConfigUtilities.Timers.slow));
         action.takeSnapShot("User is in Notification Page");
@@ -41,13 +42,13 @@ public class NotificationPage extends BasePage {
     }
 
     @Step("Step: Click first notification")
-    public void clickFirstNotif() throws InterruptedException {
+    public void clickFirstNotif() throws Exception {
         log.info("Step: Click the first notification");
         action.click("btnNotification");
     }
 
     @Step("Step: Verify if user is in Notification Content Page")
-    public Boolean verifyIfNotifContentPage() throws IOException {
+    public Boolean verifyIfNotifContentPage() throws Exception {
         log.info("Step: Verify if user is in Notification Content Page");
         assertTrue(action.waitForElementToBeVisible("txtNotifContent", ConfigUtilities.Timers.slow));
         action.takeSnapShot("User is in Notification Content Page");
@@ -57,9 +58,36 @@ public class NotificationPage extends BasePage {
     @Step("Step: Enter value in the Searchbox")
     public void enterValueInSearchBox(String text) throws Exception {
         log.info("Step: Enter value in the Searchbox");
+<<<<<<< HEAD
         action.sendKeys("txtFieldSearch",excel.getTestdata("message") + "\n");
         action.takeSnapShot("Enter value in Searchbox");
         Thread.sleep(10000);
+=======
+        action.click("txtfieldSearch");
+        action.sendKeys("txtfieldSearch", text);
+        action.takeSnapShot("Enter value in Searchbox");
+
+    }
+
+    @Step("Step: Click Search in Keyboard")
+    public void clickKeyboardSearch() {
+        log.info("Step: Click Search in Keyboard");
+        if (config.getPlatform().equalsIgnoreCase("android")) {
+            ((AndroidDriver<MobileElement>) driver)
+                    .executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
+        } else {
+            ((IOSDriver<MobileElement>) driver)
+                    .executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
+        }
+    }
+
+    @Step("Step: Verify Notification Search Results")
+    public void verifyNotifSearchResults() throws Exception {
+        log.info("Step: Verify Notification Search Results");
+        assertTrue(action.waitForElementToBeVisible("txtNotifSearchResult", ConfigUtilities.Timers.superslow));
+        assertTrue(action.getText("txtNotifSearchResult").contains(excel.getTestdata("message")));
+        action.takeSnapShot("Notification Search Results");
+>>>>>>> ffe3d17f3f7c01b9c7a08a530eee634d4b42b934
     }
 
     @Step("Step: Verify Notification Page")

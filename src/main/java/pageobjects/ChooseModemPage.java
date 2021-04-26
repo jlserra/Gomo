@@ -36,7 +36,7 @@ public class ChooseModemPage extends BasePage {
     }
 
     @Step("Step: Policy Checkbox")
-    public void clickCheckBox() throws IOException {
+    public void clickCheckBox() throws Exception {
         log.info("Step: Click Policy Checkbox");
         action.takeSnapShot("User clicked the checkbox");
         action.waitForElementToBeClickable("policyCheckbox", ConfigUtilities.Timers.normal);
@@ -44,14 +44,14 @@ public class ChooseModemPage extends BasePage {
     }
 
     @Step("Step: Verify if Button Next is Enabled")
-    public Boolean verifyIfBtnLetsGoEnabled() {
+    public Boolean verifyIfBtnLetsGoEnabled() throws Exception {
         log.info("Step: Verify if Let's Go Button is Enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("letsGoButton", ConfigUtilities.Timers.verySlow));
         return action.isEnabled("letsGoButton");
     }
 
     @Step("Step: Let's Go Button")
-    public void clickLetsGoBtn() throws IOException {
+    public void clickLetsGoBtn() throws Exception {
         log.info("Step: Click Policy Checkbox");
         action.takeSnapShot("User clicked the Let's Go Button");
         action.waitForElementToBeClickable("letsGoButton", ConfigUtilities.Timers.slow);
@@ -59,7 +59,7 @@ public class ChooseModemPage extends BasePage {
     }
 
     @Step("Step: Skip Page")
-    public void clickSkipBtn() throws IOException {
+    public void clickSkipBtn() throws Exception {
         log.info("Step: Click Policy Checkbox");
         action.takeSnapShot("User skip the page");
         action.waitForElementToBeClickable("skipBtn", ConfigUtilities.Timers.normal);
@@ -68,14 +68,14 @@ public class ChooseModemPage extends BasePage {
 
 
     @Step("Step: Verify if Button Next is Enabled")
-    public Boolean verifyIfModalPopOutEnabled() {
+    public Boolean verifyIfModalPopOutEnabled() throws Exception {
         log.info("Step: Verify if Let's Go Button is Enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("modalPopOut", ConfigUtilities.Timers.verySlow));
         return action.isEnabled("modalPopOut");
     }
 
     @Step("Step: Close Button")
-    public void clickCloseBtn() throws IOException {
+    public void clickCloseBtn() throws Exception {
         log.info("Step: Click Close Button");
         action.takeSnapShot("User clicked the Close Button");
         action.waitForElementToBeClickable("closeModalBtn", ConfigUtilities.Timers.normal);
@@ -83,7 +83,7 @@ public class ChooseModemPage extends BasePage {
     }
 
     @Step("Step: Modem 1 Button")
-    public void clickModemOneBtn() throws IOException {
+    public void clickModemOneBtn() throws Exception {
         log.info("Step: Click First Modem Button");
         action.takeSnapShot("User clicked the First Modem");
         action.waitForElementToBeClickable("modemOneBtn", ConfigUtilities.Timers.normal);
@@ -91,7 +91,7 @@ public class ChooseModemPage extends BasePage {
     }
 
     @Step("Step: Modem 2 Button")
-    public void clickModemTwoBtn() throws IOException {
+    public void clickModemTwoBtn() throws Exception {
         log.info("Step: Click Second Modem Button");
         action.takeSnapShot("User clicked the Second Modem");
         action.waitForElementToBeClickable("modemTwoBtn", ConfigUtilities.Timers.normal);
@@ -99,7 +99,7 @@ public class ChooseModemPage extends BasePage {
     }
 
     @Step("Step: Modem 3 Button")
-    public void clickModemThreeBtn() throws IOException {
+    public void clickModemThreeBtn() throws Exception {
         log.info("Step: Click Second Third Button");
         action.takeSnapShot("User clicked the Third Modem");
         action.waitForElementToBeClickable("modemThreeBtn", ConfigUtilities.Timers.normal);
@@ -107,7 +107,7 @@ public class ChooseModemPage extends BasePage {
     }
 
     @Step("Step: Modem 4 Button")
-    public void clickModemFourBtn() throws IOException {
+    public void clickModemFourBtn() throws Exception {
         log.info("Step: Click Fourth Modem Button");
         action.takeSnapShot("User clicked the Fourth Modem");
         action.waitForElementToBeClickable("modemFourBtn", ConfigUtilities.Timers.normal);
