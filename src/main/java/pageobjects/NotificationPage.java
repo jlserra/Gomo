@@ -55,10 +55,11 @@ public class NotificationPage extends BasePage {
     }
 
     @Step("Step: Enter value in the Searchbox")
-    public void enterValueInSearchBox(String text) throws IOException, InterruptedException {
+    public void enterValueInSearchBox(String text) throws Exception {
         log.info("Step: Enter value in the Searchbox");
-        action.sendKeys("txtfieldSearch", text);
+        action.sendKeys("txtFieldSearch",excel.getTestdata("message") + "\n");
         action.takeSnapShot("Enter value in Searchbox");
+        Thread.sleep(10000);
     }
 
     @Step("Step: Verify Notification Page")

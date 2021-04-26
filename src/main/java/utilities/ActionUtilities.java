@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -342,6 +343,7 @@ public class ActionUtilities {
         LEFT,
         RIGHT
     }
+
 
 
 }
