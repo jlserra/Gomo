@@ -1,11 +1,13 @@
 package utilities;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Attachment;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -32,7 +34,49 @@ public class ActionUtilities {
     }
 
 
-    public MobileElement getElement(String key) throws Exception {
+    public MobileBy getLocator(String key) throws Exception {
+        MobileBy element = null;
+        String[] locator = excel.getLocator(key);
+        String locatorType = locator[0];
+        String locatorValue = locator[1];
+
+        log.info("Finding element by " + locatorType + " : " + locatorValue);
+
+        try {
+            switch (locatorType) {
+                case "id":
+                    element = (MobileBy) By.id(locatorValue);
+                    break;
+                case "xpath":
+                    element = (MobileBy) By.xpath(locatorValue);
+                    break;
+                case "classname":
+                    element = (MobileBy) By.className(locatorValue);
+                    break;
+                case "cssselector":
+                    element = (MobileBy) By.cssSelector(locatorValue);
+                    break;
+                case "name":
+                    element = (MobileBy) By.name(locatorValue);
+                    break;
+                case "linktext":
+                    element = (MobileBy) By.linkText(locatorValue);
+                    break;
+                case "partiallinktext":
+                    element = (MobileBy) By.partialLinkText(locatorValue);
+                    break;
+                default:
+                    log.error("Invalid locator type: " + locatorType);
+                    throw new Exception("Invalid locator type: " + locatorType);
+            }
+        } catch (Exception e) {
+            log.error(e, "Unable to find element " + locatorValue);
+        }
+        return element;
+    }
+
+
+    public MobileElement getElements(String key) throws Exception {
         MobileElement element = null;
         String[] locator = excel.getLocator(key);
         String locatorType = locator[0];
@@ -82,34 +126,27 @@ public class ActionUtilities {
         }
     }
 
-    public void click(String locator) {
+    public void click(String locator) throws Exception {
         try {
             new WebDriverWait(driver, ConfigUtilities.Timers.appStandard.getValue())
-                    .until(ExpectedConditions.elementToBeClickable(getElement(locator)))
+                    .until(ExpectedConditions.elementToBeClickable(getLocator(locator)))
                     .click();
             log.info("Successfully clicked element : " + locator);
         } catch (Exception e) {
             log.error(e, "Unable to click element " + locator);
+            throw new Exception("Unable to click element " + locator);
         }
     }
 
-    public void sendKeys(MobileElement element, String text) {
-        try {
-            element.sendKeys(text);
-            log.info("Text entered successfully");
-        } catch (Exception e) {
-            log.error(e, "Unable to send keys to element");
-        }
-    }
-
-    public void sendKeys(String locator, String text) {
+    public void sendKeys(String locator, String text) throws Exception {
         try {
             new WebDriverWait(driver, ConfigUtilities.Timers.appStandard.getValue())
-                    .until(ExpectedConditions.visibilityOf(getElement(locator)))
+                    .until(ExpectedConditions.visibilityOfElementLocated(getLocator(locator)))
                     .sendKeys(text);
             log.info("Able to enter text successfully " + text);
         } catch (Exception e) {
             log.error(e, "Unable to enter text successfully " + text);
+            throw new Exception("Unable to enter text successfully " + text);
         }
     }
 
@@ -124,15 +161,16 @@ public class ActionUtilities {
         return text;
     }
 
-    public String getText(String locator) {
+    public String getText(String locator) throws Exception {
         String text = "";
         try {
             text = new WebDriverWait(driver, ConfigUtilities.Timers.appStandard.getValue())
-                    .until(ExpectedConditions.visibilityOf(getElement(locator)))
+                    .until(ExpectedConditions.visibilityOfElementLocated(getLocator(locator)))
                     .getText().replaceAll("[\n\r]", "");
             log.info("Able to get text successfully " + text);
         } catch (Exception e) {
             log.error(e, "Unable to get text from locator " + locator);
+            throw new Exception("Unable to get text from locator " + locator);
         }
         return text;
     }
@@ -148,14 +186,15 @@ public class ActionUtilities {
         return isDisplayed;
     }
 
-    public Boolean isDisplayed(String locator) {
+    public Boolean isDisplayed(String locator) throws Exception {
         boolean isDisplayed = false;
         try {
             isDisplayed = new WebDriverWait(driver, ConfigUtilities.Timers.slow.getValue())
-                    .until(ExpectedConditions.visibilityOf(getElement(locator))).isDisplayed();
+                    .until(ExpectedConditions.visibilityOfElementLocated(getLocator(locator))).isDisplayed();
             log.info("Element displayed with locator " + locator);
         } catch (Exception e) {
             log.error(e, "Element not displayed with locator " + locator);
+            throw new Exception("Element not displayed with locator " + locator);
         }
         return isDisplayed;
     }
@@ -171,14 +210,15 @@ public class ActionUtilities {
         return isEnabled;
     }
 
-    public Boolean isEnabled(String locator) {
+    public Boolean isEnabled(String locator) throws Exception {
         boolean isEnabled = false;
         try {
             isEnabled = new WebDriverWait(driver, ConfigUtilities.Timers.appStandard.getValue())
-                    .until(ExpectedConditions.visibilityOf(getElement(locator))).isEnabled();
+                    .until(ExpectedConditions.visibilityOfElementLocated(getLocator(locator))).isEnabled();
             log.info("Element is enabled with locator " + locator);
         } catch (Exception e) {
             log.error(e, "Element is not enabled with locator " + locator);
+            throw new Exception("Element is not enabled with locator " + locator);
         }
         return isEnabled;
     }
@@ -193,16 +233,17 @@ public class ActionUtilities {
         }
     }
 
-    public Boolean waitForElementToBeVisible(String locator, ConfigUtilities.Timers timers) {
+    public Boolean waitForElementToBeVisible(String locator, ConfigUtilities.Timers timers) throws Exception {
         boolean visible = false;
         try {
             log.info("Waiting for element to be now visible");
             visible = new WebDriverWait(driver, timers.getValue())
-                    .until(ExpectedConditions.visibilityOf(getElement(locator)))
+                    .until(ExpectedConditions.visibilityOfElementLocated(getLocator(locator)))
                     .isDisplayed();
             log.info("Element now visible with " + locator);
         } catch (Exception e) {
             log.error(e, "Element not visible with " + locator);
+            throw new Exception("Element not visible with " + locator);
         }
         return visible;
     }
@@ -225,38 +266,34 @@ public class ActionUtilities {
         }
     }
 
-    public Boolean waitForElementToBeClickable(String key, ConfigUtilities.Timers timer) {
+    public Boolean waitForElementToBeClickable(String locator, ConfigUtilities.Timers timer) throws Exception {
         boolean clickable = false;
         try {
-            log.info("Waiting for element to be clickable " + key);
+            log.info("Waiting for element to be clickable " + locator);
             clickable = new WebDriverWait(driver, timer.getValue())
-                    .until(ExpectedConditions.elementToBeClickable(getElement(key)))
+                    .until(ExpectedConditions.elementToBeClickable(getLocator(locator)))
                     .isEnabled();
             log.info("Element now clickable");
         } catch (Exception e) {
             log.error(e, "Element not clickable");
+            throw new Exception("Element not clickable " + locator);
         }
         return clickable;
     }
 
-    public void waitForElementToBeSelected(MobileElement element) {
+    public Boolean waitForElementToBeSelected(String locator, ConfigUtilities.Timers timer) throws Exception {
+        boolean selected = false;
         try {
-            new WebDriverWait(driver, explicitWaitDefault)
-                    .until(ExpectedConditions.elementToBeSelected(element));
-            log.info("Element now selected");
+            log.info("Waiting for element to be clickable " + locator);
+            selected = new WebDriverWait(driver, timer.getValue())
+                    .until(ExpectedConditions.elementToBeClickable(getLocator(locator)))
+                    .isEnabled();
+            log.info("Element now clickable");
         } catch (Exception e) {
-            log.error(e, "Element not selected");
+            log.error(e, "Element not clickable");
+            throw new Exception("Element not clickable " + locator);
         }
-    }
-
-    public void waitForElementToBeInvisible(MobileElement element) {
-        try {
-            new WebDriverWait(driver, explicitWaitDefault)
-                    .until(ExpectedConditions.invisibilityOf(element));
-            log.info("Element now invisible");
-        } catch (Exception e) {
-            log.error(e, "Element not invisible");
-        }
+        return selected;
     }
 
     public void takeSnapShot(String description) throws IOException {

@@ -20,7 +20,7 @@ public class NotificationPage extends BasePage {
     }
 
     @Step("Step: Verify if user is in Notification Page")
-    public Boolean verifyIfNotificationPage() throws IOException {
+    public Boolean verifyIfNotificationPage() throws Exception {
         log.info("Step: Verify if user is in Notification Page");
         assertTrue(action.waitForElementToBeVisible("txtfieldSearch", ConfigUtilities.Timers.slow));
         action.takeSnapShot("User is in Notification Page");
@@ -42,13 +42,13 @@ public class NotificationPage extends BasePage {
     }
 
     @Step("Step: Click first notification")
-    public void clickFirstNotif() throws InterruptedException {
+    public void clickFirstNotif() throws Exception {
         log.info("Step: Click the first notification");
         action.click("btnNotification");
     }
 
     @Step("Step: Verify if user is in Notification Content Page")
-    public Boolean verifyIfNotifContentPage() throws IOException {
+    public Boolean verifyIfNotifContentPage() throws Exception {
         log.info("Step: Verify if user is in Notification Content Page");
         assertTrue(action.waitForElementToBeVisible("txtNotifContent", ConfigUtilities.Timers.slow));
         action.takeSnapShot("User is in Notification Content Page");

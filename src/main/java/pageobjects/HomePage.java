@@ -26,14 +26,14 @@ public class HomePage extends BasePage{
     }
 
     @Step("Step: Verify if Button Proceed is Enabled")
-    public Boolean verifyBtnProceed() {
+    public Boolean verifyBtnProceed() throws Exception {
         log.info("Step: Verify if Proceed button Now is Enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnProceed", ConfigUtilities.Timers.slow));
         return action.isEnabled("btnProceed");
     }
 
     @Step("Step: Proceed Button")
-    public void clickBtnProceed() throws IOException {
+    public void clickBtnProceed() throws Exception {
         log.info("Step: Click the Proceed Button");
         action.takeSnapShot("User clicked Proceed button");
         action.waitForElementToBeClickable("btnProceed",ConfigUtilities.Timers.slow);
@@ -41,7 +41,7 @@ public class HomePage extends BasePage{
     }
 
     @Step("Step: Verify if Nickname is Enabled")
-    public Boolean verifyNicknameIsDisplayed() {
+    public Boolean verifyNicknameIsDisplayed() throws Exception {
         log.info("Step: Verify if Nickname field is Displayed");
         Assert.assertTrue(action.waitForElementToBeVisible("txtNickname", ConfigUtilities.Timers.verySlow));
         return action.isDisplayed("txtNickname");
@@ -49,14 +49,14 @@ public class HomePage extends BasePage{
 
 
     @Step("Step: Verify if Notification Bell Button is Enabled")
-    public Boolean verifyNotificationBellIsEnabled() {
+    public Boolean verifyNotificationBellIsEnabled() throws Exception {
         log.info("Step: Verify if Notification Bell Button is Enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnNotificationBell", ConfigUtilities.Timers.slow));
         return action.isEnabled("btnNotificationBell");
     }
 
     @Step("Step: Notification Bell Button")
-    public void clickNotificationBell() throws IOException {
+    public void clickNotificationBell() throws Exception {
         log.info("Step: Click the Notification Bell");
         action.takeSnapShot("User clicked the Notification Bell");
         action.waitForElementToBeClickable("btnNotificationBell",ConfigUtilities.Timers.slow);
