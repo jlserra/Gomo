@@ -134,7 +134,11 @@ public class VerifyNotificationPage extends BaseTestcase {
 
         //Notification Page
         notificationPage.verifyNotificationPage();
+
+        //Notification Page - Search
         notificationPage.enterValueInSearchBox(excel.getTestdata("message"));
+        notificationPage.clickKeyboardSearch();
+        notificationPage.verifyNotifSearchResults();
     }
 
 }

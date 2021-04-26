@@ -1,20 +1,21 @@
 package pageobjects;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.qameta.allure.Step;
-import org.openqa.selenium.Keys;
 import utilities.ConfigUtilities;
-
 import java.io.IOException;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class NotificationPage extends BasePage {
 
-    MobileDriver driver;
+    MobileDriver<MobileElement> driver;
 
-    public NotificationPage(MobileDriver driver) {
+    public NotificationPage(MobileDriver<MobileElement> driver) {
         this.driver = driver;
     }
 
@@ -55,10 +56,32 @@ public class NotificationPage extends BasePage {
     }
 
     @Step("Step: Enter value in the Searchbox")
-    public void enterValueInSearchBox(String text) throws IOException, InterruptedException {
+    public void enterValueInSearchBox(String text) throws Exception {
         log.info("Step: Enter value in the Searchbox");
+        action.click("txtfieldSearch");
         action.sendKeys("txtfieldSearch", text);
         action.takeSnapShot("Enter value in Searchbox");
+
+    }
+
+    @Step("Step: Click Search in Keyboard")
+    public void clickKeyboardSearch() {
+        log.info("Step: Click Search in Keyboard");
+        if (config.getPlatform().equalsIgnoreCase("android")) {
+            ((AndroidDriver<MobileElement>) driver)
+                    .executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
+        } else {
+            ((IOSDriver<MobileElement>) driver)
+                    .executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
+        }
+    }
+
+    @Step("Step: Verify Notification Search Results")
+    public void verifyNotifSearchResults() throws Exception {
+        log.info("Step: Verify Notification Search Results");
+        assertTrue(action.waitForElementToBeVisible("txtNotifSearchResult", ConfigUtilities.Timers.superslow));
+        assertTrue(action.getText("txtNotifSearchResult").contains(excel.getTestdata("message")));
+        action.takeSnapShot("Notification Search Results");
     }
 
     @Step("Step: Verify Notification Page")
