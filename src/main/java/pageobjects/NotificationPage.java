@@ -58,11 +58,9 @@ public class NotificationPage extends BasePage {
     @Step("Step: Enter value in the Searchbox")
     public void enterValueInSearchBox(String text) throws Exception {
         log.info("Step: Enter value in the Searchbox");
-<<<<<<< HEAD
         action.sendKeys("txtFieldSearch",excel.getTestdata("message") + "\n");
         action.takeSnapShot("Enter value in Searchbox");
         Thread.sleep(10000);
-=======
         action.click("txtfieldSearch");
         action.sendKeys("txtfieldSearch", text);
         action.takeSnapShot("Enter value in Searchbox");
@@ -87,7 +85,6 @@ public class NotificationPage extends BasePage {
         assertTrue(action.waitForElementToBeVisible("txtNotifSearchResult", ConfigUtilities.Timers.superslow));
         assertTrue(action.getText("txtNotifSearchResult").contains(excel.getTestdata("message")));
         action.takeSnapShot("Notification Search Results");
->>>>>>> ffe3d17f3f7c01b9c7a08a530eee634d4b42b934
     }
 
     @Step("Step: Verify Notification Page")
