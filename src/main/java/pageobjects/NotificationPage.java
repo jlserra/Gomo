@@ -7,7 +7,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.qameta.allure.Step;
 import utilities.ConfigUtilities;
-import java.io.IOException;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -58,16 +57,9 @@ public class NotificationPage extends BasePage {
     @Step("Step: Enter value in the Searchbox")
     public void enterValueInSearchBox(String text) throws Exception {
         log.info("Step: Enter value in the Searchbox");
-        action.sendKeys("txtFieldSearch",excel.getTestdata("message") + "\n");
-        action.takeSnapShot("Enter value in Searchbox");
-        Thread.sleep(10000);
-<<<<<<< HEAD
         action.click("txtfieldSearch");
         action.sendKeys("txtfieldSearch", text);
         action.takeSnapShot("Enter value in Searchbox");
-
-=======
->>>>>>> 04e9b87a9d81a678b3cd0007b41669f68a3548cc
     }
 
     @Step("Step: Click Search in Keyboard")
@@ -88,6 +80,14 @@ public class NotificationPage extends BasePage {
         assertTrue(action.waitForElementToBeVisible("txtNotifSearchResult", ConfigUtilities.Timers.superslow));
         assertTrue(action.getText("txtNotifSearchResult").contains(excel.getTestdata("message")));
         action.takeSnapShot("Notification Search Results");
+    }
+
+    @Step("Step: Verify Notification Search with empty results")
+    public void verifyNotifSearchEmptyResults() throws Exception {
+        log.info("Step: Verify Notification Search with empty results");
+        assertTrue(action.waitForElementToBeVisible("txtNotifEmptyResult", ConfigUtilities.Timers.superslow));
+        assertTrue(action.getText("txtNotifEmptyResult").contains(excel.getTestdata("emptyResultsMsg")));
+        action.takeSnapShot("Notification Search with empty results");
     }
 
     @Step("Step: Verify Notification Page")
