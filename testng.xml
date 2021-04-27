@@ -2,13 +2,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="/Users/abrahamora/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyHomePage.java">
+          name="/Users/lalainealonzo/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyNotificationPage.java">
         <classes>
-            <class name="testcases.VerifyHomePage">
+            <class name="testcases.VerifyNotificationPage">
                 <methods>
+<<<<<<< HEAD
 <!--                    <include name="verifyHomePage"/>-->
 <!--                    <include name="verifyNotificationBell"/>-->
                     <include name="verifyClickAddModem"/>
+=======
+                   <!-- <include name="verifyNotificationPage"/>
+                    <include name="verifyViewNotificationContent"/>-->
+                    <include name="verifyNotifSearchResults"/>
+                    <!--<include name="verifyNotifSearchEmptyResults"/>-->
+>>>>>>> ef0d8732c23ae279b8ad503f919010e3c69e720c
                 </methods>
             </class>
         </classes>
