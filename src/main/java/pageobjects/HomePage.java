@@ -98,6 +98,15 @@ public class HomePage extends BasePage{
         return action.isEnabled("btnRefresh");
     }
 
+    // For Refresh verification
+    @Step("Step: Click Refresh Button")
+    public void clickRefreshBtn() throws Exception {
+        log.info("Step: Click the Refresh Button");
+        action.takeSnapShot("User clicked the Refresh Button");
+        action.waitForElementToBeClickable("btnRefresh",ConfigUtilities.Timers.slow);
+        action.click("btnRefresh");
+    }
+
     // For Announcement Expand Button verification
     @Step("Step: Verify if Expand Announcement Button is Enabled")
     public Boolean verifyExpandAnnouncementIsEnabled() throws Exception {
@@ -168,6 +177,12 @@ public class HomePage extends BasePage{
     public void verifyClickAddModem() throws Exception {
         verifyBtnAddModemIsEnabled();
         clickAddModemBtn();
+    }
+
+    @Step("Step: Verify Click Refresh")
+    public void verifyClickRefreshButton() throws Exception {
+        verifyRefreshIsEnabled();
+        clickRefreshBtn();
     }
 
 }

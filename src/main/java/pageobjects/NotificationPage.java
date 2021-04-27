@@ -57,12 +57,6 @@ public class NotificationPage extends BasePage {
     @Step("Step: Enter value in the Searchbox")
     public void enterValueInSearchBox(String text) throws Exception {
         log.info("Step: Enter value in the Searchbox");
-<<<<<<< HEAD
-        action.sendKeys("txtFieldSearch",excel.getTestdata("message") + "\n");
-        action.takeSnapShot("Enter value in Searchbox");
-        Thread.sleep(10000);
-=======
->>>>>>> ef0d8732c23ae279b8ad503f919010e3c69e720c
         action.click("txtfieldSearch");
         action.sendKeys("txtfieldSearch", text);
         action.takeSnapShot("Enter value in Searchbox");
