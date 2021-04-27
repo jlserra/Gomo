@@ -63,17 +63,82 @@ public class HomePage extends BasePage{
         action.click("btnNotificationBell");
     }
 
+    @Step("Step: Verify if Get More Data Button is Enabled")
+    public Boolean verifyGetMoreDataIsEnabled() throws Exception {
+        log.info("Step: Verify if Get More Data Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnGetMoreData", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnGetMoreData");
+    }
+
+    @Step("Step: Verify if How to Load Button is Enabled")
+    public Boolean verifyHowToLoadIsEnabled() throws Exception {
+        log.info("Step: Verify if How to Load Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnHowToLoad", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnHowToLoad");
+    }
+
+
+    @Step("Step: Verify if Dashboard Balance is Displayed")
+    public Boolean verifyDashBoardBalanceIsDisplayed() throws Exception {
+        log.info("Step: Verify if Dashboard Balance is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblDashBoardBalance", ConfigUtilities.Timers.slow));
+        return action.isDisplayed("lblDashBoardBalance");
+    }
+
+    @Step("Step: Verify if Refresh Button is Enabled")
+    public Boolean verifyRefreshIsEnabled() throws Exception {
+        log.info("Step: Verify if Refresh Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnRefresh", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnRefresh");
+    }
+
+
+    @Step("Step: Verify if Expand Announcement Button is Enabled")
+    public Boolean verifyExpandAnnouncementIsEnabled() throws Exception {
+        log.info("Step: Verify if Expand Announcement Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnXpandAnnouncement", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnXpandAnnouncement");
+    }
+
+    @Step("Step: Verify if Label Name is Displayed")
+    public Boolean verifyLblNameHomePageIsDisplayed() throws Exception {
+        log.info("Step: Verify if Label Name is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblNameHomePage", ConfigUtilities.Timers.slow));
+        return action.isDisplayed("lblNameHomePage");
+    }
+
+    @Step("Step: Verify if Add Modem button is Enabled")
+    public Boolean verifyBtnAddModemIsEnabled() throws Exception {
+        log.info("Step: Verify if Add Modem button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnAddModem", ConfigUtilities.Timers.slow));
+        return action.isEnabled("btnAddModem");
+    }
+
+    @Step("Step: Verify if Prepaid Internet Modems Section is Displayed")
+    public Boolean verifyPrpdIntrntModemIsDisPlayed() throws Exception {
+        log.info("Step: Verify if Prepaid Internet Modems Section is Displayed");
+
+        Assert.assertTrue(action.waitForElementToBeVisible("lblPrpdIntrntModem", ConfigUtilities.Timers.verySlow));
+        return action.isEnabled("lblPrpdIntrntModem");
+    }
+
+
     // ****************** STEPS ****************************** //
 
     @Step("Step: Navigate to Home Page")
     public void navigateToHomePage() throws Exception {
         verifyBtnProceed();
         clickBtnProceed();
-    }
-
-    @Step("Step: Verify Nickname")
-    public void verifyNickname() throws Exception {
         verifyNicknameIsDisplayed();
+        verifyNotificationBellIsEnabled();
+        verifyGetMoreDataIsEnabled();
+        verifyHowToLoadIsEnabled();
+        verifyDashBoardBalanceIsDisplayed();
+        verifyRefreshIsEnabled();
+        verifyExpandAnnouncementIsEnabled();
+        verifyLblNameHomePageIsDisplayed();
+        action.swipe(ActionUtilities.Direction.UP);
+        verifyBtnAddModemIsEnabled();
     }
 
     @Step("Step: Verify Notification")
@@ -81,6 +146,5 @@ public class HomePage extends BasePage{
         verifyNotificationBellIsEnabled();
         clickNotificationBell();
     }
-
 
 }
