@@ -22,6 +22,4 @@ public class VerifyGetStartedTestcase extends BaseTestcase {
     public void clickButtonGetStarted() throws Exception {
         getStartedPage.clickBtnGetStarted();
     }
-
-
 }

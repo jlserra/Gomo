@@ -61,13 +61,9 @@ public class NotificationPage extends BasePage {
         action.sendKeys("txtFieldSearch",excel.getTestdata("message") + "\n");
         action.takeSnapShot("Enter value in Searchbox");
         Thread.sleep(10000);
-<<<<<<< HEAD
         action.click("txtfieldSearch");
         action.sendKeys("txtfieldSearch", text);
         action.takeSnapShot("Enter value in Searchbox");
-
-=======
->>>>>>> 04e9b87a9d81a678b3cd0007b41669f68a3548cc
     }
 
     @Step("Step: Click Search in Keyboard")

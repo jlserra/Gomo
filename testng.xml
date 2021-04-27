@@ -6,8 +6,9 @@
         <classes>
             <class name="testcases.VerifyHomePage">
                 <methods>
-                    <include name="verifyHomePage"/>
+<!--                    <include name="verifyHomePage"/>-->
 <!--                    <include name="verifyNotificationBell"/>-->
+                    <include name="verifyClickAddModem"/>
                 </methods>
             </class>
         </classes>

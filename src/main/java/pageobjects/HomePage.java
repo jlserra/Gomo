@@ -40,6 +40,7 @@ public class HomePage extends BasePage{
         action.click("btnProceed");
     }
 
+    // For Nickname verification
     @Step("Step: Verify if Nickname is Enabled")
     public Boolean verifyNicknameIsDisplayed() throws Exception {
         log.info("Step: Verify if Nickname field is Displayed");
@@ -47,7 +48,7 @@ public class HomePage extends BasePage{
         return action.isDisplayed("txtNickname");
     }
 
-
+    // For Notification Bell verification
     @Step("Step: Verify if Notification Bell Button is Enabled")
     public Boolean verifyNotificationBellIsEnabled() throws Exception {
         log.info("Step: Verify if Notification Bell Button is Enabled");
@@ -55,6 +56,7 @@ public class HomePage extends BasePage{
         return action.isEnabled("btnNotificationBell");
     }
 
+    // For Notification Bell verification
     @Step("Step: Notification Bell Button")
     public void clickNotificationBell() throws Exception {
         log.info("Step: Click the Notification Bell");
@@ -63,6 +65,7 @@ public class HomePage extends BasePage{
         action.click("btnNotificationBell");
     }
 
+    // For Get More Data verification
     @Step("Step: Verify if Get More Data Button is Enabled")
     public Boolean verifyGetMoreDataIsEnabled() throws Exception {
         log.info("Step: Verify if Get More Data Button is Enabled");
@@ -70,6 +73,7 @@ public class HomePage extends BasePage{
         return action.isEnabled("btnGetMoreData");
     }
 
+    // For How To Load verification
     @Step("Step: Verify if How to Load Button is Enabled")
     public Boolean verifyHowToLoadIsEnabled() throws Exception {
         log.info("Step: Verify if How to Load Button is Enabled");
@@ -78,6 +82,7 @@ public class HomePage extends BasePage{
     }
 
 
+    // For Dashboard Balance || Load Wallet verification
     @Step("Step: Verify if Dashboard Balance is Displayed")
     public Boolean verifyDashBoardBalanceIsDisplayed() throws Exception {
         log.info("Step: Verify if Dashboard Balance is Displayed");
@@ -85,6 +90,7 @@ public class HomePage extends BasePage{
         return action.isDisplayed("lblDashBoardBalance");
     }
 
+    // For Refresh verification
     @Step("Step: Verify if Refresh Button is Enabled")
     public Boolean verifyRefreshIsEnabled() throws Exception {
         log.info("Step: Verify if Refresh Button is Enabled");
@@ -92,7 +98,7 @@ public class HomePage extends BasePage{
         return action.isEnabled("btnRefresh");
     }
 
-
+    // For Announcement Expand Button verification
     @Step("Step: Verify if Expand Announcement Button is Enabled")
     public Boolean verifyExpandAnnouncementIsEnabled() throws Exception {
         log.info("Step: Verify if Expand Announcement Button is Enabled");
@@ -100,6 +106,7 @@ public class HomePage extends BasePage{
         return action.isEnabled("btnXpandAnnouncement");
     }
 
+    // For Name Label verification
     @Step("Step: Verify if Label Name is Displayed")
     public Boolean verifyLblNameHomePageIsDisplayed() throws Exception {
         log.info("Step: Verify if Label Name is Displayed");
@@ -107,6 +114,7 @@ public class HomePage extends BasePage{
         return action.isDisplayed("lblNameHomePage");
     }
 
+    // For Add Modem Button verification
     @Step("Step: Verify if Add Modem button is Enabled")
     public Boolean verifyBtnAddModemIsEnabled() throws Exception {
         log.info("Step: Verify if Add Modem button is Enabled");
@@ -114,10 +122,18 @@ public class HomePage extends BasePage{
         return action.isEnabled("btnAddModem");
     }
 
+    // For Add Modem Button verification
+    @Step("Step: Notification Bell Button")
+    public void clickAddModemBtn() throws Exception {
+        log.info("Step: Click the Add Modem Button");
+        action.takeSnapShot("User clicked the Notification Bell");
+        action.waitForElementToBeClickable("btnAddModem",ConfigUtilities.Timers.slow);
+        action.click("btnAddModem");
+    }
+
     @Step("Step: Verify if Prepaid Internet Modems Section is Displayed")
     public Boolean verifyPrpdIntrntModemIsDisPlayed() throws Exception {
         log.info("Step: Verify if Prepaid Internet Modems Section is Displayed");
-
         Assert.assertTrue(action.waitForElementToBeVisible("lblPrpdIntrntModem", ConfigUtilities.Timers.verySlow));
         return action.isEnabled("lblPrpdIntrntModem");
     }
@@ -139,12 +155,19 @@ public class HomePage extends BasePage{
         verifyLblNameHomePageIsDisplayed();
         action.swipe(ActionUtilities.Direction.UP);
         verifyBtnAddModemIsEnabled();
+        verifyPrpdIntrntModemIsDisPlayed();
     }
 
     @Step("Step: Verify Notification")
     public void verifyNotificationBell() throws Exception {
         verifyNotificationBellIsEnabled();
         clickNotificationBell();
+    }
+
+    @Step("Step: Verify Click Add Modem")
+    public void verifyClickAddModem() throws Exception {
+        verifyBtnAddModemIsEnabled();
+        clickAddModemBtn();
     }
 
 }

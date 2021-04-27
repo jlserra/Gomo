@@ -114,6 +114,8 @@ public class ChooseModemPage extends BasePage {
         action.click("modemFourBtn");
     }
 
+    // ****************** STEPS ****************************** //
+
     @Step("Step: Verify choosing the first modem")
     public void verifyChooseModemOne() throws Exception {
         verifyIfUserPolicyPage();

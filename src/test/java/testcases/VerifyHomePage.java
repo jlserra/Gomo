@@ -38,13 +38,22 @@ public class VerifyHomePage extends BaseTestcase{
     }
 
 
-    @Test(testName = "VerifyNotificationBell", priority = 2)
+    @Test(testName = "VerifyClickNotificationBell", priority = 2)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will check for the Notification")
-    @Story("Story: Verify Notification")
+    @Description("Test Description: User will click for the Notification Bell")
+    @Story("Story: Verify Click Notification")
     public void verifyNotificationBell() throws Exception {
         verifyHomePage();
-        homePage.verifyNotificationBell();
+        homePage.clickNotificationBell();
+    }
+
+    @Test(testName = "VerifyClickAddModemBtn", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will click for the Add Modem Button")
+    @Story("Story: Verify Click Add Modem")
+    public void verifyClickAddModem() throws Exception {
+        verifyHomePage();
+        homePage.verifyClickAddModem();
     }
 
 }
