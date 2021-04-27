@@ -35,8 +35,8 @@ public class ActionUtilities {
     }
 
 
-    public MobileBy getLocator(String key) throws Exception {
-        MobileBy element = null;
+    public By getLocator(String key) throws Exception {
+        By element = null;
         String[] locator = excel.getLocator(key);
         String locatorType = locator[0];
         String locatorValue = locator[1];
@@ -46,25 +46,25 @@ public class ActionUtilities {
         try {
             switch (locatorType) {
                 case "id":
-                    element = (MobileBy) By.id(locatorValue);
+                    element = MobileBy.id(locatorValue);
                     break;
                 case "xpath":
-                    element = (MobileBy) By.xpath(locatorValue);
+                    element = MobileBy.xpath(locatorValue);
                     break;
                 case "classname":
-                    element = (MobileBy) By.className(locatorValue);
+                    element = MobileBy.className(locatorValue);
                     break;
                 case "cssselector":
-                    element = (MobileBy) By.cssSelector(locatorValue);
+                    element = MobileBy.cssSelector(locatorValue);
                     break;
                 case "name":
-                    element = (MobileBy) By.name(locatorValue);
+                    element = MobileBy.name(locatorValue);
                     break;
                 case "linktext":
-                    element = (MobileBy) By.linkText(locatorValue);
+                    element = MobileBy.linkText(locatorValue);
                     break;
                 case "partiallinktext":
-                    element = (MobileBy) By.partialLinkText(locatorValue);
+                    element = MobileBy.partialLinkText(locatorValue);
                     break;
                 default:
                     log.error("Invalid locator type: " + locatorType);
