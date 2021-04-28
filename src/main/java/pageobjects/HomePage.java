@@ -26,7 +26,7 @@ public class HomePage extends BasePage{
     }
 
     @Step("Step: Verify if Button Proceed is Enabled")
-    public Boolean verifyBtnProceed() throws Exception {
+    public Boolean verifyBtnProceedIsEnabled() throws Exception {
         log.info("Step: Verify if Proceed button Now is Enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnProceed", ConfigUtilities.Timers.slow));
         return action.isEnabled("btnProceed");
@@ -73,6 +73,15 @@ public class HomePage extends BasePage{
         return action.isEnabled("btnGetMoreData");
     }
 
+    // For Get More Data verification
+    @Step("Step: Verify if Get More Data Button is Clickable")
+    public void clickGetMoreData() throws Exception {
+        log.info("Step: Click Get More Data Button");
+        action.takeSnapShot("User clicked the Get More Data Button");
+        action.waitForElementToBeClickable("btnGetMoreData",ConfigUtilities.Timers.slow);
+        action.click("btnGetMoreData");
+    }
+
     // For How To Load verification
     @Step("Step: Verify if How to Load Button is Enabled")
     public Boolean verifyHowToLoadIsEnabled() throws Exception {
@@ -115,6 +124,15 @@ public class HomePage extends BasePage{
         return action.isEnabled("btnXpandAnnouncement");
     }
 
+    // For Announcement Expand Button verification
+    @Step("Step: Hamburger Button")
+    public void clickExpandAnnouncementBtn() throws Exception {
+        log.info("Step: Click the Expand Button");
+        action.takeSnapShot("User clicked the Expand Button");
+        action.waitForElementToBeClickable("btnXpandAnnouncement",ConfigUtilities.Timers.slow);
+        action.click("btnXpandAnnouncement");
+    }
+
     // For Name Label verification
     @Step("Step: Verify if Label Name is Displayed")
     public Boolean verifyLblNameHomePageIsDisplayed() throws Exception {
@@ -144,7 +162,24 @@ public class HomePage extends BasePage{
     public Boolean verifyPrpdIntrntModemIsDisPlayed() throws Exception {
         log.info("Step: Verify if Prepaid Internet Modems Section is Displayed");
         Assert.assertTrue(action.waitForElementToBeVisible("lblPrpdIntrntModem", ConfigUtilities.Timers.verySlow));
-        return action.isEnabled("lblPrpdIntrntModem");
+        return action.isDisplayed("lblPrpdIntrntModem");
+    }
+
+    // For Hamburger Button verification
+    @Step("Step: Verify if Hamburger Button is Enabled")
+    public Boolean verifyHamburgerIsEnabled() throws Exception {
+        log.info("Step: Verify if Hamburger Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnHamburger", ConfigUtilities.Timers.verySlow));
+        return action.isEnabled("btnHamburger");
+    }
+
+    // For Hamburger Button verification
+    @Step("Step: Hamburger Button")
+    public void clickHamburgerBtn() throws Exception {
+        log.info("Step: Click the Hamburger Button");
+        action.takeSnapShot("User clicked the Hamburger Button");
+        action.waitForElementToBeClickable("btnHamburger",ConfigUtilities.Timers.slow);
+        action.click("btnHamburger");
     }
 
 
@@ -152,7 +187,7 @@ public class HomePage extends BasePage{
 
     @Step("Step: Navigate to Home Page")
     public void navigateToHomePage() throws Exception {
-        verifyBtnProceed();
+        verifyBtnProceedIsEnabled();
         clickBtnProceed();
         verifyNicknameIsDisplayed();
         verifyNotificationBellIsEnabled();
@@ -183,6 +218,24 @@ public class HomePage extends BasePage{
     public void verifyClickRefreshButton() throws Exception {
         verifyRefreshIsEnabled();
         clickRefreshBtn();
+    }
+
+    @Step("Step: Verify Click Refresh")
+    public void verifyClickHamburgerButton() throws Exception {
+        verifyHamburgerIsEnabled();
+        clickHamburgerBtn();
+    }
+
+    @Step("Step: Verify Click Get More Data")
+    public void verifyClickGetMoreData() throws Exception {
+        verifyGetMoreDataIsEnabled();
+        clickGetMoreData();
+    }
+
+    @Step("Step: Verify Expand Button")
+    public void verifyClickExpandButtonAnnouncement() throws Exception {
+        verifyExpandAnnouncementIsEnabled();
+        clickExpandAnnouncementBtn();
     }
 
 }

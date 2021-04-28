@@ -65,4 +65,32 @@ public class VerifyHomePage extends BaseTestcase{
         homePage.verifyClickAddModem();
     }
 
+    @Test(testName = "VerifyClickHamburgerBtn", priority = 6)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will click for the Hamburger Button")
+    @Story("Story: Verify Click Hamburger Button")
+    public void verifyClickHamburger() throws Exception {
+        verifyHomePage();
+        homePage.verifyClickHamburgerButton();
+    }
+
+    @Test(testName = "VerifyClickGetMoreData", priority = 7)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will click for Get More Data Button")
+    @Story("Story: Verify Click Get More Data Button")
+    public void verifyClickGetMoreData() throws Exception {
+        verifyHomePage();
+        homePage.verifyClickGetMoreData();
+    }
+
+
+    @Test(testName = "VerifyClickExpandAnnouncement", priority = 7)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will click the Expand Button")
+    @Story("Story: Verify Click Expand Button")
+    public void verifyClickExpandButtonAnnouncement() throws Exception {
+        verifyHomePage();
+        homePage.verifyClickExpandButtonAnnouncement();
+    }
+
 }
