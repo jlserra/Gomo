@@ -46,7 +46,6 @@ public class VerifyNotificationPage extends BaseTestcase {
         modemConfigPage.verifyUserAlreadyConnected();
 
         //Homepage
-        homePage.navigateToHomePage();
         homePage.verifyNotificationBell();
 
         //Notification Page
@@ -58,39 +57,8 @@ public class VerifyNotificationPage extends BaseTestcase {
     @Description("Test Description: User will view a Notification Content from the Notification Page")
     @Story("Story: Notification Page")
     public void verifyViewNotificationContent() throws Exception {
-        //Get Started
-        assertTrue(getStartedPage.verifyIfGetStartedPage());
-        getStartedPage.clickBtnGetStarted();
 
-        //Welcome Page
-        assertTrue(welcomePage.verifyIfLoginPage());
-        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
-        assertTrue(welcomePage.verifyIfBtnNextIsEnabled());
-        welcomePage.clickBtnNext();
-
-        //Secure Page
-        assertTrue(secureAppPage.verifyIfSecurePage());
-        secureAppPage.enterPin(excel.getTestdata("pin"));
-        secureAppPage.clickBtnNext();
-        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
-        secureAppPage.enterPin(excel.getTestdata("pin"));
-        secureAppPage.clickBtnNext();
-
-        //Customer Profile
-        assertTrue(customerProfilePage.verifyIfCustomerProfilePage());
-        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
-        assertTrue(customerProfilePage.verifyIfBtnNextIsEnabled());
-        customerProfilePage.clickBtnNext();
-
-        //Choose Modem
-        chooseModemPage.verifyChooseModemFour();
-        modemConfigPage.verifyUserAlreadyConnected();
-
-        //Homepage
-        homePage.navigateToHomePage();
-        homePage.verifyNotificationBell();
-
-        //Notification Page
+        verifyNotificationPage();
         notificationPage.verifyNotificationPage();
         notificationPage.verifyViewNotifContentPage();
     }
@@ -100,39 +68,8 @@ public class VerifyNotificationPage extends BaseTestcase {
     @Description("Test Description: User will search a text in the Notification Page")
     @Story("Story: Notification Page")
     public void verifyNotifSearchResults() throws Exception {
-        //Get Started
-        assertTrue(getStartedPage.verifyIfGetStartedPage());
-        getStartedPage.clickBtnGetStarted();
 
-        //Welcome Page
-        assertTrue(welcomePage.verifyIfLoginPage());
-        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
-        assertTrue(welcomePage.verifyIfBtnNextIsEnabled());
-        welcomePage.clickBtnNext();
-
-        //Secure Page
-        assertTrue(secureAppPage.verifyIfSecurePage());
-        secureAppPage.enterPin(excel.getTestdata("pin"));
-        secureAppPage.clickBtnNext();
-        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
-        secureAppPage.enterPin(excel.getTestdata("pin"));
-        secureAppPage.clickBtnNext();
-
-        //Customer Profile
-        assertTrue(customerProfilePage.verifyIfCustomerProfilePage());
-        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
-        assertTrue(customerProfilePage.verifyIfBtnNextIsEnabled());
-        customerProfilePage.clickBtnNext();
-
-        //Choose Modem
-        chooseModemPage.verifyChooseModemFour();
-        modemConfigPage.verifyUserAlreadyConnected();
-
-        //Homepage
-        homePage.navigateToHomePage();
-        homePage.verifyNotificationBell();
-
-        //Notification Page
+        verifyNotificationPage();
         notificationPage.verifyNotificationPage();
 
         //Notification Page - Search
@@ -146,39 +83,8 @@ public class VerifyNotificationPage extends BaseTestcase {
     @Description("Test Description: User will search a text in the Notification Page - with empty results")
     @Story("Story: Notification Page")
     public void verifyNotifSearchEmptyResults() throws Exception {
-        //Get Started
-        assertTrue(getStartedPage.verifyIfGetStartedPage());
-        getStartedPage.clickBtnGetStarted();
 
-        //Welcome Page
-        assertTrue(welcomePage.verifyIfLoginPage());
-        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
-        assertTrue(welcomePage.verifyIfBtnNextIsEnabled());
-        welcomePage.clickBtnNext();
-
-        //Secure Page
-        assertTrue(secureAppPage.verifyIfSecurePage());
-        secureAppPage.enterPin(excel.getTestdata("pin"));
-        secureAppPage.clickBtnNext();
-        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
-        secureAppPage.enterPin(excel.getTestdata("pin"));
-        secureAppPage.clickBtnNext();
-
-        //Customer Profile
-        assertTrue(customerProfilePage.verifyIfCustomerProfilePage());
-        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
-        assertTrue(customerProfilePage.verifyIfBtnNextIsEnabled());
-        customerProfilePage.clickBtnNext();
-
-        //Choose Modem
-        chooseModemPage.verifyChooseModemFour();
-        modemConfigPage.verifyUserAlreadyConnected();
-
-        //Homepage
-        homePage.navigateToHomePage();
-        homePage.verifyNotificationBell();
-
-        //Notification Page
+        verifyNotificationPage();
         notificationPage.verifyNotificationPage();
 
         //Notification Page - Search (Empty Results)

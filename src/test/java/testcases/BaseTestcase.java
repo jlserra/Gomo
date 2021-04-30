@@ -84,15 +84,15 @@ public class BaseTestcase {
 //        Android Capability Configuration
         capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-//        capabilities.setCapability("deviceName", "emulator-5554");
-        capabilities.setCapability("deviceName", "6ed66a95");
+        capabilities.setCapability("deviceName", "emulator-5554");
+//        capabilities.setCapability("deviceName", "6ed66a95");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("noReset", false);
 
 //        Application Capability Configuration
 //        A.) APK Fresh Installation
         File app = new File(config.resourceDirectory, "release.apk");
-//        capabilities.setCapability("app", app.getAbsolutePath());
+        capabilities.setCapability("app", app.getAbsolutePath());
 
 //        B.) APK Pre-Installed
         capabilities.setCapability("appPackage", "ph.com.globe.mybusiness");

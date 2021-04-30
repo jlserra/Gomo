@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true"
-          name="/Users/abrahamora/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyHomePage.java">
+    <test verbose="2" preserve-order="true" name="/Users/lalainealonzo/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyNotificationPage.java">
         <classes>
-            <class name="testcases.VerifyHomePage">
+            <class name="testcases.VerifyNotificationPage">
                 <methods>
-<!--                    <include name="verifyHomePage"/>-->
-<!--                    <include name="verifyNotificationBell"/>-->
-                    <include name="verifyClickAddModem"/>
+                    <include name="verifyNotificationPage"/>
+                    <include name="verifyViewNotificationContent"/>
+                    <include name="verifyNotifSearchResults"/>
+                    <include name="verifyNotifSearchEmptyResults"/>
                 </methods>
             </class>
         </classes>
