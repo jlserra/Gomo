@@ -2,10 +2,7 @@ package pageobjects;
 
 import io.appium.java_client.MobileDriver;
 
-import utilities.ActionUtilities;
-import utilities.ConfigUtilities;
-import utilities.ExcelUtilities;
-import utilities.LoggerUtilities;
+import utilities.*;
 
 public class BasePage extends LoggerUtilities {
 
@@ -14,13 +11,15 @@ public class BasePage extends LoggerUtilities {
     public static ConfigUtilities config;
     public static ExcelUtilities excel;
     public static LoggerUtilities log;
+    public static OtpUtilities otp;
 
-    public BasePage(MobileDriver driver, ActionUtilities action, LoggerUtilities log, ConfigUtilities config, ExcelUtilities excel) {
+    public BasePage(MobileDriver driver, ActionUtilities action, LoggerUtilities log, ConfigUtilities config, ExcelUtilities excel, OtpUtilities otp) {
         BasePage.driver = driver;
         BasePage.action = action;
         BasePage.config = config;
         BasePage.excel = excel;
         BasePage.log = log;
+        BasePage.otp = otp;
     }
 
     public BasePage() {

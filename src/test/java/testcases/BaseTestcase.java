@@ -17,10 +17,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 import pageobjects.*;
 
-import utilities.ActionUtilities;
-import utilities.ConfigUtilities;
-import utilities.ExcelUtilities;
-import utilities.LoggerUtilities;
+import utilities.*;
 
 public class BaseTestcase {
 
@@ -44,6 +41,7 @@ public class BaseTestcase {
     ActionUtilities action;
     ConfigUtilities config = new ConfigUtilities();
     LoggerUtilities log = new LoggerUtilities();
+    OtpUtilities otp = new OtpUtilities(log);
     ExcelUtilities excel = new ExcelUtilities(log, config);
 
 //    Pages Initialization
@@ -54,7 +52,7 @@ public class BaseTestcase {
         action = new ActionUtilities(driver, log, config, excel);
 
 //        Initialize Pages
-        basePage = new BasePage(driver, action, log, config, excel);
+        basePage = new BasePage(driver, action, log, config, excel, otp);
         welcomePage = new WelcomePage(driver);
         getStartedPage = new GetStartedPage(driver);
         secureAppPage = new SecureAppPage(driver);
