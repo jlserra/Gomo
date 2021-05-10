@@ -1,5 +1,6 @@
 package utilities;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -7,10 +8,14 @@ import org.json.simple.parser.ParseException;
 import pageobjects.BasePage;
 
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ConfigUtilities extends BasePage {
 
     File filePath = new File(System.getProperty("user.dir"));
+    private static URL excelFileURL;
+    public static String testdataFile = "Testdata.xlsx";
     public File resourceDirectory = new File(filePath, "src/main/resources");
     private static String platform;
     private static String testcase;
@@ -30,13 +35,22 @@ public class ConfigUtilities extends BasePage {
 
     }
 
-    public void getProperty(){
+    public void getProperty() throws MalformedURLException {
         if (System.getProperty("platform") != null) {
             setPlatform(System.getProperty("platform"));
         } else {
             //set android as default
             setPlatform("android");
         }
+        setExcelFileURL(System.getProperty("excelFileUrl"));
+    }
+
+    public static java.net.URL getExcelFileURL() {
+        return excelFileURL;
+    }
+
+    public static void setExcelFileURL(String excelFileURL) throws MalformedURLException {
+        ConfigUtilities.excelFileURL = new URL(excelFileURL);
     }
 
     public void getCapabilities() throws IOException, ParseException {

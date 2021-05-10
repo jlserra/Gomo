@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.ios.IOSDriver;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
@@ -82,7 +83,8 @@ public class BaseTestcase {
 //        Android Capability Configuration
         capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", "emulator-5554");
+        capabilities.setCapability("avd", "emulator-5554");
+//        capabilities.setCapability("deviceName", "emulator-5554");
 //        capabilities.setCapability("deviceName", "6ed66a95");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("noReset", false);
@@ -93,8 +95,8 @@ public class BaseTestcase {
         capabilities.setCapability("app", app.getAbsolutePath());
 
 //        B.) APK Pre-Installed
-        capabilities.setCapability("appPackage", "ph.com.globe.mybusiness");
-        capabilities.setCapability("appActivity", "ph.com.globe.mybusiness.SplashScreenActivity");
+//        capabilities.setCapability("appPackage", "ph.com.globe.mybusiness");
+//        capabilities.setCapability("appActivity", "ph.com.globe.mybusiness.SplashScreenActivity");
 
 //        Get capabilities from JSON
 //        for(Object key : config.capabilities.keySet()) {
@@ -142,6 +144,10 @@ public class BaseTestcase {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
+    public void downloadExcel() throws IOException {
+        FileUtils.copyURLToFile(config.getExcelFileURL(), new File(config.resourceDirectory, config.testdataFile));
+    }
+
     @BeforeMethod
     public void beforeTest() throws IOException {
         setupAppium();
@@ -157,8 +163,14 @@ public class BaseTestcase {
 
     @BeforeSuite
     public void beforeSuite() throws IOException {
+        downloadExcel();
         excel.readTestdata();
         excel.readLocators();
+    }
+
+    @Test
+    public void test(){
+        System.out.println("Test");
     }
 }
 

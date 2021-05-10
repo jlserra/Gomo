@@ -5,7 +5,9 @@
 
     <properties>
         <aspectj.version>1.9.4</aspectj.version>
-        <allure.version>1.5.4</allure.version>
+        <platform>android</platform>
+        <excelFileUrl>https://docs.google.com/spreadsheets/d/1nQdaXU2WZ1hbSlEShaDyLtZhEI_o3RKA/export?format=xlsx</excelFileUrl>
+        <suiteFile>testng.xml</suiteFile>
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
@@ -30,6 +32,7 @@
                 <configuration>
                     <systemPropertyVariables>
                         <platform>${platform}</platform>
+                        <excelFileUrl>${excelFileUrl}</excelFileUrl>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>${suiteFile}</suiteXmlFile>
