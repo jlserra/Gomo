@@ -6,7 +6,9 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 @Listeners(testcases.ListenerTestcase.class)
@@ -55,7 +57,7 @@ public class VerifyGetMoreData extends BaseTestcase {
 
     @Test(testName = "VerifyGetMoreDataAddOnsPage", priority = 2)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will check for the Get More Data  - Add Ons Page")
+    @Description("Test Description: User will check for the Get More Data  - Add Ons Page (No Active Subscriptions)")
     @Story("Story: Get More Data")
     public void verifyGetMoreDataAddOnsPage() throws Exception {
         //Get Started
@@ -133,6 +135,25 @@ public class VerifyGetMoreData extends BaseTestcase {
         //Get More Data - SMS Verification Page (Enter Valid OTP)
         assertTrue(getMoreDataPage.VerifyIfGetMoreDataPage());
         getMoreDataPage.VerifySMSVerificationPage();
-        getMoreDataPage.enterOTP(excel.getTestdata("mobileNumber"));
+
+        int count;
+        int maxTries = 3;
+
+        for (count = 0; count < maxTries; count++) {
+
+            getMoreDataPage.enterOTP(excel.getTestdata("mobileNumber"));
+
+            if(getMoreDataPage.VerifyIfExpiredOTPErrMsgIsDisplayed())
+                getMoreDataPage.clickOK();
+            else
+                log.info("SMS Verification Page has accepted the entered OTP.");
+                break;
+        }
+
+        if (count==maxTries)
+            log.error("The maximum number of tries has been reached (3 tries) in requesting an OTP that hasn't expired yet.");
+
+        }
+
     }
-}
+

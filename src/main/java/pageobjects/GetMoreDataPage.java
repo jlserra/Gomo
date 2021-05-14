@@ -201,6 +201,137 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Get More Data Add Ons Page Spiel - No Active Subscriptions");
     }
 
+    public void VerifyDataAddOnMyBizEarn() throws Exception {
+        log.info("Step: Verify Prepaid Data Add On myBizEarn");
+
+        //Data Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataDesc1", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataDesc1"), action.getText("lblAddOnDataDesc1"));
+
+        //Data Size
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataSize1", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataSize1"), action.getText("lblAddOnDataSize1"));
+
+        //Data Price
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataPrice1", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataPrice1"), action.getText("lblAddOnDataPrice1"));
+
+        //Data Validity
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataValidity1", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataValidity1"), action.getText("lblAddOnDataValidity1"));
+
+        //Data Add On Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDesc1", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("addOnDesc1"), action.getText("lblAddOnDesc1"));
+
+        action.takeSnapShot("Get More Data - Add On myBizEarn");
+    }
+
+    public void VerifyDataAddOnMyBizEnjoy() throws Exception {
+        log.info("Step: Verify Prepaid Data Add On myBizEnjoy");
+
+        //Data Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataDesc2", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataDesc2"), action.getText("lblAddOnDataDesc2"));
+
+        //Data Size
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataSize2", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataSize2"), action.getText("lblAddOnDataSize2"));
+
+        //Data Price
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataPrice2", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataPrice2"), action.getText("lblAddOnDataPrice2"));
+
+        //Data Validity
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataValidity2", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataValidity2"), action.getText("lblAddOnDataValidity2"));
+
+        //Data Add On Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDesc2", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("addOnDesc2"), action.getText("lblAddOnDesc2"));
+
+        action.takeSnapShot("Get More Data - Add On myBizEnjoy");
+    }
+
+    public void VerifyDataAddOnMyBizProductivity() throws Exception {
+        log.info("Step: Verify Prepaid Data Add On myBizProductivity");
+
+        //Data Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataDesc3", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataDesc3"), action.getText("lblAddOnDataDesc3"));
+
+        //Data Size
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataSize3", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataSize3"), action.getText("lblAddOnDataSize3"));
+
+        //Data Price
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataPrice3", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataPrice3"), action.getText("lblAddOnDataPrice3"));
+
+        //Data Validity
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataValidity3", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataValidity3"), action.getText("lblAddOnDataValidity3"));
+
+        //Data Add On Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDesc3", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("addOnDesc3"), action.getText("lblAddOnDesc3"));
+
+        action.takeSnapShot("Get More Data - Add On myBizProductivity");
+    }
+
+    public void VerifyDataAddOnMyBizUnwind() throws Exception {
+        log.info("Step: Verify Prepaid Data Add On myBizUnwind");
+
+        //Data Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataDesc4", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataDesc4"), action.getText("lblAddOnDataDesc4"));
+
+        //Data Size
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataSize4", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataSize4"), action.getText("lblAddOnDataSize4"));
+
+        //Data Price
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataPrice4", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataPrice4"), action.getText("lblAddOnDataPrice4"));
+
+        //Data Validity
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataValidity4", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataValidity4"), action.getText("lblAddOnDataValidity4"));
+
+        //Data Add On Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDesc4", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("addOnDesc4"), action.getText("lblAddOnDesc4"));
+
+        action.takeSnapShot("Get More Data - Add On myBizUnwind");
+    }
+
+    public void VerifyDataAddOnMyBizSurf15() throws Exception {
+        log.info("Step: Verify Prepaid Data Add On myBizSurf15");
+
+        //Data Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataDesc5", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataDesc5"), action.getText("lblAddOnDataDesc5"));
+
+        //Data Size
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataSize5", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataSize5"), action.getText("lblAddOnDataSize5"));
+
+        //Data Price
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataPrice5", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataPrice5"), action.getText("lblAddOnDataPrice5"));
+
+        //Data Validity
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDataValidity5", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("dataValidity5"), action.getText("lblAddOnDataValidity5"));
+
+        //Data Add On Description
+        Assert.assertTrue(action.waitForElementToBeVisible("lblAddOnDesc5", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("addOnDesc5"), action.getText("lblAddOnDesc5"));
+
+
+        action.takeSnapShot("Get More Data - Add On myBizSurf15");
+    }
+
 //SMS CODE VERIFICATION
     public Boolean VerifyIfSMSVerificationPage() throws Exception {
         log.info("Step: Verify if SMS Verification Page");
@@ -253,10 +384,20 @@ public class GetMoreDataPage extends BasePage {
         }
     }
 
-    @Step("Step: Delete OTP")
-    public void clickBtnDelete() throws Exception {
-        log.info("Step: Delete OTP");
-        action.click("btnDeleteOTP");
+    @Step("Step: Verify if Expired OTP Error Message is Displayed")
+    public Boolean VerifyIfExpiredOTPErrMsgIsDisplayed() throws Exception {
+        log.info("Step: Verify if Expired OTP Error Message is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("errMsgExpiredOTP", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Expired OTP Error Message is Displayed");
+        return action.isDisplayed("errMsgExpiredOTP");
+    }
+
+    @Step("Step: Click OK Button")
+    public void clickOK() throws Exception {
+        log.info("Step: Click OK Button");
+        Assert.assertTrue(VerifyIfExpiredOTPErrMsgIsDisplayed());
+        action.click("btnOK");
+        action.takeSnapShot("Click OK Button");
     }
 
 //TEST STEPS
@@ -277,11 +418,17 @@ public class GetMoreDataPage extends BasePage {
         clickAddOns();
         VerifyGetMoreDataAddOnsSpielNoSubscription();
         Assert.assertFalse(VerifyIfSubscribeBtnIsEnabled());
+        VerifyDataAddOnMyBizEarn();
+        VerifyDataAddOnMyBizEnjoy();
+        VerifyDataAddOnMyBizProductivity();
+        action.swipe(ActionUtilities.Direction.UP);
+        VerifyDataAddOnMyBizUnwind();
+        VerifyDataAddOnMyBizSurf15();
     }
 
     public void VerifySMSVerificationPage() throws Exception {
         log.info("Step: Verify Get More Data - SMS Verification Page");
-        clickSubscribeBtn();
+        clickSubscribeBtn(); //first subscribe btn
         VerifyIfSMSVerificationPage();
     }
 
