@@ -45,6 +45,7 @@ public class HomePage extends BasePage{
     public Boolean verifyNicknameIsDisplayed() throws Exception {
         log.info("Step: Verify if Nickname field is Displayed");
         Assert.assertTrue(action.waitForElementToBeVisible("txtNickname", ConfigUtilities.Timers.verySlow));
+        assertEquals(excel.getTestdata("nickname"), action.getText("txtNickname"));
         return action.isDisplayed("txtNickname");
     }
 
@@ -138,6 +139,7 @@ public class HomePage extends BasePage{
     public Boolean verifyLblNameHomePageIsDisplayed() throws Exception {
         log.info("Step: Verify if Label Name is Displayed");
         Assert.assertTrue(action.waitForElementToBeVisible("lblNameHomePage", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("nickname")+"!",action.getText("lblNameHomePage"));
         return action.isDisplayed("lblNameHomePage");
     }
 
@@ -195,15 +197,17 @@ public class HomePage extends BasePage{
         verifyHowToLoadIsEnabled();
         verifyDashBoardBalanceIsDisplayed();
         verifyRefreshIsEnabled();
-        verifyExpandAnnouncementIsEnabled();
+        //verifyExpandAnnouncementIsEnabled();
         verifyLblNameHomePageIsDisplayed();
         action.swipe(ActionUtilities.Direction.UP);
         verifyBtnAddModemIsEnabled();
+        clickRefreshBtn();
         verifyPrpdIntrntModemIsDisPlayed();
     }
 
     @Step("Step: Verify Notification")
     public void verifyNotificationBell() throws Exception {
+        clickRefreshBtn();
         verifyNotificationBellIsEnabled();
         clickNotificationBell();
     }
