@@ -5,8 +5,9 @@
         <classes>
             <class name="testcases.VerifyGetMoreData">
                 <methods>
-                    <!--<include name="verifyGetMoreDataPromosPage"/>-->
-                    <include name="verifyGetMoreDataAddOnsPage"/>
+                    <!--<include name="verifyGetMoreDataPromosPage"/>
+                    <include name="verifyGetMoreDataAddOnsPage"/>-->
+                    <include name="verifySMSVerificationPage"/>
                 </methods>
             </class>
         </classes>

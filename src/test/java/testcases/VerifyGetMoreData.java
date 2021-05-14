@@ -93,4 +93,46 @@ public class VerifyGetMoreData extends BaseTestcase {
         assertTrue(getMoreDataPage.VerifyIfGetMoreDataPage());
         getMoreDataPage.VerifyGetMoreDataAddOnsPageNoSubscription();
     }
+
+    @Test(testName = "verifySMSVerificationPage", priority = 3)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will check for the SMS Verification Page")
+    @Story("Story: Get More Data")
+    public void verifySMSVerificationPage() throws Exception {
+        //Get Started
+        assertTrue(getStartedPage.verifyIfGetStartedPage());
+        getStartedPage.clickBtnGetStarted();
+
+        //Welcome Page
+        assertTrue(welcomePage.verifyIfLoginPage());
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
+        assertTrue(welcomePage.verifyIfBtnNextIsEnabled());
+        welcomePage.clickBtnNext();
+
+        //Secure Page
+        assertTrue(secureAppPage.verifyIfSecurePage());
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+        assertTrue(secureAppPage.verifyIfSecurePageConfirmation());
+        secureAppPage.enterPin(excel.getTestdata("pin"));
+        secureAppPage.clickBtnNext();
+
+        //Customer Profile
+        assertTrue(customerProfilePage.verifyIfCustomerProfilePage());
+        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
+        assertTrue(customerProfilePage.verifyIfBtnNextIsEnabled());
+        customerProfilePage.clickBtnNext();
+
+        //Choose Modem
+        chooseModemPage.verifyChooseModemFour();
+        modemConfigPage.verifyUserAlreadyConnected();
+
+        //Visit Get More Data Page from Homepage
+        homePage.verifyClickGetMoreData();
+
+        //Get More Data - SMS Verification Page (Enter Valid OTP)
+        assertTrue(getMoreDataPage.VerifyIfGetMoreDataPage());
+        getMoreDataPage.VerifySMSVerificationPage();
+        getMoreDataPage.enterOTP(excel.getTestdata("mobileNumber"));
+    }
 }
