@@ -38,6 +38,8 @@ public class BaseTestcase {
     public HomePage homePage;
     public NotificationPage notificationPage;
     public AccountDetailsPage accountDetailsPage;
+    public GetMoreDataPage getMoreDataPage;
+
 
 //    Utilities
     ActionUtilities action;
@@ -64,6 +66,7 @@ public class BaseTestcase {
         homePage = new HomePage(driver);
         notificationPage = new NotificationPage(driver);
         accountDetailsPage = new AccountDetailsPage(driver);
+        getMoreDataPage = new GetMoreDataPage(driver);
 
     }
 
