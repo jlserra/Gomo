@@ -55,7 +55,27 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
     @Story("Story: Edit Nickname")
     public void verifyEditNickname() throws Exception {
         verifyAccountDetailsPage();
-        accountDetailsPage.clickEditNickname();
+        accountDetailsPage.editNickNameField();
     }
+
+    @Test(testName = "Verify Mobile Number and Status", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: Verify Mobile Number and Status")
+    @Story("Story: Mobile Number and Status")
+    public void verifyNumberAndStatus() throws Exception {
+        verifyAccountDetailsPage();
+        accountDetailsPage.verifyNumberAndStatus();
+    }
+
+    @Test(testName = "Verify Profile Status", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: Verify Profile Status")
+    @Story("Story: Profile Status")
+    public void verifyProfileStatus() throws Exception {
+        verifyAccountDetailsPage();
+        accountDetailsPage.verifyProfileStatus();
+    }
+
+
 
 }

@@ -123,6 +123,7 @@ public class AccountDetailsPage extends BasePage{
     public Boolean verifyPrepaidNumberStatusIsDisplayed() throws Exception {
         log.info("Step: Verify if Prepaid Number Status is Displayed");
         Assert.assertTrue(action.waitForElementToBeVisible("prepaidNumberStatus", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("mobileStatus"),action.getText("prepaidNumberStatus"));
         return action.isDisplayed("prepaidNumberStatus");
     }
 
@@ -140,6 +141,7 @@ public class AccountDetailsPage extends BasePage{
     public Boolean verifyMyProfileStatusIsDisplayed() throws Exception {
         log.info("Step: Verify if My Profile Status is Displayed");
         Assert.assertTrue(action.waitForElementToBeVisible("lblMyProfileStatus", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("profileStatus"),action.getText("lblMyProfileStatus"));
         return action.isDisplayed("lblMyProfileStatus");
     }
 
@@ -158,6 +160,45 @@ public class AccountDetailsPage extends BasePage{
         action.waitForElementToBeClickable("goToMyProfileBtn",ConfigUtilities.Timers.slow);
         action.click("goToMyProfileBtn");
     }
+
+    //Verify Edit Nickname field
+    @Step("Step: Verify if Edit Nickname Field is Enabled")
+    public Boolean verifyFieldEditNicknameIsEnabled() throws Exception {
+        log.info("Step: Verify if Edit Nickname Field is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("editNicknameField", ConfigUtilities.Timers.slow));
+        return action.isEnabled("editNicknameField");
+    }
+
+    @Step("Step: Clear Edit Nickname Field")
+    public void clearFieldEditNickname() throws Exception {
+        log.info("Step: Clear Edit Nickname Field");
+        action.takeSnapShot("User Clear Edit Nickname Field");
+        action.clearTextField(action.getElements("editNicknameField"));
+    }
+
+    @Step("Step: Set New Nickname")
+    public void setNewNickname() throws Exception {
+        log.info("Step: Set New Nickname");
+        action.takeSnapShot("User Set New Nickname");
+        action.sendKeys("editNicknameField",excel.getTestdata("newName"));
+    }
+
+    @Step("Step: Submit New Nickname")
+    public void submitNewNickname() throws Exception {
+        log.info("Step: Submit New Nickname");
+        action.takeSnapShot("User Submit New Nickname");
+        action.waitForElementToBeClickable("submitNickname",ConfigUtilities.Timers.slow);
+        action.click("submitNickname");
+    }
+
+    @Step("Step: Verify New Nickname")
+    public Boolean verifyNewlySetNickname() throws Exception {
+        log.info("Step: Verify New Nickname");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblNickname", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("newName"),action.getText("lblNickname"));
+        return action.isDisplayed("lblNickname");
+    }
+
 
 
     // ****************** STEPS ****************************** //
@@ -186,16 +227,33 @@ public class AccountDetailsPage extends BasePage{
 
     @Step("Step: Check for the Account Details Page Content")
     public void clickGoToMyProfile() throws Exception {
-        accountDetailsPage();
-        accountDetailsPageContent();
+//        accountDetailsPage();
+//        accountDetailsPageContent();
+        verifyBtnGoToMyProfileIsEnabled();
         clickBtnGoToMyProfile();
     }
 
     @Step("Step: Check for the Account Details Page Content")
-    public void editNickName() throws Exception {
-        accountDetailsPage();
-        accountDetailsPageContent();
+    public void editNickNameField() throws Exception {
+        verifyEditNicknameLinkIsEnabled();
         clickEditNickname();
+        verifyFieldEditNicknameIsEnabled();
+        clearFieldEditNickname();
+        setNewNickname();
+        submitNewNickname();
+        verifyNewlySetNickname();
+    }
+
+    @Step("Step: Check for Phone Number and Status")
+    public void verifyNumberAndStatus() throws Exception {
+        verifyPrepaidNumberIsDisplayed();
+        verifyPrepaidNumberStatusIsDisplayed();
+    }
+
+    @Step("Step: Check for the Profile Status")
+    public void verifyProfileStatus() throws Exception {
+        verifyMyProfileLabelIsDisplayed();
+        verifyMyProfileStatusIsDisplayed();
     }
 
 }
