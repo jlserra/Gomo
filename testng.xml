@@ -2,16 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="/Users/abrahamora/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyAccountDetailsPage.java">
+          name="/Users/abrahamora/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyMyProfilePage.java">
         <classes>
-            <class name="testcases.VerifyAccountDetailsPage">
+            <class name="testcases.VerifyMyProfilePage">
                 <methods>
-                    <include name="verifyAccountDetailsPage"/>
-                    <include name="verifyGotoMyProfilePage"/>
-                    <include name="verifyEditNickname"/>
-                    <include name="verifyNumberAndStatus"/>
-                    <include name="verifyProfileStatus"/>
-
+                    <include name="viewMyProfilePage"/>
                 </methods>
             </class>
         </classes>

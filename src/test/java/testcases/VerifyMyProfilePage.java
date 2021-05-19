@@ -14,7 +14,7 @@ public class VerifyMyProfilePage extends BaseTestcase{
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check for the Account Details Page")
     @Story("Story: Account Details Page")
-    public void verifyMyProfilePage() throws Exception {
+    public void viewMyProfilePage() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();
         welcomePage.verifyIfLoginPage();
@@ -38,6 +38,7 @@ public class VerifyMyProfilePage extends BaseTestcase{
         accountDetailsPage.accountDetailsPage();
         accountDetailsPage.accountDetailsPageContent();
         accountDetailsPage.clickGoToMyProfile();
+        myProfilePage.myProfilePageView();
     }
 
 

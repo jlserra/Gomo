@@ -227,8 +227,6 @@ public class AccountDetailsPage extends BasePage{
 
     @Step("Step: Check for the Account Details Page Content")
     public void clickGoToMyProfile() throws Exception {
-//        accountDetailsPage();
-//        accountDetailsPageContent();
         verifyBtnGoToMyProfileIsEnabled();
         clickBtnGoToMyProfile();
     }
