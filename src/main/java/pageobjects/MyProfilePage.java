@@ -40,6 +40,48 @@ public class MyProfilePage extends BasePage{
         return action.isDisplayed("btnEditProfile");
     }
 
+    @Step("Step: Verify Personal Information Label")
+    public Boolean verifyPersonalInfoLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify Personal Information Label");
+        Assert.assertTrue(action.waitForElementToBeVisible("personalInfoLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("personalInfoLbl"),action.getText("personalInfoLbl"));
+        return action.isDisplayed("personalInfoLbl");
+    }
+
+    @Step("Step: Verify Full Name Label")
+    public Boolean verifyFullNameLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify Full Name Label");
+        Assert.assertTrue(action.waitForElementToBeVisible("fullNameLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("fullNameLbl"),action.getText("fullNameLbl"));
+        return action.isDisplayed("fullNameLbl");
+    }
+
+    @Step("Step: Verify Full Name is Displayed")
+    public Boolean verifyFullNameTxtIsDisplayed() throws Exception {
+        log.info("Step: Verify Full Name is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("fullNameTxt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("fullName"),action.getText("fullNameTxt"));
+        return action.isDisplayed("fullNameTxt");
+    }
+
+    @Step("Step: Verify Full Name Label")
+    public Boolean verifyNickNameLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify Full Name Label");
+        Assert.assertTrue(action.waitForElementToBeVisible("fullNameLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("fullNameLbl"),action.getText("fullNameLbl"));
+        return action.isDisplayed("fullNameLbl");
+    }
+
+    @Step("Step: Verify Full Name is Displayed")
+    public Boolean verifyNickNameTxtIsDisplayed() throws Exception {
+        log.info("Step: Verify Full Name is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("fullNameTxt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("fullName"),action.getText("fullNameTxt"));
+        return action.isDisplayed("fullNameTxt");
+    }
+
+
+
     // ****************** STEPS ****************************** //
 
     @Step("Step: Navigate Account Details Page")
@@ -47,6 +89,13 @@ public class MyProfilePage extends BasePage{
         verifyPersonalInfoSection();
         verifyBusinessInfoSection();
         verifyBtnEditInfoIsEnabled();
+    }
+
+    @Step("Step: Navigate Account Details Page")
+    public void verifyPersonalInfo() throws Exception {
+        verifyPersonalInfoLabelIsDisplayed();
+        verifyFullNameLabelIsDisplayed();
+        verifyFullNameTxtIsDisplayed();
     }
 
 

@@ -49,7 +49,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
         accountDetailsPage.clickGoToMyProfile();
     }
 
-    @Test(testName = "Verify Edit Nickname", priority = 2)
+    @Test(testName = "Verify Edit Nickname", priority = 3)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will edit nickname")
     @Story("Story: Edit Nickname")
@@ -58,7 +58,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
         accountDetailsPage.editNickNameField();
     }
 
-    @Test(testName = "Verify Mobile Number and Status", priority = 2)
+    @Test(testName = "Verify Mobile Number and Status", priority = 4)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: Verify Mobile Number and Status")
     @Story("Story: Mobile Number and Status")
@@ -67,7 +67,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
         accountDetailsPage.verifyNumberAndStatus();
     }
 
-    @Test(testName = "Verify Profile Status", priority = 2)
+    @Test(testName = "Verify Profile Status", priority = 5)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: Verify Profile Status")
     @Story("Story: Profile Status")

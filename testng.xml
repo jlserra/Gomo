@@ -6,7 +6,8 @@
         <classes>
             <class name="testcases.VerifyMyProfilePage">
                 <methods>
-                    <include name="viewMyProfilePage"/>
+<!--                    <include name="viewMyProfilePage"/>-->
+                    <include name="verifyPersonalInformation"/>
                 </methods>
             </class>
         </classes>

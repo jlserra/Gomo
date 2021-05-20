@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyMyProfilePage extends BaseTestcase{
 
-    @Test(testName = "VerifyAccountDetailsPage", priority = 1)
+    @Test(testName = "View Profile Page", priority = 1)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will check for the Account Details Page")
-    @Story("Story: Account Details Page")
+    @Description("Test Description: User will check for My Profile Page")
+    @Story("Story: My Profile Page")
     public void viewMyProfilePage() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();
@@ -41,5 +41,13 @@ public class VerifyMyProfilePage extends BaseTestcase{
         myProfilePage.myProfilePageView();
     }
 
+    @Test(testName = "Verify Personal Information Section", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will verify the content of the Personal Information Section")
+    @Story("Story: Verify Personal Information Section")
+    public void verifyPersonalInformation() throws Exception {
+        viewMyProfilePage();
+        myProfilePage.verifyPersonalInfo();
+    }
 
 }
