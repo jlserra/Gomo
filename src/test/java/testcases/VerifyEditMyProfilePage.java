@@ -55,6 +55,21 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         //Edit My Profile Page
         editMyProfilePage.verifyEditMyProfilePersonalInfo();
 
+    }
+
+    @Test(testName = "verifyEditMyProfileBusinessInfoPage", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will check for the Edit My Profile Business Information Page")
+    @Story("Story: Edit My Profile")
+    public void verifyEditMyProfileBusinessInfoPage() throws Exception {
+
+        verifyEditMyProfilePersonalInfoPage();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.clickBackBtn();
+        editMyProfilePage.verifyIfEditMyProfilePage();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.verifyEditMyProfileBusinessInfo();
+
 
     }
 }
