@@ -67,17 +67,33 @@ public class MyProfilePage extends BasePage{
     @Step("Step: Verify Full Name Label")
     public Boolean verifyNickNameLabelIsDisplayed() throws Exception {
         log.info("Step: Verify Full Name Label");
-        Assert.assertTrue(action.waitForElementToBeVisible("fullNameLbl", ConfigUtilities.Timers.slow));
-        Assert.assertEquals(excel.getTestdata("fullNameLbl"),action.getText("fullNameLbl"));
-        return action.isDisplayed("fullNameLbl");
+        Assert.assertTrue(action.waitForElementToBeVisible("nickNameLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("nickNameLbl"),action.getText("nickNameLbl"));
+        return action.isDisplayed("nickNameLbl");
     }
 
     @Step("Step: Verify Full Name is Displayed")
     public Boolean verifyNickNameTxtIsDisplayed() throws Exception {
         log.info("Step: Verify Full Name is Displayed");
-        Assert.assertTrue(action.waitForElementToBeVisible("fullNameTxt", ConfigUtilities.Timers.slow));
-        Assert.assertEquals(excel.getTestdata("fullName"),action.getText("fullNameTxt"));
-        return action.isDisplayed("fullNameTxt");
+        Assert.assertTrue(action.waitForElementToBeVisible("nickNameTxt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("nickNameTxt"),action.getText("nickNameTxt"));
+        return action.isDisplayed("nickNameTxt");
+    }
+
+    @Step("Step: Verify Mobile Number Label")
+    public Boolean verifyMobileNoLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify Mobile Number Label");
+        Assert.assertTrue(action.waitForElementToBeVisible("mobNumLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("mobNoLbl"),action.getText("mobNumLbl"));
+        return action.isDisplayed("mobNumLbl");
+    }
+
+    @Step("Step: Verify Mobile Number is Displayed")
+    public Boolean verifyMobileNoTxtIsDisplayed() throws Exception {
+        log.info("Step: Verify Mobile Number is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("mobNumTxt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("mobNoTxt"),action.getText("mobNumTxt"));
+        return action.isDisplayed("mobNumTxt");
     }
 
 
@@ -96,6 +112,10 @@ public class MyProfilePage extends BasePage{
         verifyPersonalInfoLabelIsDisplayed();
         verifyFullNameLabelIsDisplayed();
         verifyFullNameTxtIsDisplayed();
+        verifyNickNameLabelIsDisplayed();
+        verifyNickNameTxtIsDisplayed();
+        verifyMobileNoLabelIsDisplayed();
+        verifyMobileNoTxtIsDisplayed();
     }
 
 
