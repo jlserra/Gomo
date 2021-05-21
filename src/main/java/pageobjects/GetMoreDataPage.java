@@ -28,13 +28,14 @@ public class GetMoreDataPage extends BasePage {
 
     }
 
+    @Step("Step: Verify Get More Data Page Spiel")
     public void VerifyGetMoreDataSpiel() throws Exception {
         log.info("Step: Verify Get More Data Page Spiel");
         Assert.assertTrue(action.waitForElementToBeVisible("spielGetMoreData", ConfigUtilities.Timers.slow));
         Assert.assertEquals(excel.getTestdata("spiel"), action.getText("spielGetMoreData"));
         action.takeSnapShot("Get More Data Page Spiel");
     }
-
+    @Step("Step: Verify if Subscribe Button is Enabled")
     public Boolean VerifyIfSubscribeBtnIsEnabled() throws Exception {
         log.info("Step: Verify if Subscribe Button is Enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnSubscribe", ConfigUtilities.Timers.slow));
@@ -42,6 +43,7 @@ public class GetMoreDataPage extends BasePage {
         return action.isEnabled("btnSubscribe");
     }
 
+    @Step("Step: Click Subscribe Button")
     public void clickSubscribeBtn() throws Exception {
         log.info("Step: Click Subscribe Button");
         Assert.assertTrue(VerifyIfSubscribeBtnIsEnabled());
@@ -49,6 +51,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Click Subscribe Button");
     }
 
+    @Step("Step: Verify Prepaid Data Promo myBizSurf 199")
     public void VerifyDataPromo199() throws Exception {
         log.info("Step: Verify Prepaid Data Promo myBizSurf 199");
 
@@ -74,7 +77,7 @@ public class GetMoreDataPage extends BasePage {
 
         action.takeSnapShot("Get More Data - Promo myBizSurf 199");
     }
-
+    @Step("Step: Verify Prepaid Data Promo myBizSurf 599")
     public void VerifyDataPromo599() throws Exception {
         log.info("Step: Verify Prepaid Data Promo myBizSurf 599");
 
@@ -101,6 +104,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Get More Data - Promo myBizSurf 599");
     }
 
+    @Step("Step: Verify Prepaid Data Promo myBizSurf 799")
     public void VerifyDataPromo799() throws Exception {
         log.info("Step: Verify Prepaid Data Promo myBizSurf 799");
 
@@ -127,6 +131,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Get More Data - Promo myBizSurf 799");
     }
 
+    @Step("Step: Verify Prepaid Data Promo myBizSurf 999")
     public void VerifyDataPromo999() throws Exception {
         log.info("Step: Verify Prepaid Data Promo myBizSurf 999");
 
@@ -153,6 +158,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Get More Data - Promo myBizSurf 999");
     }
 
+    @Step("Step: Verify Prepaid Data Promo myBizSurf 1499")
     public void VerifyDataPromo1499() throws Exception {
         log.info("Step: Verify Prepaid Data Promo myBizSurf 1499");
 
@@ -180,6 +186,7 @@ public class GetMoreDataPage extends BasePage {
     }
 
 //ADD ONS TAB
+    @Step("Step: Verify if Add Ons tab is Enabled")
     public Boolean VerifyIfAddonsTabIsEnabled() throws Exception {
         log.info("Step: Verify if Add Ons tab is Enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnAddOns", ConfigUtilities.Timers.slow));
@@ -187,6 +194,7 @@ public class GetMoreDataPage extends BasePage {
         return action.isEnabled("btnAddOns");
     }
 
+    @Step("Step: Click Subscribe Button")
     public void clickAddOns() throws Exception {
         log.info("Step: Click Subscribe Button");
         Assert.assertTrue(VerifyIfAddonsTabIsEnabled());
@@ -194,6 +202,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Click Add Ons tab");
     }
 
+    @Step("Step: Verify Get More Data Add Ons Page Spiel")
     public void VerifyGetMoreDataAddOnsSpielNoSubscription() throws Exception {
         log.info("Step: Verify Get More Data Add Ons Page Spiel");
         Assert.assertTrue(action.waitForElementToBeVisible("spielGetMoreDataAddOns", ConfigUtilities.Timers.slow));
@@ -201,6 +210,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Get More Data Add Ons Page Spiel - No Active Subscriptions");
     }
 
+    @Step("Step: Verify Prepaid Data Add On myBizEarn")
     public void VerifyDataAddOnMyBizEarn() throws Exception {
         log.info("Step: Verify Prepaid Data Add On myBizEarn");
 
@@ -227,6 +237,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Get More Data - Add On myBizEarn");
     }
 
+    @Step("Step: Verify Prepaid Data Add On myBizEnjoy")
     public void VerifyDataAddOnMyBizEnjoy() throws Exception {
         log.info("Step: Verify Prepaid Data Add On myBizEnjoy");
 
@@ -253,6 +264,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Get More Data - Add On myBizEnjoy");
     }
 
+    @Step("Step: Verify Prepaid Data Add On myBizProductivity")
     public void VerifyDataAddOnMyBizProductivity() throws Exception {
         log.info("Step: Verify Prepaid Data Add On myBizProductivity");
 
@@ -279,6 +291,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Get More Data - Add On myBizProductivity");
     }
 
+    @Step("Step: Verify Prepaid Data Add On myBizUnwind")
     public void VerifyDataAddOnMyBizUnwind() throws Exception {
         log.info("Step: Verify Prepaid Data Add On myBizUnwind");
 
@@ -305,6 +318,7 @@ public class GetMoreDataPage extends BasePage {
         action.takeSnapShot("Get More Data - Add On myBizUnwind");
     }
 
+    @Step("Step: Verify Prepaid Data Add On myBizSurf15")
     public void VerifyDataAddOnMyBizSurf15() throws Exception {
         log.info("Step: Verify Prepaid Data Add On myBizSurf15");
 
@@ -333,6 +347,8 @@ public class GetMoreDataPage extends BasePage {
     }
 
 //SMS CODE VERIFICATION
+
+    @Step("Step: Verify if SMS Verification Page")
     public Boolean VerifyIfSMSVerificationPage() throws Exception {
         log.info("Step: Verify if SMS Verification Page");
         Assert.assertTrue(action.waitForElementToBeVisible("lblOTPHeader", ConfigUtilities.Timers.normal));
@@ -401,6 +417,7 @@ public class GetMoreDataPage extends BasePage {
     }
 
 //TEST STEPS
+    @Step("Step: Verify Get More Data - Promos Page")
     public void VerifyGetMoreDataPromosPage() throws Exception {
         log.info("Step: Verify Get More Data - Promos Page");
         VerifyGetMoreDataSpiel();
@@ -413,6 +430,7 @@ public class GetMoreDataPage extends BasePage {
         VerifyDataPromo1499();
     }
 
+    @Step("Step: Verify Get More Data - Add Ons Page")
     public void VerifyGetMoreDataAddOnsPageNoSubscription() throws Exception {
         log.info("Step: Verify Get More Data - Add Ons Page");
         clickAddOns();
@@ -426,6 +444,7 @@ public class GetMoreDataPage extends BasePage {
         VerifyDataAddOnMyBizSurf15();
     }
 
+    @Step("Step: Verify Get More Data - SMS Verification Page")
     public void VerifySMSVerificationPage() throws Exception {
         log.info("Step: Verify Get More Data - SMS Verification Page");
         clickSubscribeBtn(); //first subscribe btn
