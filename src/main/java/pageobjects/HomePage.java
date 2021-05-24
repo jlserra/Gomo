@@ -202,7 +202,7 @@ public class HomePage extends BasePage{
         action.swipe(ActionUtilities.Direction.UP);
         verifyBtnAddModemIsEnabled();
         clickRefreshBtn();
-        verifyPrpdIntrntModemIsDisPlayed();
+        //verifyPrpdIntrntModemIsDisPlayed();
     }
 
     @Step("Step: Verify Notification")
