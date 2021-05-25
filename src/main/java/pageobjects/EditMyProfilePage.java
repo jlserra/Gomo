@@ -490,30 +490,30 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Street No. Text");
     }
 
-    //Street No.
-    @Step("Step: Verify if Street No. Label is Displayed")
-    public Boolean verifyStreetNoLabelIsDisplayed() throws Exception {
-        log.info("Step: Verify if Street No. Label is Displayed");
-        Assert.assertTrue(action.waitForElementToBeVisible("lblStreetNo", ConfigUtilities.Timers.normal));
-        Assert.assertEquals(excel.getTestdata("streetNoLbl"), action.getText("lblStreetNo"));
-        action.takeSnapShot("Street Label");
-        return action.isDisplayed("lblStreetNo");
+    //Building Name
+    @Step("Step: Verify if Building Name Label is Displayed")
+    public Boolean verifyBldgNameLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Building Name Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblBldgName", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("bldgNameLbl"), action.getText("lblBldgName"));
+        action.takeSnapShot("Building Name Label");
+        return action.isDisplayed("lblBldgName");
     }
 
-    @Step("Step: Verify if Street No. Text Field is Enabled")
-    public Boolean verifyIfStreetNoTextFieldIsEnabled() throws Exception {
-        log.info("Step: Verify if Street No. Text Field is Enabled");
-        Assert.assertTrue(action.waitForElementToBeVisible("txtfieldStreetNo", ConfigUtilities.Timers.normal));
-        action.takeSnapShot("Street No. Text Field");
-        return action.isEnabled("txtfieldStreetNo");
+    @Step("Step: Verify if Building Name Text Field is Enabled")
+    public Boolean verifyIfBldgNameTextFieldIsEnabled() throws Exception {
+        log.info("Step: Verify if Building Name Text Field is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("txtfieldBldgName", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Building Name Text Field");
+        return action.isEnabled("txtfieldBldgName");
     }
 
-    @Step("Step: Verify if Street No. Text is Displayed")
-    public void verifyStreetNoText() throws Exception {
-        log.info("Step: Verify if Street No. Text is Displayed");
-        Assert.assertTrue(verifyIfStreetNoTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultStreetNo"), action.getText("txtfieldStreetNo"));
-        action.takeSnapShot("Street No. Text");
+    @Step("Step: Verify if Building Name Text is Displayed")
+    public void verifyBldgNameText() throws Exception {
+        log.info("Step: Verify if Building Name Text is Displayed");
+        Assert.assertTrue(verifyIfBldgNameTextFieldIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultBldgName"), action.getText("txtfieldBldgName"));
+        action.takeSnapShot("Building Name Text");
     }
 
 
@@ -567,6 +567,8 @@ public class EditMyProfilePage extends BasePage {
         verifyFlrUnitNoText();
         Assert.assertTrue(verifyStreetNoLabelIsDisplayed());
         verifyStreetNoText();
+        Assert.assertTrue(verifyBldgNameLabelIsDisplayed());
+        verifyBldgNameText();
     }
 
 }
