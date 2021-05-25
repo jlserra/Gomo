@@ -1,17 +1,9 @@
 package pageobjects;
 
-import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.MobileDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
-import utilities.ActionUtilities;
 import utilities.ConfigUtilities;
-
-import java.util.HashMap;
 
 public class EditMyProfilePage extends BasePage {
 
@@ -334,7 +326,7 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Department Text");
     }
 
-//Edit Business Information Page
+//Edit Business Information First Page
     @Step("Step: Verify if the user is in Edit My Profile Business Information - First Page")
     public void verifyIfEditMyProfileBusinessInfoPage() throws Exception {
         log.info("Step: Verify if the user is in Edit My Profile Business Information - First Page");
@@ -429,7 +421,7 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("No. Of Employees Dropdown Text");
     }
 
-//Edit Personal Information Page
+//Edit Business Information Second Page
     @Step("Step: Verify Edit My Profile Page - Business Information Second Page Spiel")
     public void verifyEditMyProfileBusinessInfoSpiel2() throws Exception {
         log.info("Step: Verify Edit My Profile Page - Business Information Second Page Spiel");
@@ -516,6 +508,220 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Building Name Text");
     }
 
+    //Street Name
+    @Step("Step: Verify if Street Name Label is Displayed")
+    public Boolean verifyStreetNameLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Street Name Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblStreetName", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("streetNameLbl"), action.getText("lblStreetName"));
+        action.takeSnapShot("Street Name Label");
+        return action.isDisplayed("lblStreetName");
+    }
+
+    @Step("Step: Verify if Street Name Text Field is Enabled")
+    public Boolean verifyIfStreetNameTextFieldIsEnabled() throws Exception {
+        log.info("Step: Verify if Street Name Text Field is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("txtfieldStreetName", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Street Name Text Field");
+        return action.isEnabled("txtfieldStreetName");
+    }
+
+    @Step("Step: Verify if Street Name Text is Displayed")
+    public void verifyStreetNameText() throws Exception {
+        log.info("Step: Verify if Street Name Text is Displayed");
+        Assert.assertTrue(verifyIfStreetNameTextFieldIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultStreetName"), action.getText("txtfieldStreetName"));
+        action.takeSnapShot("Street Name Text");
+    }
+
+    //Country
+    @Step("Step: Verify if Country Label is Displayed")
+    public Boolean verifyCountryLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Country Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblCountry", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("countryLbl"), action.getText("lblCountry"));
+        action.takeSnapShot("Country Label");
+        return action.isDisplayed("lblCountry");
+    }
+
+    @Step("Step: Verify if Country Dropdown is Enabled")
+    public Boolean verifyIfCountryDropdownIsEnabled() throws Exception {
+        log.info("Step: Verify if Country Dropdown is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("dropdownCountry", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Country Dropdown");
+        return action.isEnabled("dropdownCountry");
+    }
+
+    @Step("Step: Verify if Country Text is Displayed")
+    public void verifyCountryText() throws Exception {
+        log.info("Step: Verify if Country Text is Displayed");
+        Assert.assertTrue(verifyIfCountryDropdownIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultCountry"), action.getText("dropdownCountryDesc"));
+        action.takeSnapShot("Country Text");
+    }
+
+    //Province
+    @Step("Step: Verify if Province Label is Displayed")
+    public Boolean verifyProvinceLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Province Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblProvince", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("provinceLbl"), action.getText("lblProvince"));
+        action.takeSnapShot("Province Label");
+        return action.isDisplayed("lblProvince");
+    }
+
+    @Step("Step: Verify if Province Dropdown is Enabled")
+    public Boolean verifyIfProvinceDropdownIsEnabled() throws Exception {
+        log.info("Step: Verify if Province Dropdown is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("dropdownProvince", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Province Dropdown");
+        return action.isEnabled("dropdownProvince");
+    }
+
+    @Step("Step: Verify if Province Text is Displayed")
+    public void verifyProvinceText() throws Exception {
+        log.info("Step: Verify if Province Text is Displayed");
+        Assert.assertTrue(verifyIfProvinceDropdownIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultProvince"), action.getText("dropdownProvinceDesc"));
+        action.takeSnapShot("Province Text");
+    }
+
+    //City
+    @Step("Step: Verify if City Label is Displayed")
+    public Boolean verifyCityLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if City Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblCity", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("cityLbl"), action.getText("lblCity"));
+        action.takeSnapShot("City Label");
+        return action.isDisplayed("lblCity");
+    }
+
+    @Step("Step: Verify if City Dropdown is Enabled")
+    public Boolean verifyIfCityDropdownIsEnabled() throws Exception {
+        log.info("Step: Verify if City Dropdown is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("dropdownCity", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("City Dropdown");
+        return action.isEnabled("dropdownCity");
+    }
+
+    @Step("Step: Verify if City Text is Displayed")
+    public void verifyCityText() throws Exception {
+        log.info("Step: Verify if City Text is Displayed");
+        Assert.assertTrue(verifyIfCityDropdownIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultCity"), action.getText("dropdownCityDesc"));
+        action.takeSnapShot("City Text");
+    }
+
+    //Barangay
+    @Step("Step: Verify if Barangay Label is Displayed")
+    public Boolean verifyBrgyLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Barangay Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblBrgy", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("brgyLbl"), action.getText("lblBrgy"));
+        action.takeSnapShot("Barangay Label");
+        return action.isDisplayed("lblBrgy");
+    }
+
+    @Step("Step: Verify if Barangay Dropdown is Enabled")
+    public Boolean verifyIfBrgyDropdownIsEnabled() throws Exception {
+        log.info("Step: Verify if Barangay Dropdown is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("dropdownBrgy", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Barangay Dropdown");
+        return action.isEnabled("dropdownBrgy");
+    }
+
+    @Step("Step: Verify if Barangay Text is Displayed")
+    public void verifyBrgyText() throws Exception {
+        log.info("Step: Verify if Barangay Text is Displayed");
+        Assert.assertTrue(verifyIfBrgyDropdownIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultBrgy"), action.getText("dropdownBrgyDesc"));
+        action.takeSnapShot("Barangay Text");
+    }
+
+    //Postal Code
+    @Step("Step: Verify if Postal Code Label is Displayed")
+    public Boolean verifyPostalCodeLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Postal Code Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblPostalCode", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("postalCodeLbl"), action.getText("lblPostalCode"));
+        action.takeSnapShot("Postal Code Label");
+        return action.isDisplayed("lblPostalCode");
+    }
+
+    @Step("Step: Verify if Postal Code Text Field is Enabled")
+    public Boolean verifyIfPostalCodeTextFieldIsEnabled() throws Exception {
+        log.info("Step: Verify if Postal Code Text Field is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("txtfieldPostalCode", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Postal Code Text Field");
+        return action.isEnabled("txtfieldPostalCode");
+    }
+
+    @Step("Step: Verify if Postal Code Text is Displayed")
+    public void verifyPostalCodeText() throws Exception {
+        log.info("Step: Verify if Postal Code Text is Displayed");
+        Assert.assertTrue(verifyIfPostalCodeTextFieldIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultPostalCode"), action.getText("txtfieldPostalCode"));
+        action.takeSnapShot("Postal Code Text");
+    }
+
+    //Landline No
+    @Step("Step: Verify if Landline No Label is Displayed")
+    public Boolean verifyLandlineNoLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Landline No Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblLandlineNo", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("landlineNoLbl"), action.getText("lblLandlineNo"));
+        action.takeSnapShot("Landline No Label");
+        return action.isDisplayed("lblLandlineNo");
+    }
+
+    @Step("Step: Verify if Landline No Text Field is Enabled")
+    public Boolean verifyIfLandlineNoTextFieldIsEnabled() throws Exception {
+        log.info("Step: Verify if Landline No Text Field is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("txtfieldLandlineNo", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Landline No Text Field");
+        return action.isEnabled("txtfieldLandlineNo");
+    }
+
+    @Step("Step: Verify if Landline No Text is Displayed")
+    public void verifyLandlineNoText() throws Exception {
+        log.info("Step: Verify if Landline No Text is Displayed");
+        Assert.assertTrue(verifyIfLandlineNoTextFieldIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultLandlineNo"), action.getText("txtfieldLandlineNo"));
+        action.takeSnapShot("Landline No Text");
+    }
+
+    @Step("Step: Verify Consent Header Spiel")
+    public void verifyConsentHeaderSpiel() throws Exception {
+        log.info("Step: Step: Verify Consent Header Spiel");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblConsentHdr", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("consentHdrLbl"), action.getText("lblConsentHdr"));
+        action.takeSnapShot("Consent Header Spiel");
+    }
+
+    @Step("Step: Verify Consent Message Spiel")
+    public void verifyConsentMsgSpiel() throws Exception {
+        log.info("Step: Step: Verify Consent Message Spiel");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblConsentMsg", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("consentMsgLbl"), action.getText("lblConsentMsg"));
+        action.takeSnapShot("Consent Message Spiel");
+    }
+
+    @Step("Step: Verify if Save Button is Enabled")
+    public Boolean VerifyIfSaveBtnIsEnabled() throws Exception {
+        log.info("Step: Verify if Back Button is enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnBackMyProfile", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("User clicked the Let's Go Button");
+        return action.isEnabled("btnBackMyProfile");
+    }
+
+    @Step("Step: Click Save My Profile Button")
+    public void clickSaveBtn() throws Exception {
+        log.info("Step: Click Save Button");
+        Assert.assertTrue(VerifyIfSaveBtnIsEnabled());
+        action.click("btnSaveMyProfile");
+        action.takeSnapShot("Click Save My Profile Button");
+    }
+
 
 //TEST STEPS
 
@@ -569,6 +775,23 @@ public class EditMyProfilePage extends BasePage {
         verifyStreetNoText();
         Assert.assertTrue(verifyBldgNameLabelIsDisplayed());
         verifyBldgNameText();
+        Assert.assertTrue(verifyStreetNameLabelIsDisplayed());
+        verifyStreetNameText();
+        Assert.assertTrue(verifyCountryLabelIsDisplayed());
+        verifyCountryText();
+        Assert.assertTrue(verifyProvinceLabelIsDisplayed());
+        verifyProvinceText();
+        Assert.assertTrue(verifyCityLabelIsDisplayed());
+        verifyCityText();
+        Assert.assertTrue(verifyBrgyLabelIsDisplayed());
+        verifyBrgyText();
+        action.swipe("lblBrgy", "lblFlrUnitNo");
+        Assert.assertTrue(verifyPostalCodeLabelIsDisplayed());
+        verifyPostalCodeText();
+        Assert.assertTrue(verifyLandlineNoLabelIsDisplayed());
+        verifyLandlineNoText();
+        verifyConsentHeaderSpiel();
+        verifyConsentMsgSpiel();
     }
 
 }
