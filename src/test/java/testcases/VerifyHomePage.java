@@ -84,13 +84,13 @@ public class VerifyHomePage extends BaseTestcase{
     }
 
 
-    @Test(testName = "VerifyClickExpandAnnouncement", priority = 7)
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will click the Expand Button")
-    @Story("Story: Verify Click Expand Button")
-    public void verifyClickExpandButtonAnnouncement() throws Exception {
-        verifyHomePage();
-        homePage.verifyClickExpandButtonAnnouncement();
-    }
+//    @Test(testName = "VerifyClickExpandAnnouncement", priority = 7)
+//    @Severity(SeverityLevel.NORMAL)
+//    @Description("Test Description: User will click the Expand Button")
+//    @Story("Story: Verify Click Expand Button")
+//    public void verifyClickExpandButtonAnnouncement() throws Exception {
+//        verifyHomePage();
+//        homePage.verifyClickExpandButtonAnnouncement();
+//    }
 
 }
