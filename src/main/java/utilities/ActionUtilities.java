@@ -7,10 +7,7 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Attachment;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -364,6 +361,20 @@ public class ActionUtilities {
         action.longPress(PointOption.point(startx, starty)).moveTo(PointOption.point(endx, endy)).release().perform();
         log.info("Swiping " + dir);
 
+    }
+
+    public void swipe(String locator1, String locator2) throws Exception {
+
+        MobileElement element1 = (MobileElement) driver.findElement(getLocator(locator1));
+        Point location1 = element1.getLocation();
+
+        MobileElement element2 = (MobileElement) driver.findElement(getLocator(locator2));
+        Point location2 = element2.getLocation();
+
+        TouchAction action = new TouchAction(driver);
+
+        action.press(PointOption.point(location1)).moveTo(PointOption.point(location2)).release().perform();
+        log.info("Swiping");
     }
 
     public MobileElement findElementBy(String loc) {
