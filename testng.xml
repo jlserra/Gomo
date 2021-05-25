@@ -7,8 +7,9 @@
             <class name="testcases.VerifyEditMyProfilePage">
                 <methods>
                     <!-- <include name="verifyEditMyProfilePersonalInfoPage"/>
-                     <include name="verifyEditMyProfileBusinessInfoFirstPage"/>-->
-                    <include name="verifyEditMyProfileBusinessInfoSecPage"/>
+                    <include name="verifyEditMyProfileBusinessInfoFirstPage"/>
+                    <include name="verifyEditMyProfileBusinessInfoSecPage"/> -->
+                    <include name="verifyEnterValidValuesInEditMyProfilePage"/>
                 </methods>
             </class>
         </classes>

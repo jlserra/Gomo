@@ -33,7 +33,7 @@ public class EditMyProfilePage extends BasePage {
     public Boolean VerifyIfNextBtnIsEnabled() throws Exception {
         log.info("Step: Verify if Next Button is enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnNextMyProfile", ConfigUtilities.Timers.normal));
-        action.takeSnapShot("User clicked the Let's Go Button");
+        action.takeSnapShot("User clicked the Next Button");
         return action.isEnabled("btnNextMyProfile");
     }
 
@@ -49,7 +49,7 @@ public class EditMyProfilePage extends BasePage {
     public Boolean VerifyIfBackBtnIsEnabled() throws Exception {
         log.info("Step: Verify if Back Button is enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnBackMyProfile", ConfigUtilities.Timers.normal));
-        action.takeSnapShot("User clicked the Let's Go Button");
+        action.takeSnapShot("User clicked the Back Go Button");
         return action.isEnabled("btnBackMyProfile");
     }
 
@@ -121,6 +121,15 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("First Name Text");
     }
 
+    @Step("Step: Enter First Name")
+    public void enterFirstName(String text) throws Exception {
+        log.info("Step: Enter First Name");
+        Assert.assertTrue(verifyIfFirstNameTextFieldIsEnabled());
+        action.clearTextField(action.getElements("txtfieldFirstName"));
+        action.sendKeys("txtfieldFirstName", text);
+        action.takeSnapShot("Enter First Name");
+    }
+
     //Nick Name
     @Step("Step: Verify Nick Name Label")
     public Boolean verifyNickNameLabelIsDisplayed() throws Exception {
@@ -147,7 +156,14 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Nick Name Text");
     }
 
-
+    @Step("Step: Enter Nick Name")
+    public void enterNickName(String text) throws Exception {
+        log.info("Step: Enter Nick Name");
+        Assert.assertTrue(verifyIfNickNameTextFieldIsEnabled());
+        action.clearTextField(action.getElements("txtfieldNickName2"));
+        action.sendKeys("txtfieldNickName2", text);
+        action.takeSnapShot("Enter Nick Name");
+    }
 
     //Middle Name
     @Step("Step: Verify Middle Name Label")
@@ -173,6 +189,15 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfMiddleNameTextFieldIsEnabled());
         Assert.assertEquals(excel.getTestdata("defaultMiddleName"), action.getText("txtfieldMiddleName"));
         action.takeSnapShot("Middle Name Text");
+    }
+
+    @Step("Step: Enter Middle Name")
+    public void enterMiddleName(String text) throws Exception {
+        log.info("Step: Enter Middle Name");
+        Assert.assertTrue(verifyIfMiddleNameTextFieldIsEnabled());
+        action.clearTextField(action.getElements("txtfieldMiddleName"));
+        action.sendKeys("txtfieldMiddleName", text);
+        action.takeSnapShot("Enter Middle Name");
     }
 
     //Last Name
@@ -201,6 +226,15 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Last Name Text");
     }
 
+    @Step("Step: Enter Last Name")
+    public void enterLastName(String text) throws Exception {
+        log.info("Step: Enter Last Name");
+        Assert.assertTrue(verifyIfLastNameTextFieldIsEnabled());
+        action.clearTextField(action.getElements("txtfieldLastName"));
+        action.sendKeys("txtfieldLastName", text);
+        action.takeSnapShot("Enter Last Name");
+    }
+
     //Suffix
     @Step("Step: Verify Suffix Label")
     public Boolean verifySuffixLabelIsDisplayed() throws Exception {
@@ -224,6 +258,15 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfSuffixTextFieldIsEnabled());
         Assert.assertEquals(excel.getTestdata("defaultSuffix"), action.getText("txtfieldSuffix"));
         action.takeSnapShot("Suffix Text");
+    }
+
+    @Step("Step: Enter Suffix")
+    public void enterSuffix(String text) throws Exception {
+        log.info("Step: Enter Suffix");
+        Assert.assertTrue(verifyIfSuffixTextFieldIsEnabled());
+        action.clearTextField(action.getElements("txtfieldSuffix"));
+        action.sendKeys("txtfieldSuffix", text);
+        action.takeSnapShot("Enter Suffix");
     }
 
     //Mobile Number
@@ -692,7 +735,7 @@ public class EditMyProfilePage extends BasePage {
 
     @Step("Step: Verify Consent Header Spiel")
     public void verifyConsentHeaderSpiel() throws Exception {
-        log.info("Step: Step: Verify Consent Header Spiel");
+        log.info("Step: Verify Consent Header Spiel");
         Assert.assertTrue(action.waitForElementToBeVisible("lblConsentHdr", ConfigUtilities.Timers.normal));
         Assert.assertEquals(excel.getTestdata("consentHdrLbl"), action.getText("lblConsentHdr"));
         action.takeSnapShot("Consent Header Spiel");
@@ -700,18 +743,18 @@ public class EditMyProfilePage extends BasePage {
 
     @Step("Step: Verify Consent Message Spiel")
     public void verifyConsentMsgSpiel() throws Exception {
-        log.info("Step: Step: Verify Consent Message Spiel");
+        log.info("Step: Verify Consent Message Spiel");
         Assert.assertTrue(action.waitForElementToBeVisible("lblConsentMsg", ConfigUtilities.Timers.normal));
         Assert.assertEquals(excel.getTestdata("consentMsgLbl"), action.getText("lblConsentMsg"));
         action.takeSnapShot("Consent Message Spiel");
     }
 
-    @Step("Step: Verify if Save Button is Enabled")
+    @Step("Step: Verify if Save My Profile Button is Enabled")
     public Boolean VerifyIfSaveBtnIsEnabled() throws Exception {
-        log.info("Step: Verify if Back Button is enabled");
-        Assert.assertTrue(action.waitForElementToBeVisible("btnBackMyProfile", ConfigUtilities.Timers.normal));
-        action.takeSnapShot("User clicked the Let's Go Button");
-        return action.isEnabled("btnBackMyProfile");
+        log.info("Step: Verify if Save My Profile Button is enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnSaveMyProfile", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("User clicked the Save My Profile Button");
+        return action.isEnabled("btnSaveMyProfile");
     }
 
     @Step("Step: Click Save My Profile Button")
@@ -720,6 +763,40 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(VerifyIfSaveBtnIsEnabled());
         action.click("btnSaveMyProfile");
         action.takeSnapShot("Click Save My Profile Button");
+    }
+
+//Thank You Page
+
+    @Step("Step: Verify We'll Get Back To You Message Spiel")
+    public void verifyGetBackMsgSpiel() throws Exception {
+        log.info("Step: Verify We'll Get Back To You Message Spiel");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblSaveMsg1", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("saveMsg1"), action.getText("lblSaveMsg1"));
+        action.takeSnapShot("We'll Get Back To You Message Spiel");
+    }
+
+    @Step("Step: Verify Thank You Message Spiel")
+    public void verifyThankYouMsgSpiel() throws Exception {
+        log.info("Step: Verify Thank You Message Spiel");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblSaveMsg2", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("saveMsg2"), action.getText("lblSaveMsg2"));
+        action.takeSnapShot("Thank You Message Spiel");
+    }
+
+    @Step("Step: Verify if Next Button is Enabled")
+    public Boolean VerifyIfThankYouPageNextBtnIsEnabled() throws Exception {
+        log.info("Step: Verify if Next Button is enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("btnNextAfterSavingProfile", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("User clicked the Next Button");
+        return action.isEnabled("btnNextAfterSavingProfile");
+    }
+
+    @Step("Step: Click Next Button")
+    public void clickThankYouPageNextBtn() throws Exception {
+        log.info("Step: Click Save Button");
+        Assert.assertTrue(VerifyIfThankYouPageNextBtnIsEnabled());
+        action.click("btnNextAfterSavingProfile");
+        action.takeSnapShot("Click Next Button");
     }
 
 
@@ -793,5 +870,17 @@ public class EditMyProfilePage extends BasePage {
         verifyConsentHeaderSpiel();
         verifyConsentMsgSpiel();
     }
+
+    @Step("Step: Verify Edit My Profile Business Information First Page")
+    public void enterValidValuesInPersonalInfo() throws Exception {
+        clickEditMyProfileBtn();
+        verifyIfEditMyProfilePage();
+        enterFirstName(excel.getTestdata("validFirstName"));
+        enterNickName(excel.getTestdata("validNickName"));
+        enterMiddleName(excel.getTestdata("validMiddleName"));
+        enterLastName(excel.getTestdata("validLastName"));
+        enterSuffix(excel.getTestdata("validSuffix"));
+    }
+
 
 }
