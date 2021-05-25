@@ -335,17 +335,17 @@ public class EditMyProfilePage extends BasePage {
     }
 
 //Edit Business Information Page
-    @Step("Step: Verify if the user is in Edit My Profile Business Information Page")
+    @Step("Step: Verify if the user is in Edit My Profile Business Information - First Page")
     public void verifyIfEditMyProfileBusinessInfoPage() throws Exception {
-        log.info("Step: Verify if the user is in Edit My Profile Business Information Page");
+        log.info("Step: Verify if the user is in Edit My Profile Business Information - First Page");
         Assert.assertTrue(action.waitForElementToBeVisible("lblBusinessInfo", ConfigUtilities.Timers.normal));
         Assert.assertEquals(excel.getTestdata("businessInfoLbl"), action.getText("lblBusinessInfo"));
         action.takeSnapShot("Edit My Profile Business Information Page");
     }
 
-    @Step("Step: Verify Edit My Profile Page - Business Information Spiel")
+    @Step("Step: Verify Edit My Profile Page - Business Information First Page Spiel")
     public void verifyEditMyProfileBusinessInfoSpiel() throws Exception {
-        log.info("Step: Verify Edit My Profile Page - Business Information Spiel");
+        log.info("Step: Verify Edit My Profile Page - Business Information First Page Spiel");
         Assert.assertTrue(action.waitForElementToBeVisible("lblBusinessInfoSpiel", ConfigUtilities.Timers.normal));
         Assert.assertEquals(excel.getTestdata("businessInfoSpiel"), action.getText("lblBusinessInfoSpiel"));
         action.takeSnapShot("Edit My Profile Business Information Spiel");
@@ -429,6 +429,93 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("No. Of Employees Dropdown Text");
     }
 
+//Edit Personal Information Page
+    @Step("Step: Verify Edit My Profile Page - Business Information Second Page Spiel")
+    public void verifyEditMyProfileBusinessInfoSpiel2() throws Exception {
+        log.info("Step: Verify Edit My Profile Page - Business Information Second Page Spiel");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblBusinessInfoSpiel2", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("businessInfoSpiel2"), action.getText("lblBusinessInfoSpiel2"));
+        action.takeSnapShot("Edit My Profile - Business Information Second Page Spiel");
+    }
+
+    //Floor/Unit No.
+    @Step("Step: Verify if Floor/Unit No. Label is Displayed")
+    public Boolean verifyFlrUnitNoLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Floor/Unit No. Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblFlrUnitNo", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("flrUnitNoLbl"), action.getText("lblFlrUnitNo"));
+        action.takeSnapShot("Floor/Unit Label");
+        return action.isDisplayed("lblFlrUnitNo");
+    }
+
+    @Step("Step: Verify if Floor/Unit No. Text Field is Enabled")
+    public Boolean verifyIfFlrUnitNoTextFieldIsEnabled() throws Exception {
+        log.info("Step: Verify if Floor/Unit No. Text Field is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("txtfieldFlrUnitNo", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Floor/Unit No. Text Field");
+        return action.isEnabled("txtfieldFlrUnitNo");
+    }
+
+    @Step("Step: Verify if Floor/Unit No. Text is Displayed")
+    public void verifyFlrUnitNoText() throws Exception {
+        log.info("Step: Verify if Floor/Unit No. Text is Displayed");
+        Assert.assertTrue(verifyIfFlrUnitNoTextFieldIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultFlrUnitNo"), action.getText("txtfieldFlrUnitNo"));
+        action.takeSnapShot("Floor/Unit No. Text");
+    }
+
+    //Street No.
+    @Step("Step: Verify if Street No. Label is Displayed")
+    public Boolean verifyStreetNoLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Street No. Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblStreetNo", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("streetNoLbl"), action.getText("lblStreetNo"));
+        action.takeSnapShot("Street Label");
+        return action.isDisplayed("lblStreetNo");
+    }
+
+    @Step("Step: Verify if Street No. Text Field is Enabled")
+    public Boolean verifyIfStreetNoTextFieldIsEnabled() throws Exception {
+        log.info("Step: Verify if Street No. Text Field is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("txtfieldStreetNo", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Street No. Text Field");
+        return action.isEnabled("txtfieldStreetNo");
+    }
+
+    @Step("Step: Verify if Street No. Text is Displayed")
+    public void verifyStreetNoText() throws Exception {
+        log.info("Step: Verify if Street No. Text is Displayed");
+        Assert.assertTrue(verifyIfStreetNoTextFieldIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultStreetNo"), action.getText("txtfieldStreetNo"));
+        action.takeSnapShot("Street No. Text");
+    }
+
+    //Street No.
+    @Step("Step: Verify if Street No. Label is Displayed")
+    public Boolean verifyStreetNoLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify if Street No. Label is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblStreetNo", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("streetNoLbl"), action.getText("lblStreetNo"));
+        action.takeSnapShot("Street Label");
+        return action.isDisplayed("lblStreetNo");
+    }
+
+    @Step("Step: Verify if Street No. Text Field is Enabled")
+    public Boolean verifyIfStreetNoTextFieldIsEnabled() throws Exception {
+        log.info("Step: Verify if Street No. Text Field is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("txtfieldStreetNo", ConfigUtilities.Timers.normal));
+        action.takeSnapShot("Street No. Text Field");
+        return action.isEnabled("txtfieldStreetNo");
+    }
+
+    @Step("Step: Verify if Street No. Text is Displayed")
+    public void verifyStreetNoText() throws Exception {
+        log.info("Step: Verify if Street No. Text is Displayed");
+        Assert.assertTrue(verifyIfStreetNoTextFieldIsEnabled());
+        Assert.assertEquals(excel.getTestdata("defaultStreetNo"), action.getText("txtfieldStreetNo"));
+        action.takeSnapShot("Street No. Text");
+    }
+
 
 //TEST STEPS
 
@@ -453,16 +540,15 @@ public class EditMyProfilePage extends BasePage {
         verifyMobileNumberText();
         Assert.assertTrue(verifyEmailAddressLabelIsDisplayed());
         verifyEmailAddressText();
-        action.swipe(ActionUtilities.Direction.UP);
-        action.swipe(ActionUtilities.Direction.UP);
+        action.swipe("lblPosition", "lblMobileNumber");
         Assert.assertTrue(verifyPositionLabelIsDisplayed());
         verifyPositionText();
         Assert.assertTrue(verifyDepartmentLabelIsDisplayed());
         verifyDepartmentText();
     }
 
-    @Step("Step: Verify Edit My Profile Business Information Page")
-    public void verifyEditMyProfileBusinessInfo() throws Exception {
+    @Step("Step: Verify Edit My Profile Business Information First Page")
+    public void verifyEditMyProfileBusinessInfoFirstPage() throws Exception {
         verifyIfEditMyProfileBusinessInfoPage();
         verifyEditMyProfileBusinessInfoSpiel();
         Assert.assertTrue(verifyBusinessNameLabelIsDisplayed());
@@ -471,6 +557,16 @@ public class EditMyProfilePage extends BasePage {
         verifyIndustryText();
         Assert.assertTrue(verifyNoOfEmployeesLabelIsDisplayed());
         verifyNoOfEmployeesText();
+    }
+
+    @Step("Step: Verify Edit My Profile Business Information First Page")
+    public void verifyEditMyProfileBusinessInfoSecPage() throws Exception {
+        verifyIfEditMyProfileBusinessInfoPage();
+        verifyEditMyProfileBusinessInfoSpiel2();
+        Assert.assertTrue(verifyFlrUnitNoLabelIsDisplayed());
+        verifyFlrUnitNoText();
+        Assert.assertTrue(verifyStreetNoLabelIsDisplayed());
+        verifyStreetNoText();
     }
 
 }

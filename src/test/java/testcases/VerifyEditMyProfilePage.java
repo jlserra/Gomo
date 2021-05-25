@@ -57,19 +57,30 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
 
     }
 
-    @Test(testName = "verifyEditMyProfileBusinessInfoPage", priority = 2)
+    @Test(testName = "verifyEditMyProfileBusinessInfoFirstPage", priority = 2)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will check for the Edit My Profile Business Information Page")
+    @Description("Test Description: User will check for the Edit My Profile Business Information First Page")
     @Story("Story: Edit My Profile")
-    public void verifyEditMyProfileBusinessInfoPage() throws Exception {
+    public void verifyEditMyProfileBusinessInfoFirstPage() throws Exception {
 
         verifyEditMyProfilePersonalInfoPage();
         editMyProfilePage.clickNextBtn();
         editMyProfilePage.clickBackBtn();
         editMyProfilePage.verifyIfEditMyProfilePage();
         editMyProfilePage.clickNextBtn();
-        editMyProfilePage.verifyEditMyProfileBusinessInfo();
+        editMyProfilePage.verifyEditMyProfileBusinessInfoFirstPage();
+    }
 
+    @Test(testName = "verifyEditMyProfileBusinessInfoSecPage", priority = 3)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will check for the Edit My Profile Business Information Second Page")
+    @Story("Story: Edit My Profile")
+    public void verifyEditMyProfileBusinessInfoSecPage() throws Exception {
 
+        verifyEditMyProfilePersonalInfoPage();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.verifyEditMyProfileBusinessInfoFirstPage();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.verifyEditMyProfileBusinessInfoSecPage();
     }
 }

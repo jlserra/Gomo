@@ -2,12 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="/Users/abrahamora/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyGetStartedTestcase.java">
+          name="/Users/lalainealonzo/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyEditMyProfilePage.java">
         <classes>
-            <class name="testcases.VerifyGetStartedTestcase">
+            <class name="testcases.VerifyEditMyProfilePage">
                 <methods>
-<!--                    <include name="verifyGetStartedPages"/>-->
-                    <include name="clickButtonGetStarted"/>
+                    <!-- <include name="verifyEditMyProfilePersonalInfoPage"/>
+                     <include name="verifyEditMyProfileBusinessInfoFirstPage"/>-->
+                    <include name="verifyEditMyProfileBusinessInfoSecPage"/>
                 </methods>
             </class>
         </classes>
