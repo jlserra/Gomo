@@ -197,12 +197,12 @@ public class HomePage extends BasePage{
         verifyHowToLoadIsEnabled();
         verifyDashBoardBalanceIsDisplayed();
         verifyRefreshIsEnabled();
-        //verifyExpandAnnouncementIsEnabled();
+        verifyExpandAnnouncementIsEnabled();
         verifyLblNameHomePageIsDisplayed();
         action.swipe(ActionUtilities.Direction.UP);
         verifyBtnAddModemIsEnabled();
         clickRefreshBtn();
-        //verifyPrpdIntrntModemIsDisPlayed();
+        verifyPrpdIntrntModemIsDisPlayed();
     }
 
     @Step("Step: Verify Notification")
@@ -236,10 +236,10 @@ public class HomePage extends BasePage{
         clickGetMoreData();
     }
 
-    @Step("Step: Verify Expand Button")
-    public void verifyClickExpandButtonAnnouncement() throws Exception {
-        verifyExpandAnnouncementIsEnabled();
-        clickExpandAnnouncementBtn();
-    }
+//    @Step("Step: Verify Expand Button")
+//    public void verifyClickExpandButtonAnnouncement() throws Exception {
+//        verifyExpandAnnouncementIsEnabled();
+//        clickExpandAnnouncementBtn();
+//    }
 
 }

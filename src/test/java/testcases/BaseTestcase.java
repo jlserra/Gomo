@@ -41,6 +41,7 @@ public class BaseTestcase {
     public GetMoreDataPage getMoreDataPage;
     public MyProfilePage myProfilePage;
     public EditMyProfilePage editMyProfilePage;
+    public MyVoucherPage myVoucherPage;
 
 
 //    Utilities
@@ -71,6 +72,7 @@ public class BaseTestcase {
         getMoreDataPage = new GetMoreDataPage(driver);
         myProfilePage = new MyProfilePage(driver);
         editMyProfilePage = new EditMyProfilePage(driver);
+        myVoucherPage = new MyVoucherPage(driver);
 
     }
 

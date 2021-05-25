@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/Users/lalainealonzo/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyEditMyProfilePage.java">
+    <test verbose="2" preserve-order="true"
+          name="/Users/abrahamora/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyGetStartedTestcase.java">
         <classes>
-            <class name="testcases.VerifyEditMyProfilePage">
+            <class name="testcases.VerifyGetStartedTestcase">
                 <methods>
-                    <!-- <include name="verifyEditMyProfilePersonalInfoPage"/> -->
-                    <include name="verifyEditMyProfileBusinessInfoPage"/>
+<!--                    <include name="verifyGetStartedPages"/>-->
+                    <include name="clickButtonGetStarted"/>
                 </methods>
             </class>
         </classes>
