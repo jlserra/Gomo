@@ -51,9 +51,9 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         editMyProfilePage.verifyEditMyProfileBusinessInfoSecPage();
     }
 
-    @Test(testName = "verifyEditMyProfileBusinessInfoSecPage", priority = 4)
+    @Test(testName = "verifyEnterValidValuesInEditMyProfilePage", priority = 4)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will check for the Edit My Profile Business Information Second Page")
+    @Description("Test Description: User will enter valid values in Edit My Profile Pages")
     @Story("Story: Edit My Profile")
     public void verifyEnterValidValuesInEditMyProfilePage() throws Exception {
 
