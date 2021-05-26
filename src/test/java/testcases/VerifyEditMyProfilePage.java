@@ -59,11 +59,11 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         navigateToMyProfile();
         editMyProfilePage.enterValidValuesInPersonalInfo();
         editMyProfilePage.clickNextBtn();
-        editMyProfilePage.verifyIfEditMyProfileBusinessInfoPage();
+        editMyProfilePage.enterValidValuesInBusinessInfoFirstPage();
     }
 
 
-    //Navigate to My Profile Page
+//Navigate to My Profile Page
     public void navigateToMyProfile() throws Exception {
         //Get Started
         assertTrue(getStartedPage.verifyIfGetStartedPage());

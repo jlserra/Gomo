@@ -1,9 +1,15 @@
 package pageobjects;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import utilities.ConfigUtilities;
+
+import java.util.List;
 
 public class EditMyProfilePage extends BasePage {
 
@@ -294,6 +300,15 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Mobile Number Text");
     }
 
+    @Step("Step: Enter Mobile Number")
+    public void enterMobileNumber(String text) throws Exception {
+        log.info("Step: Enter Mobile Number");
+        Assert.assertTrue(verifyIfMobileNumberTextFieldIsEnabled());
+        action.clearTextField(action.getElements("txtfieldMobileNumber"));
+        action.sendKeys("txtfieldMobileNumber", text);
+        action.takeSnapShot("Enter Mobile Number");
+    }
+
     //Email Address
     @Step("Step: Verify Email Address Label")
     public Boolean verifyEmailAddressLabelIsDisplayed() throws Exception {
@@ -317,6 +332,15 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfEmailAddressTextFieldIsEnabled());
         Assert.assertEquals(excel.getTestdata("defaultEmailAddress"), action.getText("txtfieldEmailAddress"));
         action.takeSnapShot("Email Address Text");
+    }
+
+    @Step("Step: Enter Email Address")
+    public void enterEmailAddress(String text) throws Exception {
+        log.info("Step: Enter Email Address");
+        Assert.assertTrue(verifyIfEmailAddressTextFieldIsEnabled());
+        action.clearTextField(action.getElements("txtfieldEmailAddress"));
+        action.sendKeys("txtfieldEmailAddress", text);
+        action.takeSnapShot("Enter Mobile Number");
     }
 
     //Position
@@ -344,6 +368,18 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Position Text");
     }
 
+    @Step("Step: Choose a Position")
+    public void choosePosition(String text) throws Exception {
+        log.info("Step: Choose a Position");
+        Assert.assertTrue(verifyIfPositionDropdownIsEnabled());
+        action.click("dropdownPositionDesc");
+        MobileElement element = (MobileElement) driver.findElement(MobileBy.AndroidUIAutomator(
+                "new UiScrollable(new UiSelector().scrollable(true))" +
+                        ".scrollIntoView(new UiSelector().text(\"" + text + "\"))"));
+        element.click();
+        action.takeSnapShot("Choose a Position");
+    }
+
     //Department
     @Step("Step: Verify Department Label")
     public Boolean verifyDepartmentLabelIsDisplayed() throws Exception {
@@ -367,6 +403,18 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfDepartmentDropdownIsEnabled());
         Assert.assertEquals(excel.getTestdata("defaultDepartment"), action.getText("dropdownDepartmentDesc"));
         action.takeSnapShot("Department Text");
+    }
+
+    @Step("Step: Choose a Department")
+    public void chooseDepartment(String text) throws Exception {
+        log.info("Step: Choose a Department");
+        Assert.assertTrue(verifyIfDepartmentDropdownIsEnabled());
+        action.click("dropdownDepartmentDesc");
+        MobileElement element = (MobileElement) driver.findElement(MobileBy.AndroidUIAutomator(
+                "new UiScrollable(new UiSelector().scrollable(true))" +
+                        ".scrollIntoView(new UiSelector().text(\"" + text + "\"))"));
+        element.click();
+        action.takeSnapShot("Choose a Department");
     }
 
 //Edit Business Information First Page
@@ -871,7 +919,7 @@ public class EditMyProfilePage extends BasePage {
         verifyConsentMsgSpiel();
     }
 
-    @Step("Step: Verify Edit My Profile Business Information First Page")
+    @Step("Step: Enter Valid Values In Personal Information Page")
     public void enterValidValuesInPersonalInfo() throws Exception {
         clickEditMyProfileBtn();
         verifyIfEditMyProfilePage();
@@ -880,6 +928,17 @@ public class EditMyProfilePage extends BasePage {
         enterMiddleName(excel.getTestdata("validMiddleName"));
         enterLastName(excel.getTestdata("validLastName"));
         enterSuffix(excel.getTestdata("validSuffix"));
+        enterMobileNumber(excel.getTestdata("validMobileNo"));
+        enterEmailAddress(excel.getTestdata("validEmailAdd"));
+        action.swipe("lblPosition", "lblMobileNumber");
+        choosePosition(excel.getTestdata("validPosition"));
+        chooseDepartment(excel.getTestdata("validDepartment"));
+    }
+
+    @Step("Step: Enter Valid Values In Business Information First Page")
+    public void enterValidValuesInBusinessInfoFirstPage() throws Exception {
+        verifyIfEditMyProfileBusinessInfoPage();
+
     }
 
 
