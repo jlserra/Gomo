@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -60,10 +61,13 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         editMyProfilePage.enterValidValuesInPersonalInfo();
         editMyProfilePage.clickNextBtn();
         editMyProfilePage.enterValidValuesInBusinessInfoFirstPage();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.enterValidValuesInBusinessInfoSecPage();
+        Assert.assertTrue(editMyProfilePage.verifyIfSaveBtnIsEnabled());
     }
 
 
-//Navigate to My Profile Page
+    //Navigate to My Profile Page
     public void navigateToMyProfile() throws Exception {
         //Get Started
         assertTrue(getStartedPage.verifyIfGetStartedPage());
