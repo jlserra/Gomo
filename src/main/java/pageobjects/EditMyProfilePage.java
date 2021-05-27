@@ -250,6 +250,16 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Enter Mobile Number");
     }
 
+    @Step("Step: Verify if Invalid Mobile Number Error Message is Displayed")
+    public Boolean verifyIfMobileNoErrorMsgIsDisplayed() throws Exception {
+        log.info("Step: Verify if Invalid Mobile Number Error Message is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblMobileNoErrorMsg", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("MobileNoErrorMsg"), action.getText("lblMobileNoErrorMsg"));
+        action.takeSnapShot("Invalid Mobile Number Error Message");
+        return action.isDisplayed("lblMobileNoErrorMsg");
+    }
+
+
     //Email Address
     @Step("Step: Verify Email Address Label")
     public Boolean verifyEmailAddressLabelIsDisplayed() throws Exception {
@@ -274,6 +284,15 @@ public class EditMyProfilePage extends BasePage {
         action.clearTextField(action.getElements("txtfieldEmailAddress"));
         action.sendKeys("txtfieldEmailAddress", text);
         action.takeSnapShot("Enter Mobile Number");
+    }
+
+    @Step("Step: Verify if Invalid Email Address Error Message is Displayed")
+    public Boolean verifyIfEmailAddErrorMsgIsDisplayed() throws Exception {
+        log.info("Step: Verify if Invalid Email Address Error Message is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblEmailErrorMsg", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("EmailErrorMsg"), action.getText("lblEmailErrorMsg"));
+        action.takeSnapShot("Invalid Email Address Error Message");
+        return action.isDisplayed("lblEmailErrorMsg");
     }
 
     //Position
@@ -705,6 +724,15 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Enter Landline No");
     }
 
+    @Step("Step: Verify if Invalid Landline No Error Message is Displayed")
+    public Boolean verifyIfLandlineErrorMsgIsDisplayed() throws Exception {
+        log.info("Step: Verify if Invalid Landline No Error Message is Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblLandlineErrorMsg", ConfigUtilities.Timers.normal));
+        Assert.assertEquals(excel.getTestdata("LandlineErrorMsg"), action.getText("lblLandlineErrorMsg"));
+        action.takeSnapShot("Invalid Landline No Error Message");
+        return action.isDisplayed("lblLandlineErrorMsg");
+    }
+
     //Consent
     @Step("Step: Verify Consent Header Spiel")
     public void verifyConsentHeaderSpiel() throws Exception {
@@ -792,7 +820,6 @@ public class EditMyProfilePage extends BasePage {
     @Step("Step: Verify Edit My Profile Personal Information Page")
     public void verifyEditMyProfilePersonalInfo() throws Exception {
         log.info("Step: Verify Edit My Profile Personal Information Page");
-        clickEditMyProfileBtn();
         verifyIfEditMyProfilePage();
         verifyEditMyProfilePersonalInfoSpiel();
         Assert.assertTrue(verifyPrepaidNumberLabelIsDisplayed());
@@ -864,7 +891,6 @@ public class EditMyProfilePage extends BasePage {
     @Step("Step: Enter Valid Values In Personal Information Page")
     public void enterValidValuesInPersonalInfo() throws Exception {
         log.info("Step: Enter Valid Values In Personal Information Page");
-        clickEditMyProfileBtn();
         verifyIfEditMyProfilePage();
         enterFirstName(excel.getTestdata("validFirstName"));
         enterNickName(excel.getTestdata("validNickName"));
@@ -902,6 +928,26 @@ public class EditMyProfilePage extends BasePage {
         action.swipe("lblBrgy", "lblFlrUnitNo");
         enterPostalCode(excel.getTestdata("validPostal"));
         enterLandlineNo(excel.getTestdata("validLandline"));
+    }
+
+    @Step("Step: Enter Invalid Values In Personal Information Page")
+    public void enterInvalidValuesInPersonalInfo() throws Exception {
+        log.info("Step: Enter Invalid Values In Personal Information Page");
+        verifyIfEditMyProfilePage();
+        enterMobileNumber(excel.getTestdata("invalidMobileNo"));
+        Assert.assertTrue(verifyIfMobileNoErrorMsgIsDisplayed());
+        action.swipe("lblEmailAddress", "lblMobileNumber");
+        enterEmailAddress(excel.getTestdata("invalidEmailAdd"));
+        Assert.assertTrue(verifyIfEmailAddErrorMsgIsDisplayed());
+    }
+
+    @Step("Step: Enter Invalid Values In Business Information Second Page")
+    public void enterInvalidValuesInBusinessInfoSecPage() throws Exception {
+        log.info("Step: Enter Invalid Values In Business Information Second Page");
+        verifyIfEditMyProfileBusinessInfoPage();
+        action.swipe("lblBrgy", "lblProvince");
+        enterLandlineNo(excel.getTestdata("invalidLandline"));
+        Assert.assertTrue(verifyIfLandlineErrorMsgIsDisplayed());
     }
 
 

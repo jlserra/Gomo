@@ -20,6 +20,7 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
     public void verifyEditMyProfilePersonalInfoPage() throws Exception {
 
         navigateToMyProfile();
+        editMyProfilePage.clickEditMyProfileBtn();
         editMyProfilePage.verifyEditMyProfilePersonalInfo();
 
     }
@@ -58,10 +59,33 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
     public void verifyEnterValidValuesInEditMyProfilePage() throws Exception {
 
         navigateToMyProfile();
+        editMyProfilePage.clickEditMyProfileBtn();
         editMyProfilePage.enterValidValuesInPersonalInfo();
         editMyProfilePage.clickNextBtn();
         editMyProfilePage.enterValidValuesInBusinessInfoFirstPage();
         editMyProfilePage.clickNextBtn();
+        editMyProfilePage.enterValidValuesInBusinessInfoSecPage();
+        Assert.assertTrue(editMyProfilePage.verifyIfSaveBtnIsEnabled());
+    }
+
+    @Test(testName = "verifyEnterInvalidValuesInEditMyProfilePage", priority = 5)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will enter invalid values in Edit My Profile Pages")
+    @Story("Story: Edit My Profile")
+    public void verifyEnterInvalidValuesInEditMyProfilePage() throws Exception {
+
+        navigateToMyProfile();
+        editMyProfilePage.clickEditMyProfileBtn();
+        editMyProfilePage.enterInvalidValuesInPersonalInfo();
+        Assert.assertFalse(editMyProfilePage.VerifyIfNextBtnIsEnabled());
+        action.swipe("lblEmailAddress", "lblPosition");
+        editMyProfilePage.enterValidValuesInPersonalInfo();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.enterValidValuesInBusinessInfoFirstPage();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.enterInvalidValuesInBusinessInfoSecPage();
+        Assert.assertFalse(editMyProfilePage.verifyIfSaveBtnIsEnabled());
+        action.swipe("lblBrgy", "lblLandlineNo");
         editMyProfilePage.enterValidValuesInBusinessInfoSecPage();
         Assert.assertTrue(editMyProfilePage.verifyIfSaveBtnIsEnabled());
     }
@@ -98,6 +122,7 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         modemConfigPage.verifyUserAlreadyConnected();
 
         //Home Page
+        homePage.clickBtnProceed();
         homePage.clickHamburgerBtn();
 
         //Visit My Profile Page from Account Details Page
