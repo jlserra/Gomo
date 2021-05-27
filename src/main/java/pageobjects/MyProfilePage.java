@@ -41,13 +41,14 @@ public class MyProfilePage extends BasePage{
         return action.isDisplayed("btnEditProfile");
     }
 
-    @Step("Step: Verify Personal Information Label")
-    public Boolean verifyPersonalInfoLabelIsDisplayed() throws Exception {
-        log.info("Step: Verify Personal Information Label");
-        Assert.assertTrue(action.waitForElementToBeVisible("personalInfoLbl", ConfigUtilities.Timers.slow));
-        Assert.assertEquals(excel.getTestdata("personalInfoLbl"),action.getText("personalInfoLbl"));
-        return action.isDisplayed("personalInfoLbl");
-    }
+
+//    @Step("Step: Verify Personal Information Label")
+//    public Boolean verifyPersonalInfoLabelIsDisplayed() throws Exception {
+//        log.info("Step: Verify Personal Information Label");
+//        Assert.assertTrue(action.waitForElementToBeVisible("personalInfoSection", ConfigUtilities.Timers.slow));
+//        Assert.assertEquals(excel.getTestdata("personalInfoSectionLbl"),action.getText("personalInfoSection"));
+//        return action.isDisplayed("personalInfoSection");
+//    }
 
     @Step("Step: Verify Full Name Label")
     public Boolean verifyFullNameLabelIsDisplayed() throws Exception {
@@ -153,6 +154,86 @@ public class MyProfilePage extends BasePage{
         action.click("businessInfoSection");
     }
 
+    @Step("Step: Verify Business Name Label is Displayed")
+    public Boolean verifyBusinessNameLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify Business Name Label Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("businessNameLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("businessNameLbl"),action.getText("businessNameLbl"));
+        return action.isDisplayed("businessNameLbl");
+    }
+
+    @Step("Step: Verify Business Name is Displayed")
+    public Boolean verifyBusinessNameTxtIsDisplayed() throws Exception {
+        log.info("Step: Verify Business Name Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("businessNameTxt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("businessNameTxtApp"),action.getText("businessNameTxt"));
+        return action.isDisplayed("businessNameTxt");
+    }
+
+    @Step("Step: Verify Industry Label is Displayed")
+    public Boolean verifyIndustryLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify Industry Label Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("industryLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("industryLbl"),action.getText("industryLbl"));
+        return action.isDisplayed("industryLbl");
+    }
+
+    @Step("Step: Verify Industry is Displayed")
+    public Boolean verifyIndustryTxtIsDisplayed() throws Exception {
+        log.info("Step: Verify Industry Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("industryTxt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("industryTxtApp"),action.getText("industryTxt"));
+        return action.isDisplayed("industryTxt");
+    }
+
+    @Step("Step: Verify No. Of Employees Label is Displayed")
+    public Boolean verifyNoOfEmployeesLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify No. Of Employees Label Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("noOfEmployeesLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("noOfEmployeesLbl"),action.getText("noOfEmployeesLbl"));
+        return action.isDisplayed("noOfEmployeesLbl");
+    }
+
+    @Step("Step: Verify No. Of Employees is Displayed")
+    public Boolean verifyNoOfEmployeesTxtIsDisplayed() throws Exception {
+        log.info("Step: Verify No. Of Employees Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("noOfEmployeesTxt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("noOfEmployeesTxtApp"),action.getText("noOfEmployeesTxt"));
+        return action.isDisplayed("noOfEmployeesTxt");
+    }
+
+    @Step("Step: Verify Landline Label is Displayed")
+    public Boolean verifyLandlineLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify Landline Label Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("landLineNoLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("landLineNoLbl"),action.getText("landLineNoLbl"));
+        return action.isDisplayed("landLineNoLbl");
+    }
+
+    @Step("Step: Verify Landline is Displayed")
+    public Boolean verifyLandlineTxtIsDisplayed() throws Exception {
+        log.info("Step: Verify Landline Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("landLineNoTxt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("landLineNoTxtApp"),action.getText("landLineNoTxt"));
+        return action.isDisplayed("landLineNoTxt");
+    }
+
+    @Step("Step: Verify Business Address Label is Displayed")
+    public Boolean verifyBusinessAddressLabelIsDisplayed() throws Exception {
+        log.info("Step: Verify Business Address Label Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("businessAddrssLbl", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("businessAddrssLbl"),action.getText("businessAddrssLbl"));
+        return action.isDisplayed("businessAddrssLbl");
+    }
+
+    @Step("Step: Verify Business Address is Displayed")
+    public Boolean verifyBusinessAddressTxtIsDisplayed() throws Exception {
+        log.info("Step: Verify Business Address Displayed");
+        Assert.assertTrue(action.waitForElementToBeVisible("businessAddrssTxt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("businessAddrssTxtApp"),action.getText("businessAddrssTxt"));
+        return action.isDisplayed("businessAddrssTxt");
+    }
+
 
     // ****************** STEPS ****************************** //
 
@@ -165,7 +246,7 @@ public class MyProfilePage extends BasePage{
 
     @Step("Step: Navigate Account Details Page")
     public void verifyPersonalInfo() throws Exception {
-        verifyPersonalInfoLabelIsDisplayed();
+        verifyPersonalInfoSection();
         verifyFullNameLabelIsDisplayed();
         verifyFullNameTxtIsDisplayed();
         verifyNickNameLabelIsDisplayed();
@@ -183,10 +264,18 @@ public class MyProfilePage extends BasePage{
 
     @Step("Step: Navigate Account Details Page")
     public void verifyBusinessInfo() throws Exception {
-        verifyPersonalInfoSection();
         verifyBusinessInfoSection();
         clickBusinessInformationSection();
-
+        verifyBusinessNameLabelIsDisplayed();
+        verifyBusinessNameTxtIsDisplayed();
+        verifyIndustryLabelIsDisplayed();
+        verifyIndustryTxtIsDisplayed();
+        verifyNoOfEmployeesLabelIsDisplayed();
+        verifyNoOfEmployeesTxtIsDisplayed();
+        verifyLandlineLabelIsDisplayed();
+        verifyLandlineTxtIsDisplayed();
+        verifyBusinessAddressLabelIsDisplayed();
+        verifyBusinessAddressTxtIsDisplayed();
     }
 
 

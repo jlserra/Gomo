@@ -3,13 +3,9 @@ package pageobjects;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import utilities.ConfigUtilities;
-
-import java.util.List;
 
 public class EditMyProfilePage extends BasePage {
 
@@ -35,7 +31,7 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Edit My Profile Page");
     }
 
-    @Step("Step: Verify Next Button is Enabled")
+    @Step("Step: Verify if Next Button is Enabled")
     public Boolean VerifyIfNextBtnIsEnabled() throws Exception {
         log.info("Step: Verify if Next Button is enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnNextMyProfile", ConfigUtilities.Timers.normal));
@@ -51,7 +47,7 @@ public class EditMyProfilePage extends BasePage {
         action.takeSnapShot("Click Next Button");
     }
 
-    @Step("Step: Verify Back Button is Enabled")
+    @Step("Step: Verify if Back Button is Enabled")
     public Boolean VerifyIfBackBtnIsEnabled() throws Exception {
         log.info("Step: Verify if Back Button is enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnBackMyProfile", ConfigUtilities.Timers.normal));
@@ -75,6 +71,7 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertEquals(excel.getTestdata("personalInfoSpiel"), action.getText("lblPersonalInfoSpiel"));
         action.takeSnapShot("Edit My Profile Page Spiel");
     }
+
     //Prepaid Number
     @Step("Step: Verify Prepaid Number Label")
     public Boolean verifyPrepaidNumberLabelIsDisplayed() throws Exception {
@@ -93,14 +90,6 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldPrepaidNumber");
     }
 
-    @Step("Step: Verify if Prepaid Number Text is Displayed")
-    public void verifyPrepaidNumberText() throws Exception {
-        log.info("Step: Verify if Prepaid Number Text is Displayed");
-        Assert.assertTrue(verifyIfPrepaidNumberTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultPrepNumberTxt"), action.getText("txtfieldPrepaidNumber"));
-        action.takeSnapShot("Prepaid Number Text");
-    }
-
     //First Name
     @Step("Step: Verify First Name Label")
     public Boolean verifyFirstNameLabelIsDisplayed() throws Exception {
@@ -117,14 +106,6 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(action.waitForElementToBeVisible("txtfieldFirstName", ConfigUtilities.Timers.normal));
         action.takeSnapShot("First Name Text Field");
         return action.isEnabled("txtfieldFirstName");
-    }
-
-    @Step("Step: Verify if First Name Text is Displayed")
-    public void verifyFirstNameText() throws Exception {
-        log.info("Step: Verify if First Name Text is Displayed");
-        Assert.assertTrue(verifyIfFirstNameTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultFirstName"), action.getText("txtfieldFirstName"));
-        action.takeSnapShot("First Name Text");
     }
 
     @Step("Step: Enter First Name")
@@ -154,14 +135,6 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldNickName2");
     }
 
-    @Step("Step: Verify if Nick Name Text is Displayed")
-    public void verifyNickNameText() throws Exception {
-        log.info("Step: Verify if Nick Name Text is Displayed");
-        Assert.assertTrue(verifyIfNickNameTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultNickName"), action.getText("txtfieldNickName2"));
-        action.takeSnapShot("Nick Name Text");
-    }
-
     @Step("Step: Enter Nick Name")
     public void enterNickName(String text) throws Exception {
         log.info("Step: Enter Nick Name");
@@ -187,14 +160,6 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(action.waitForElementToBeVisible("txtfieldMiddleName", ConfigUtilities.Timers.normal));
         action.takeSnapShot("Middle Name Text Field");
         return action.isEnabled("txtfieldMiddleName");
-    }
-
-    @Step("Step: Verify if Middle Name Text is Displayed")
-    public void verifyMiddleNameText() throws Exception {
-        log.info("Step: Verify if Middle Name Text is Displayed");
-        Assert.assertTrue(verifyIfMiddleNameTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultMiddleName"), action.getText("txtfieldMiddleName"));
-        action.takeSnapShot("Middle Name Text");
     }
 
     @Step("Step: Enter Middle Name")
@@ -224,14 +189,6 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldLastName");
     }
 
-    @Step("Step: Verify if Last Name Text is Displayed")
-    public void verifyLastNameText() throws Exception {
-        log.info("Step: Verify if Last Name Text is Displayed");
-        Assert.assertTrue(verifyIfLastNameTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultLastName"), action.getText("txtfieldLastName"));
-        action.takeSnapShot("Last Name Text");
-    }
-
     @Step("Step: Enter Last Name")
     public void enterLastName(String text) throws Exception {
         log.info("Step: Enter Last Name");
@@ -256,14 +213,6 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(action.waitForElementToBeVisible("txtfieldSuffix", ConfigUtilities.Timers.normal));
         action.takeSnapShot("Suffix Text Field");
         return action.isEnabled("txtfieldSuffix");
-    }
-
-    @Step("Step: Verify if Suffix Text is Displayed")
-    public void verifySuffixText() throws Exception {
-        log.info("Step: Verify if Suffix Text is Displayed");
-        Assert.assertTrue(verifyIfSuffixTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultSuffix"), action.getText("txtfieldSuffix"));
-        action.takeSnapShot("Suffix Text");
     }
 
     @Step("Step: Enter Suffix")
@@ -292,14 +241,6 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldMobileNumber");
     }
 
-    @Step("Step: Verify if Mobile Number Text is Displayed")
-    public void verifyMobileNumberText() throws Exception {
-        log.info("Step: Verify if Mobile Number Text is Displayed");
-        Assert.assertTrue(verifyIfMobileNumberTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultMobileNumber"), action.getText("txtfieldMobileNumber"));
-        action.takeSnapShot("Mobile Number Text");
-    }
-
     @Step("Step: Enter Mobile Number")
     public void enterMobileNumber(String text) throws Exception {
         log.info("Step: Enter Mobile Number");
@@ -324,14 +265,6 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(action.waitForElementToBeVisible("txtfieldEmailAddress", ConfigUtilities.Timers.normal));
         action.takeSnapShot("Email Address Text Field");
         return action.isEnabled("txtfieldEmailAddress");
-    }
-
-    @Step("Step: Verify if Email Address Text is Displayed")
-    public void verifyEmailAddressText() throws Exception {
-        log.info("Step: Verify if Email Address Text is Displayed");
-        Assert.assertTrue(verifyIfEmailAddressTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultEmailAddress"), action.getText("txtfieldEmailAddress"));
-        action.takeSnapShot("Email Address Text");
     }
 
     @Step("Step: Enter Email Address")
@@ -360,23 +293,12 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("dropdownPosition");
     }
 
-    @Step("Step: Verify if Position Text is Displayed")
-    public void verifyPositionText() throws Exception {
-        log.info("Step: Verify if Position Dropdown Text is Displayed");
-        Assert.assertTrue(verifyIfPositionDropdownIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultPosition"), action.getText("dropdownPositionDesc"));
-        action.takeSnapShot("Position Text");
-    }
-
     @Step("Step: Choose a Position")
     public void choosePosition(String text) throws Exception {
         log.info("Step: Choose a Position");
         Assert.assertTrue(verifyIfPositionDropdownIsEnabled());
         action.click("dropdownPositionDesc");
-        MobileElement element = (MobileElement) driver.findElement(MobileBy.AndroidUIAutomator(
-                "new UiScrollable(new UiSelector().scrollable(true))" +
-                        ".scrollIntoView(new UiSelector().text(\"" + text + "\"))"));
-        element.click();
+        selectFromDropdown(text);
         action.takeSnapShot("Choose a Position");
     }
 
@@ -397,23 +319,12 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("dropdownDepartment");
     }
 
-    @Step("Step: Verify if Department Text is Displayed")
-    public void verifyDepartmentText() throws Exception {
-        log.info("Step: Verify if Department Text is Displayed");
-        Assert.assertTrue(verifyIfDepartmentDropdownIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultDepartment"), action.getText("dropdownDepartmentDesc"));
-        action.takeSnapShot("Department Text");
-    }
-
     @Step("Step: Choose a Department")
     public void chooseDepartment(String text) throws Exception {
         log.info("Step: Choose a Department");
         Assert.assertTrue(verifyIfDepartmentDropdownIsEnabled());
         action.click("dropdownDepartmentDesc");
-        MobileElement element = (MobileElement) driver.findElement(MobileBy.AndroidUIAutomator(
-                "new UiScrollable(new UiSelector().scrollable(true))" +
-                        ".scrollIntoView(new UiSelector().text(\"" + text + "\"))"));
-        element.click();
+        selectFromDropdown(text);
         action.takeSnapShot("Choose a Department");
     }
 
@@ -452,12 +363,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldBusinessName");
     }
 
-    @Step("Step: Verify if Business Name Text is Displayed")
-    public void verifyBusinessNameText() throws Exception {
-        log.info("Step: Verify if Business Name Text is Displayed");
+    @Step("Step: Enter Business Name")
+    public void enterBusinessName(String text) throws Exception {
+        log.info("Step: Enter Email Address");
         Assert.assertTrue(verifyIfBusinessNameTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultBusinessName"), action.getText("txtfieldBusinessName"));
-        action.takeSnapShot("Business Name Text");
+        action.clearTextField(action.getElements("txtfieldBusinessName"));
+        action.sendKeys("txtfieldBusinessName", text);
+        action.takeSnapShot("Enter Business Name");
     }
 
     //Industry
@@ -478,12 +390,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("dropdownIndustry");
     }
 
-    @Step("Step: Verify if Industry Dropdown Text is Displayed")
-    public void verifyIndustryText() throws Exception {
-        log.info("Step: Verify if Industry Dropdown Text is Displayed");
+    @Step("Step: Choose an Industry")
+    public void chooseIndustry(String text) throws Exception {
+        log.info("Step: Choose an Industry");
         Assert.assertTrue(verifyIfIndustryDropdownIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultIndustry"), action.getText("dropdownIndustryDesc"));
-        action.takeSnapShot("Industry Dropdown Text");
+        action.click("dropdownIndustryDesc");
+        selectFromDropdown(text);
+        action.takeSnapShot("Choose an Industry");
     }
 
     //Number of Employees
@@ -504,12 +417,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("dropdownNoOfEmp");
     }
 
-    @Step("Step: Verify if No. Of Employees Dropdown Text is Displayed")
-    public void verifyNoOfEmployeesText() throws Exception {
-        log.info("Step: Verify if No. Of Employees Dropdown Text is Displayed");
+    @Step("Step: Choose No. of Employees")
+    public void chooseNoOfEmployees(String text) throws Exception {
+        log.info("Step: Choose No. of Employees");
         Assert.assertTrue(verifyIfNoOfEmployeesDropdownIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultNoOfEmp"), action.getText("dropdownNoOfEmpDesc"));
-        action.takeSnapShot("No. Of Employees Dropdown Text");
+        action.click("dropdownNoOfEmpDesc");
+        selectFromDropdown(text);
+        action.takeSnapShot("Choose No of Employees");
     }
 
 //Edit Business Information Second Page
@@ -539,12 +453,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldFlrUnitNo");
     }
 
-    @Step("Step: Verify if Floor/Unit No. Text is Displayed")
-    public void verifyFlrUnitNoText() throws Exception {
-        log.info("Step: Verify if Floor/Unit No. Text is Displayed");
+    @Step("Step: Enter Floor/Unit No.")
+    public void enterFlrUnitNo(String text) throws Exception {
+        log.info("Step: Enter Floor/Unit No.");
         Assert.assertTrue(verifyIfFlrUnitNoTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultFlrUnitNo"), action.getText("txtfieldFlrUnitNo"));
-        action.takeSnapShot("Floor/Unit No. Text");
+        action.clearTextField(action.getElements("txtfieldFlrUnitNo"));
+        action.sendKeys("txtfieldFlrUnitNo", text);
+        action.takeSnapShot("Enter Floor/Unit No.");
     }
 
     //Street No.
@@ -565,12 +480,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldStreetNo");
     }
 
-    @Step("Step: Verify if Street No. Text is Displayed")
-    public void verifyStreetNoText() throws Exception {
-        log.info("Step: Verify if Street No. Text is Displayed");
+    @Step("Step: Enter Street No.")
+    public void enterStreetNo(String text) throws Exception {
+        log.info("Step: Enter Street No.");
         Assert.assertTrue(verifyIfStreetNoTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultStreetNo"), action.getText("txtfieldStreetNo"));
-        action.takeSnapShot("Street No. Text");
+        action.clearTextField(action.getElements("txtfieldStreetNo"));
+        action.sendKeys("txtfieldStreetNo", text);
+        action.takeSnapShot("Enter Street No.");
     }
 
     //Building Name
@@ -591,12 +507,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldBldgName");
     }
 
-    @Step("Step: Verify if Building Name Text is Displayed")
-    public void verifyBldgNameText() throws Exception {
-        log.info("Step: Verify if Building Name Text is Displayed");
+    @Step("Step: Enter Building Name")
+    public void enterBldgName(String text) throws Exception {
+        log.info("Step: Enter Building Name");
         Assert.assertTrue(verifyIfBldgNameTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultBldgName"), action.getText("txtfieldBldgName"));
-        action.takeSnapShot("Building Name Text");
+        action.clearTextField(action.getElements("txtfieldBldgName"));
+        action.sendKeys("txtfieldBldgName", text);
+        action.takeSnapShot("Enter Building Name");
     }
 
     //Street Name
@@ -617,12 +534,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldStreetName");
     }
 
-    @Step("Step: Verify if Street Name Text is Displayed")
-    public void verifyStreetNameText() throws Exception {
-        log.info("Step: Verify if Street Name Text is Displayed");
+    @Step("Step: Enter Street Name")
+    public void enterStreetName(String text) throws Exception {
+        log.info("Step: Enter Street Name");
         Assert.assertTrue(verifyIfStreetNameTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultStreetName"), action.getText("txtfieldStreetName"));
-        action.takeSnapShot("Street Name Text");
+        action.clearTextField(action.getElements("txtfieldStreetName"));
+        action.sendKeys("txtfieldStreetName", text);
+        action.takeSnapShot("Enter Street Name");
     }
 
     //Country
@@ -643,12 +561,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("dropdownCountry");
     }
 
-    @Step("Step: Verify if Country Text is Displayed")
-    public void verifyCountryText() throws Exception {
-        log.info("Step: Verify if Country Text is Displayed");
+    @Step("Step: Choose a Country")
+    public void chooseCountry(String text) throws Exception {
+        log.info("Step: Choose a Country");
         Assert.assertTrue(verifyIfCountryDropdownIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultCountry"), action.getText("dropdownCountryDesc"));
-        action.takeSnapShot("Country Text");
+        action.click("dropdownCountryDesc");
+        selectFromDropdown(text);
+        action.takeSnapShot("Choose a Country");
     }
 
     //Province
@@ -669,12 +588,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("dropdownProvince");
     }
 
-    @Step("Step: Verify if Province Text is Displayed")
-    public void verifyProvinceText() throws Exception {
-        log.info("Step: Verify if Province Text is Displayed");
+    @Step("Step: Choose a Province")
+    public void chooseProvince(String text) throws Exception {
+        log.info("Step: Choose a Province");
         Assert.assertTrue(verifyIfProvinceDropdownIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultProvince"), action.getText("dropdownProvinceDesc"));
-        action.takeSnapShot("Province Text");
+        action.click("dropdownProvinceDesc");
+        selectFromDropdown(text);
+        action.takeSnapShot("Choose a Province");
     }
 
     //City
@@ -695,12 +615,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("dropdownCity");
     }
 
-    @Step("Step: Verify if City Text is Displayed")
-    public void verifyCityText() throws Exception {
-        log.info("Step: Verify if City Text is Displayed");
+    @Step("Step: Choose a City")
+    public void chooseCity(String text) throws Exception {
+        log.info("Step: Choose a City");
         Assert.assertTrue(verifyIfCityDropdownIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultCity"), action.getText("dropdownCityDesc"));
-        action.takeSnapShot("City Text");
+        action.click("dropdownCityDesc");
+        selectFromDropdown(text);
+        action.takeSnapShot("Choose a City");
     }
 
     //Barangay
@@ -721,12 +642,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("dropdownBrgy");
     }
 
-    @Step("Step: Verify if Barangay Text is Displayed")
-    public void verifyBrgyText() throws Exception {
-        log.info("Step: Verify if Barangay Text is Displayed");
+    @Step("Step: Choose a Barangay")
+    public void chooseBrgy(String text) throws Exception {
+        log.info("Step: Choose a Barangay");
         Assert.assertTrue(verifyIfBrgyDropdownIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultBrgy"), action.getText("dropdownBrgyDesc"));
-        action.takeSnapShot("Barangay Text");
+        action.click("dropdownBrgyDesc");
+        selectFromDropdown(text);
+        action.takeSnapShot("Choose a Barangay");
     }
 
     //Postal Code
@@ -747,12 +669,13 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldPostalCode");
     }
 
-    @Step("Step: Verify if Postal Code Text is Displayed")
-    public void verifyPostalCodeText() throws Exception {
-        log.info("Step: Verify if Postal Code Text is Displayed");
+    @Step("Step: Enter Postal Code")
+    public void enterPostalCode(String text) throws Exception {
+        log.info("Step: Enter Postal Code");
         Assert.assertTrue(verifyIfPostalCodeTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultPostalCode"), action.getText("txtfieldPostalCode"));
-        action.takeSnapShot("Postal Code Text");
+        action.clearTextField(action.getElements("txtfieldPostalCode"));
+        action.sendKeys("txtfieldPostalCode", text);
+        action.takeSnapShot("Enter Postal Code");
     }
 
     //Landline No
@@ -773,14 +696,16 @@ public class EditMyProfilePage extends BasePage {
         return action.isEnabled("txtfieldLandlineNo");
     }
 
-    @Step("Step: Verify if Landline No Text is Displayed")
-    public void verifyLandlineNoText() throws Exception {
-        log.info("Step: Verify if Landline No Text is Displayed");
+    @Step("Step: Enter Landline No")
+    public void enterLandlineNo(String text) throws Exception {
+        log.info("Step: Enter Landline No");
         Assert.assertTrue(verifyIfLandlineNoTextFieldIsEnabled());
-        Assert.assertEquals(excel.getTestdata("defaultLandlineNo"), action.getText("txtfieldLandlineNo"));
-        action.takeSnapShot("Landline No Text");
+        action.clearTextField(action.getElements("txtfieldLandlineNo"));
+        action.sendKeys("txtfieldLandlineNo", text);
+        action.takeSnapShot("Enter Landline No");
     }
 
+    //Consent
     @Step("Step: Verify Consent Header Spiel")
     public void verifyConsentHeaderSpiel() throws Exception {
         log.info("Step: Verify Consent Header Spiel");
@@ -798,7 +723,7 @@ public class EditMyProfilePage extends BasePage {
     }
 
     @Step("Step: Verify if Save My Profile Button is Enabled")
-    public Boolean VerifyIfSaveBtnIsEnabled() throws Exception {
+    public Boolean verifyIfSaveBtnIsEnabled() throws Exception {
         log.info("Step: Verify if Save My Profile Button is enabled");
         Assert.assertTrue(action.waitForElementToBeVisible("btnSaveMyProfile", ConfigUtilities.Timers.normal));
         action.takeSnapShot("User clicked the Save My Profile Button");
@@ -808,9 +733,23 @@ public class EditMyProfilePage extends BasePage {
     @Step("Step: Click Save My Profile Button")
     public void clickSaveBtn() throws Exception {
         log.info("Step: Click Save Button");
-        Assert.assertTrue(VerifyIfSaveBtnIsEnabled());
+        Assert.assertTrue(verifyIfSaveBtnIsEnabled());
         action.click("btnSaveMyProfile");
         action.takeSnapShot("Click Save My Profile Button");
+    }
+
+    @Step("Step: Select from the dropdown list")
+    public void selectFromDropdown(String text) {
+        log.info("Step: Select from the dropdown list");
+        try {
+            MobileElement element = (MobileElement) driver.findElement(MobileBy.AndroidUIAutomator(
+                "new UiScrollable(new UiSelector().scrollable(true))" +
+                        ".scrollIntoView(new UiSelector().text(\"" + text + "\"))"));
+            element.click();
+            log.info("Successfully selected " + text);
+        } catch (Exception e) {
+            log.error(e, "Unable to find " + text);
+        }
     }
 
 //Thank You Page
@@ -852,75 +791,79 @@ public class EditMyProfilePage extends BasePage {
 
     @Step("Step: Verify Edit My Profile Personal Information Page")
     public void verifyEditMyProfilePersonalInfo() throws Exception {
+        log.info("Step: Verify Edit My Profile Personal Information Page");
         clickEditMyProfileBtn();
         verifyIfEditMyProfilePage();
         verifyEditMyProfilePersonalInfoSpiel();
         Assert.assertTrue(verifyPrepaidNumberLabelIsDisplayed());
-        verifyPrepaidNumberText();
+        Assert.assertTrue(verifyIfPrepaidNumberTextFieldIsEnabled());
         Assert.assertTrue(verifyFirstNameLabelIsDisplayed());
-        verifyFirstNameText();
+        Assert.assertTrue(verifyIfFirstNameTextFieldIsEnabled());
         Assert.assertTrue(verifyNickNameLabelIsDisplayed());
-        verifyNickNameText();
+        Assert.assertTrue(verifyIfNickNameTextFieldIsEnabled());
         Assert.assertTrue(verifyMiddleNameLabelIsDisplayed());
-        verifyMiddleNameText();
+        Assert.assertTrue(verifyIfMiddleNameTextFieldIsEnabled());
         Assert.assertTrue(verifyLastNameLabelIsDisplayed());
-        verifyLastNameText();
+        Assert.assertTrue(verifyIfLastNameTextFieldIsEnabled());
         Assert.assertTrue(verifySuffixLabelIsDisplayed());
-        verifySuffixText();
+        Assert.assertTrue(verifyIfSuffixTextFieldIsEnabled());
         Assert.assertTrue(verifyMobileNumberLabelIsDisplayed());
-        verifyMobileNumberText();
+        Assert.assertTrue(verifyIfMobileNumberTextFieldIsEnabled());
         Assert.assertTrue(verifyEmailAddressLabelIsDisplayed());
-        verifyEmailAddressText();
+        Assert.assertTrue(verifyIfEmailAddressTextFieldIsEnabled());
         action.swipe("lblPosition", "lblMobileNumber");
         Assert.assertTrue(verifyPositionLabelIsDisplayed());
-        verifyPositionText();
+        Assert.assertTrue(verifyIfPositionDropdownIsEnabled());
         Assert.assertTrue(verifyDepartmentLabelIsDisplayed());
-        verifyDepartmentText();
+        Assert.assertTrue(verifyIfDepartmentDropdownIsEnabled());
     }
 
     @Step("Step: Verify Edit My Profile Business Information First Page")
     public void verifyEditMyProfileBusinessInfoFirstPage() throws Exception {
+        log.info("Step: Verify Edit My Profile Business Information First Page");
         verifyIfEditMyProfileBusinessInfoPage();
         verifyEditMyProfileBusinessInfoSpiel();
         Assert.assertTrue(verifyBusinessNameLabelIsDisplayed());
-        verifyBusinessNameText();
+        Assert.assertTrue(verifyIfBusinessNameTextFieldIsEnabled());
         Assert.assertTrue(verifyIndustryLabelIsDisplayed());
-        verifyIndustryText();
+        Assert.assertTrue(verifyIfIndustryDropdownIsEnabled());
         Assert.assertTrue(verifyNoOfEmployeesLabelIsDisplayed());
-        verifyNoOfEmployeesText();
+        Assert.assertTrue(verifyIfNoOfEmployeesDropdownIsEnabled());
     }
 
-    @Step("Step: Verify Edit My Profile Business Information First Page")
+    @Step("Step: Verify Edit My Profile Business Information Second Page")
     public void verifyEditMyProfileBusinessInfoSecPage() throws Exception {
+        log.info("Step: Verify Edit My Profile Business Information Second Page");
         verifyIfEditMyProfileBusinessInfoPage();
         verifyEditMyProfileBusinessInfoSpiel2();
         Assert.assertTrue(verifyFlrUnitNoLabelIsDisplayed());
-        verifyFlrUnitNoText();
+        Assert.assertTrue(verifyIfFlrUnitNoTextFieldIsEnabled());
         Assert.assertTrue(verifyStreetNoLabelIsDisplayed());
-        verifyStreetNoText();
+        Assert.assertTrue(verifyIfStreetNoTextFieldIsEnabled());
         Assert.assertTrue(verifyBldgNameLabelIsDisplayed());
-        verifyBldgNameText();
+        Assert.assertTrue(verifyIfBldgNameTextFieldIsEnabled());
         Assert.assertTrue(verifyStreetNameLabelIsDisplayed());
-        verifyStreetNameText();
+        Assert.assertTrue(verifyIfStreetNameTextFieldIsEnabled());
         Assert.assertTrue(verifyCountryLabelIsDisplayed());
-        verifyCountryText();
+        Assert.assertTrue(verifyIfCountryDropdownIsEnabled());
         Assert.assertTrue(verifyProvinceLabelIsDisplayed());
-        verifyProvinceText();
+        Assert.assertTrue(verifyIfProvinceDropdownIsEnabled());
         Assert.assertTrue(verifyCityLabelIsDisplayed());
-        verifyCityText();
+        Assert.assertTrue(verifyIfCityDropdownIsEnabled());
         Assert.assertTrue(verifyBrgyLabelIsDisplayed());
-        verifyBrgyText();
+        Assert.assertTrue(verifyIfBrgyDropdownIsEnabled());
         action.swipe("lblBrgy", "lblFlrUnitNo");
         Assert.assertTrue(verifyPostalCodeLabelIsDisplayed());
-        verifyPostalCodeText();
+        Assert.assertTrue(verifyIfPostalCodeTextFieldIsEnabled());
         Assert.assertTrue(verifyLandlineNoLabelIsDisplayed());
-        verifyLandlineNoText();
+        Assert.assertTrue(verifyIfLandlineNoTextFieldIsEnabled());
         verifyConsentHeaderSpiel();
         verifyConsentMsgSpiel();
     }
 
     @Step("Step: Enter Valid Values In Personal Information Page")
     public void enterValidValuesInPersonalInfo() throws Exception {
+        log.info("Step: Enter Valid Values In Personal Information Page");
         clickEditMyProfileBtn();
         verifyIfEditMyProfilePage();
         enterFirstName(excel.getTestdata("validFirstName"));
@@ -937,8 +880,28 @@ public class EditMyProfilePage extends BasePage {
 
     @Step("Step: Enter Valid Values In Business Information First Page")
     public void enterValidValuesInBusinessInfoFirstPage() throws Exception {
+        log.info("Step: Enter Valid Values In Business Information First Page");
         verifyIfEditMyProfileBusinessInfoPage();
+        enterBusinessName(excel.getTestdata("validBusinessName"));
+        chooseIndustry(excel.getTestdata("validIndustry"));
+        chooseNoOfEmployees(excel.getTestdata("validNoOfEmp"));
+    }
 
+    @Step("Step: Enter Valid Values In Business Information Second Page")
+    public void enterValidValuesInBusinessInfoSecPage() throws Exception {
+        log.info("Step: Enter Valid Values In Business Information Second Page");
+        verifyIfEditMyProfileBusinessInfoPage();
+        enterFlrUnitNo(excel.getTestdata("validFlrUnitNo"));
+        enterStreetNo(excel.getTestdata("validStreetNo"));
+        enterBldgName(excel.getTestdata("validBldgName"));
+        enterStreetName(excel.getTestdata("validStreetName"));
+        chooseCountry(excel.getTestdata("validCountry"));
+        chooseProvince(excel.getTestdata("validProvince"));
+        chooseCity(excel.getTestdata("validCity"));
+        chooseBrgy(excel.getTestdata("validBrgy"));
+        action.swipe("lblBrgy", "lblFlrUnitNo");
+        enterPostalCode(excel.getTestdata("validPostal"));
+        enterLandlineNo(excel.getTestdata("validLandline"));
     }
 
 

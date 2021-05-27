@@ -2,14 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="/Users/lalainealonzo/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyEditMyProfilePage.java">
+          name="/Users/abrahamora/Desktop/SGBBAPP/SGBBAPPAutomation/src/test/java/testcases/VerifyMyProfilePage.java">
         <classes>
-            <class name="testcases.VerifyEditMyProfilePage">
+            <class name="testcases.VerifyMyProfilePage">
                 <methods>
-                    <!-- <include name="verifyEditMyProfilePersonalInfoPage"/>
-                    <include name="verifyEditMyProfileBusinessInfoFirstPage"/>
-                    <include name="verifyEditMyProfileBusinessInfoSecPage"/> -->
-                    <include name="verifyEnterValidValuesInEditMyProfilePage"/>
+                    <include name="viewMyProfilePage"/>
+                    <include name="verifyPersonalInformation"/>
+                    <include name="verifyBusinessInformation"/>
                 </methods>
             </class>
         </classes>

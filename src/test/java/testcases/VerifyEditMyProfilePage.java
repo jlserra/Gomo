@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -50,9 +51,9 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         editMyProfilePage.verifyEditMyProfileBusinessInfoSecPage();
     }
 
-    @Test(testName = "verifyEditMyProfileBusinessInfoSecPage", priority = 4)
+    @Test(testName = "verifyEnterValidValuesInEditMyProfilePage", priority = 4)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will check for the Edit My Profile Business Information Second Page")
+    @Description("Test Description: User will enter valid values in Edit My Profile Pages")
     @Story("Story: Edit My Profile")
     public void verifyEnterValidValuesInEditMyProfilePage() throws Exception {
 
@@ -60,10 +61,13 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         editMyProfilePage.enterValidValuesInPersonalInfo();
         editMyProfilePage.clickNextBtn();
         editMyProfilePage.enterValidValuesInBusinessInfoFirstPage();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.enterValidValuesInBusinessInfoSecPage();
+        Assert.assertTrue(editMyProfilePage.verifyIfSaveBtnIsEnabled());
     }
 
 
-//Navigate to My Profile Page
+    //Navigate to My Profile Page
     public void navigateToMyProfile() throws Exception {
         //Get Started
         assertTrue(getStartedPage.verifyIfGetStartedPage());
