@@ -48,6 +48,7 @@ public class VerifyGetMoreData extends BaseTestcase {
         modemConfigPage.verifyUserAlreadyConnected();
 
         //Visit Get More Data Page from Homepage
+        homePage.clickBtnProceed();
         homePage.verifyClickGetMoreData();
 
         //Get More Data - Promos
@@ -89,6 +90,7 @@ public class VerifyGetMoreData extends BaseTestcase {
         modemConfigPage.verifyUserAlreadyConnected();
 
         //Visit Get More Data Page from Homepage
+        homePage.clickBtnProceed();
         homePage.verifyClickGetMoreData();
 
         //Get More Data - Add Ons Page (No Active Subscriptions)
@@ -130,29 +132,32 @@ public class VerifyGetMoreData extends BaseTestcase {
         modemConfigPage.verifyUserAlreadyConnected();
 
         //Visit Get More Data Page from Homepage
+        homePage.clickBtnProceed();
         homePage.verifyClickGetMoreData();
 
         //Get More Data - SMS Verification Page (Enter Valid OTP)
         assertTrue(getMoreDataPage.VerifyIfGetMoreDataPage());
         getMoreDataPage.VerifySMSVerificationPage();
 
-        int count;
+        int count = 0;
         int maxTries = 3;
 
-        for (count = 0; count < maxTries; count++) {
-
+        while (count < maxTries) {
             getMoreDataPage.enterOTP(excel.getTestdata("mobileNumber"));
 
-            if(getMoreDataPage.VerifyIfExpiredOTPErrMsgIsDisplayed())
+            if(getMoreDataPage.VerifyIfExpiredOTPErrMsgIsDisplayed()) {
                 getMoreDataPage.clickOK();
-            else
+            }
+            else {
                 log.info("SMS Verification Page has accepted the entered OTP.");
                 break;
+            }
+
+            count++;
         }
 
         if (count==maxTries)
             log.error("The maximum number of tries has been reached (3 tries) in requesting an OTP that hasn't expired yet.");
-
         }
 
     }

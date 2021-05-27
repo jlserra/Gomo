@@ -46,6 +46,7 @@ public class VerifyNotificationPage extends BaseTestcase {
         modemConfigPage.verifyUserAlreadyConnected();
 
         //Homepage
+        homePage.clickBtnProceed();
         homePage.verifyNotificationBell();
 
         //Notification Page
