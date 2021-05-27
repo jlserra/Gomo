@@ -50,4 +50,13 @@ public class VerifyMyProfilePage extends BaseTestcase{
         myProfilePage.verifyPersonalInfo();
     }
 
+    @Test(testName = "Verify Business Information Section", priority = 3)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will verify the content of the Business Information Section")
+    @Story("Story: Verify Business Information Section")
+    public void verifyBusinessInformation() throws Exception {
+        viewMyProfilePage();
+        myProfilePage.verifyBusinessInfo();
+    }
+
 }

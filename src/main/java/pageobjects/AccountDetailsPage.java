@@ -46,9 +46,9 @@ public class AccountDetailsPage extends BasePage{
     @Step("Step: Verify if Nickname in Account Details section Displayed")
     public Boolean verifyNicknameAccountDetailsIsDisplayed() throws Exception {
         log.info("Step: Verify if Nickname in Account Details section is Displayed");
-        Assert.assertTrue(action.waitForElementToBeVisible("lblNickname", ConfigUtilities.Timers.slow));
-        Assert.assertEquals(excel.getTestdata("nickname"),action.getText("lblNickname"));
-        return action.isDisplayed("lblNickname");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblNicknameAccnt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("nickname"),action.getText("lblNicknameAccnt"));
+        return action.isDisplayed("lblNicknameAccnt");
     }
 
     // Account Details text
