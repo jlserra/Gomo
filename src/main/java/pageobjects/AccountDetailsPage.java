@@ -68,6 +68,14 @@ public class AccountDetailsPage extends BasePage{
         return action.isEnabled("iconCamera");
     }
 
+    @Step("Step: Click edit nickname")
+    public void clickUploadPhotoIcon() throws Exception {
+        log.info("Step: Click upload photo icon");
+        action.takeSnapShot("User clicked the upload photo icon");
+        action.waitForElementToBeClickable("iconCamera",ConfigUtilities.Timers.slow);
+        action.click("iconCamera");
+    }
+
     // For Image verification
     @Step("Step: Verify if Image Icon is Displayed")
     public Boolean verifyAccountImageIsDisplayed() throws Exception {
@@ -194,11 +202,50 @@ public class AccountDetailsPage extends BasePage{
     @Step("Step: Verify New Nickname")
     public Boolean verifyNewlySetNickname() throws Exception {
         log.info("Step: Verify New Nickname");
-        Assert.assertTrue(action.waitForElementToBeVisible("lblNickname", ConfigUtilities.Timers.slow));
-        Assert.assertEquals(excel.getTestdata("newName"),action.getText("lblNickname"));
-        return action.isDisplayed("lblNickname");
+        Assert.assertTrue(action.waitForElementToBeVisible("lblNicknameAccnt", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("newName"),action.getText("lblNicknameAccnt"));
+        return action.isDisplayed("lblNicknameAccnt");
     }
 
+
+    // For verification of upload photo
+    @Step("Step: Verify if Choose from Library Button is Enabled")
+    public Boolean verifyChooseFromLibraryBtnIsEnable() throws Exception {
+        log.info("Step: Verify if Choose from Library Button is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("chooseFrmLbryBtn", ConfigUtilities.Timers.slow));
+        return action.isEnabled("chooseFrmLbryBtn");
+    }
+
+    @Step("Step: Click Choose From Library")
+    public void clickChooseFromLibraryBtn() throws Exception {
+        log.info("Step: Click Choose From Library");
+        action.takeSnapShot("User clicked the Choose From Library button");
+        action.waitForElementToBeClickable("chooseFrmLbryBtn",ConfigUtilities.Timers.slow);
+        action.click("chooseFrmLbryBtn");
+    }
+
+    @Step("Step: Verify if Photo is Enabled")
+    public Boolean verifyPhotoIsEnable() throws Exception {
+        log.info("Step: Verify if Photo is Enabled");
+        Assert.assertTrue(action.waitForElementToBeVisible("photoObj", ConfigUtilities.Timers.slow));
+        return action.isEnabled("photoObj");
+    }
+
+    @Step("Step: Click Photo From Library")
+    public void clickPhotoFromLibrary() throws Exception {
+        log.info("Step: Click Photo From Library");
+        action.takeSnapShot("User clicked the Photo From Library");
+        action.waitForElementToBeClickable("photoObj",ConfigUtilities.Timers.slow);
+        action.click("photoObj");
+    }
+
+    @Step("Step: Click a specific Photo From Library")
+    public void clickASpecificPhoto() throws Exception {
+        log.info("Step: Click a specific Photo From Library");
+        action.takeSnapShot("User clicked a specific Photo From Library");
+        action.waitForElementToBeClickable("specificPhotoObj",ConfigUtilities.Timers.slow);
+        action.click("specificPhotoObj");
+    }
 
 
     // ****************** STEPS ****************************** //
@@ -252,6 +299,22 @@ public class AccountDetailsPage extends BasePage{
     public void verifyProfileStatus() throws Exception {
         verifyMyProfileLabelIsDisplayed();
         verifyMyProfileStatusIsDisplayed();
+    }
+
+    @Step("Step: Check for the Profile Status")
+    public void verifyUploadPhoto() throws Exception {
+        verifyCameraIconIsEnable();
+        clickUploadPhotoIcon();
+        verifyChooseFromLibraryBtnIsEnable();
+        clickChooseFromLibraryBtn();
+        if(action.isEnabled("allowBtn") == true){
+            action.click("allowBtn");
+        }
+        verifyPhotoIsEnable();
+        clickPhotoFromLibrary();
+        clickASpecificPhoto();
+        verifyAccountImageIsDisplayed();
+
     }
 
 }

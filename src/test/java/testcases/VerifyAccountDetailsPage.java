@@ -76,6 +76,15 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
         accountDetailsPage.verifyProfileStatus();
     }
 
+    @Test(testName = "Verify Photo Upload", priority = 5)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: Verify Photo Upload")
+    @Story("Story: Photo Upload")
+    public void verifyUploadPhoto() throws Exception {
+        verifyAccountDetailsPage();
+        accountDetailsPage.verifyUploadPhoto();
+    }
+
 
 
 }
