@@ -90,6 +90,25 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         Assert.assertTrue(editMyProfilePage.verifyIfSaveBtnIsEnabled());
     }
 
+    @Test(testName = "verifyEnterInvalidValuesInEditMyProfilePage", priority = 6)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will enter invalid values in Edit My Profile Pages")
+    @Story("Story: Edit My Profile")
+    public void verifySaveChangesInEditMyProfilePage() throws Exception {
+
+        navigateToMyProfile();
+        editMyProfilePage.clickEditMyProfileBtn();
+        editMyProfilePage.enterValidValuesInPersonalInfo();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.enterValidValuesInBusinessInfoFirstPage();
+        editMyProfilePage.clickNextBtn();
+        editMyProfilePage.enterValidValuesInBusinessInfoSecPage();
+        editMyProfilePage.clickSaveBtn();
+        editMyProfilePage.verifyThankYouMsgUponSave();
+        editMyProfilePage.clickThankYouPageNextBtn();
+        assertTrue(homePage.verifyNicknameIsDisplayed());
+    }
+
 
     //Navigate to My Profile Page
     public void navigateToMyProfile() throws Exception {

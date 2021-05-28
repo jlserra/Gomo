@@ -950,5 +950,13 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfLandlineErrorMsgIsDisplayed());
     }
 
+    @Step("Step: Verify Thank You Message Upon Clicking Save My Profile Button")
+    public void verifyThankYouMsgUponSave() throws Exception {
+        log.info("Step: Verify Thank You Message Upon Clicking Save My Profile Button");
+        verifyGetBackMsgSpiel();
+        verifyThankYouMsgSpiel();
+        Assert.assertTrue(VerifyIfThankYouPageNextBtnIsEnabled());
+    }
+
 
 }
