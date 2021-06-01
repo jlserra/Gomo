@@ -7,17 +7,16 @@ import io.qameta.allure.Story;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertTrue;
-
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyMyVoucherPage extends BaseTestcase{
-//      LoginTestCase login;
-//    LoginTestCase login = new LoginTestCase();
+
     @Test(testName = "VerifyMyVoucherPage", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to My Voucher Page")
     @Story("Story: My Voucher Page")
     public void navigateToMyVoucherPage() throws Exception {
+
+        LoginTestCase.loginUser();
         homePage.clickHamburgerBtn();
         myVoucherPage.clickMyVoucherBtn();
         myVoucherPage.verifyIfMyVoucherPage();

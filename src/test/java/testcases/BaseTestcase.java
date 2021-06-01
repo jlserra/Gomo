@@ -23,33 +23,32 @@ import utilities.*;
 public class BaseTestcase {
 
 //    Appium and Driver
-    public URL url;
-    public DesiredCapabilities capabilities;
-    public MobileDriver<MobileElement> driver;
+    private URL url;
+    private DesiredCapabilities capabilities;
+    private MobileDriver<MobileElement> driver;
 
 //    Pages
-    public BasePage basePage;
-    public WelcomePage welcomePage;
-    public GetStartedPage getStartedPage;
-    public SecureAppPage secureAppPage;
-    public CustomerProfilePage customerProfilePage;
-    public ChooseModemPage chooseModemPage;
-    public ModemConfigurationPage modemConfigPage;
-    public HomePage homePage;
-    public NotificationPage notificationPage;
-    public AccountDetailsPage accountDetailsPage;
-    public GetMoreDataPage getMoreDataPage;
-    public MyProfilePage myProfilePage;
-    public EditMyProfilePage editMyProfilePage;
-    public MyVoucherPage myVoucherPage;
-
+    public static BasePage basePage;
+    public static WelcomePage welcomePage;
+    public static GetStartedPage getStartedPage;
+    public static SecureAppPage secureAppPage;
+    public static CustomerProfilePage customerProfilePage;
+    public static ChooseModemPage chooseModemPage;
+    public static ModemConfigurationPage modemConfigPage;
+    public static HomePage homePage;
+    public static NotificationPage notificationPage;
+    public static AccountDetailsPage accountDetailsPage;
+    public static GetMoreDataPage getMoreDataPage;
+    public static MyProfilePage myProfilePage;
+    public static EditMyProfilePage editMyProfilePage;
+    public static MyVoucherPage myVoucherPage;
 
 //    Utilities
-    ActionUtilities action;
-    ConfigUtilities config = new ConfigUtilities();
-    LoggerUtilities log = new LoggerUtilities();
-    OtpUtilities otp = new OtpUtilities(log);
-    ExcelUtilities excel = new ExcelUtilities(log, config);
+    public static ActionUtilities action;
+    public static ConfigUtilities config = new ConfigUtilities();
+    public static LoggerUtilities log = new LoggerUtilities();
+    public static OtpUtilities otp = new OtpUtilities(log);
+    public static ExcelUtilities excel = new ExcelUtilities(log, config);
 
 //    Pages Initialization
     public void initializePages() {
