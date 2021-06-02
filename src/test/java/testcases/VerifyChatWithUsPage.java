@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import org.junit.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -19,6 +20,6 @@ public class VerifyChatWithUsPage extends BaseTestcase {
         LoginTestCase.loginUser();
         homePage.clickHamburgerBtn();
         chatWithUsPage.clickChatWithUsBtn();
-        chatWithUsPage.verifyChatWithUsModal();
+        Assert.assertTrue(chatWithUsPage.verifyChatWithUsModal());
     }
 }

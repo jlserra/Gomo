@@ -22,11 +22,12 @@ public class ChatWithUsPage extends BasePage{
     }
 
     @Step("Step: Verify if user is in Chat with us modal")
-    public void verifyChatWithUsModal() throws Exception {
+    public boolean verifyChatWithUsModal() throws Exception {
 
         log.info("Step: Verify Chat With Us modal");
         action.waitForElementToBeClickable("chatOnMessengerbtn", ConfigUtilities.Timers.slow);
         assertEquals(excel.getTestdata("text1"), action.getText("txtchatWithUsModal"));
         action.takeSnapShot("User is in MChat with us modal");
+        return action.isEnabled("chatOnMessengerbtn");
     }
 }
