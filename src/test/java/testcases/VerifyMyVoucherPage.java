@@ -28,6 +28,8 @@ public class VerifyMyVoucherPage extends BaseTestcase{
     @Description("Test Description: User will check the Voucher")
     @Story("Story: My Voucher Page")
     public void verifyMyVoucher() throws Exception{
+
+        LoginTestCase.loginUser();
         homePage.clickHamburgerBtn();
         myVoucherPage.clickMyVoucherBtn();
         myVoucherPage.verifyVoucher();

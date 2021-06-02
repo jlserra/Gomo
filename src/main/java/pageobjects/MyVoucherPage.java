@@ -32,10 +32,10 @@ public class MyVoucherPage extends BasePage{
         action.takeSnapShot("User is in My Voucher Page");
     }
 
-    @Step("Step: Verify Voucher")
+    @Step("Step: Verify if user has no Voucher")
     public void verifyVoucher() throws Exception {
 
-        log.info("Step: Verify Voucher");
+        log.info("Step: Verify if user has no Voucher");
         assertTrue(action.waitForElementToBeVisible("txtNoVoucher", ConfigUtilities.Timers.slow));
         assertEquals(excel.getTestdata("text2"), action.getText("txtNoVoucher"));
         action.takeSnapShot("User has no Voucher");

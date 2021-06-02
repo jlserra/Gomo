@@ -42,6 +42,7 @@ public class BaseTestcase {
     public static MyProfilePage myProfilePage;
     public static EditMyProfilePage editMyProfilePage;
     public static MyVoucherPage myVoucherPage;
+    public static ChatWithUsPage chatWithUsPage;
 
 //    Utilities
     public static ActionUtilities action;
@@ -72,6 +73,7 @@ public class BaseTestcase {
         myProfilePage = new MyProfilePage(driver);
         editMyProfilePage = new EditMyProfilePage(driver);
         myVoucherPage = new MyVoucherPage(driver);
+        chatWithUsPage = new ChatWithUsPage(driver);
 
     }
 
