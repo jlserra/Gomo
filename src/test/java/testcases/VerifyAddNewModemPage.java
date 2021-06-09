@@ -20,4 +20,15 @@ public class VerifyAddNewModemPage extends BaseTestcase{
         addNewModemPage.clickAddANewModemBtn();
 
     }
+
+    @Test(testName = "VerifyWhereCanIFindTheseModal", priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will be able to click Where Can I Find These? link ")
+    @Story("Story:  Where Can I Find These? link")
+    public void VerifyWhereCanIFindTheseModal() throws Exception {
+
+        navigateToAddNewModemPage();
+        addNewModemPage.verifyWhereCanIFindTheseModal();
+
+    }
 }
