@@ -44,6 +44,7 @@ public class BaseTestcase {
     public static MyVoucherPage myVoucherPage;
     public static ChatWithUsPage chatWithUsPage;
     public static AddNewModemPage addNewModemPage;
+    public static HowToLoadPage howToLoadPage;
 
 //    Utilities
     public static ActionUtilities action;
@@ -76,6 +77,7 @@ public class BaseTestcase {
         myVoucherPage = new MyVoucherPage(driver);
         chatWithUsPage = new ChatWithUsPage(driver);
         addNewModemPage = new AddNewModemPage(driver);
+        howToLoadPage = new HowToLoadPage(driver);
 
     }
 

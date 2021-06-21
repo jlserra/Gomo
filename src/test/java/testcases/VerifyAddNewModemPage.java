@@ -25,10 +25,41 @@ public class VerifyAddNewModemPage extends BaseTestcase{
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be able to click Where Can I Find These? link ")
     @Story("Story:  Where Can I Find These? link")
-    public void VerifyWhereCanIFindTheseModal() throws Exception {
+    public void verifyWhereCanIFindTheseModal() throws Exception {
 
         navigateToAddNewModemPage();
         addNewModemPage.verifyWhereCanIFindTheseModal();
 
+    }
+    @Test(testName = "VerifyEnterMobileNumber", priority = 3)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will be able enter Mobile Number ")
+    @Story("Story:  Enter Mobile Number")
+    public void verifyEnterMobileNumber() throws Exception {
+
+        navigateToAddNewModemPage();
+        addNewModemPage.mobileNumberTextField(excel.getTestdata("number"));
+
+
+    }
+
+    @Test(testName = "VerifyPromoSubscriptiontoggle", priority = 4)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will be able to click Promo Subscription toggle ")
+    @Story("Story: Promo Subscription toggle")
+    public void verifyPromoSubscriptiontoggle() throws Exception {
+
+        verifyEnterMobileNumber();
+        addNewModemPage.promoSubscriptiontoggle();
+    }
+
+    @Test(testName = "VerifyEnterModemNickname", priority = 5)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will be able to enter a nickname ")
+    @Story("Story: Enter Modem Nickname")
+    public void verifyEnterModemNickname() throws Exception {
+
+        verifyPromoSubscriptiontoggle();
+        addNewModemPage.enterModemNickname(excel.getTestdata("modemname"));
     }
 }

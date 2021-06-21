@@ -46,7 +46,7 @@ public class LoginTestCase extends BaseTestcase {
 
         //Home Page
         homePage.clickBtnProceed();
-        Thread.sleep(10000);
+        Thread.sleep(12000);
 
     }
 
