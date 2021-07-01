@@ -45,6 +45,7 @@ public class BaseTestcase {
     public static ChatWithUsPage chatWithUsPage;
     public static AddNewModemPage addNewModemPage;
     public static HowToLoadPage howToLoadPage;
+    public static PrivacyPolicyPage privacyPolicyPage;
 
 //    Utilities
     public static ActionUtilities action;
@@ -78,6 +79,7 @@ public class BaseTestcase {
         chatWithUsPage = new ChatWithUsPage(driver);
         addNewModemPage = new AddNewModemPage(driver);
         howToLoadPage = new HowToLoadPage(driver);
+        privacyPolicyPage = new PrivacyPolicyPage(driver);
 
     }
 
