@@ -46,6 +46,7 @@ public class BaseTestcase {
     public static AddNewModemPage addNewModemPage;
     public static HowToLoadPage howToLoadPage;
     public static PrivacyPolicyPage privacyPolicyPage;
+    public static HelpSupportPage helpSupportPage;
 
 //    Utilities
     public static ActionUtilities action;
@@ -80,6 +81,7 @@ public class BaseTestcase {
         addNewModemPage = new AddNewModemPage(driver);
         howToLoadPage = new HowToLoadPage(driver);
         privacyPolicyPage = new PrivacyPolicyPage(driver);
+        helpSupportPage = new HelpSupportPage(driver);
 
     }
 
@@ -102,7 +104,7 @@ public class BaseTestcase {
         capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("avd", "emulator-5554");
-//        capabilities.setCapability("deviceName", "emulator-5554");
+        capabilities.setCapability("deviceName", "emulator-5554");
 //        capabilities.setCapability("deviceName", "6ed66a95");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("noReset", false);

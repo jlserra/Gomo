@@ -23,7 +23,8 @@ public class PrivacyPolicyPage extends BasePage{
             System.out.println(contextNames);
         }
         action.click("privacyPolicybtn");
-        action.takeSnapShot("User clicked the  How to Load button");
+        Thread.sleep(5000);
+        action.takeSnapShot("User clicked the  Privacy Policy button");
         driver.context("WEBVIEW_chrome");
         System.out.println(driver.getCurrentUrl());
         Assert.assertEquals(excel.getTestdata("text1"),driver.getCurrentUrl());
