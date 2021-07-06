@@ -14,7 +14,7 @@ public class VerifyHelpSupportPage extends BaseTestcase{
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Help & Support Page")
     @Story("Story: Help & Support Page")
-    public void navigateToHelpSupportPagePage() throws Exception {
+    public void navigateToHelpSupportPage() throws Exception {
 
         LoginTestCase.loginUser();
         homePage.clickHamburgerBtn();

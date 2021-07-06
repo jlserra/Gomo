@@ -10,11 +10,9 @@ import org.testng.annotations.Test;
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifySettingsPage extends BaseTestcase{
 
-    @Test(testName = "VerifySettingsPage", priority = 1)
-    @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Settings Page")
     @Story("Story: Settings Page")
-    public void navigateToHelpSupportPagePage() throws Exception {
+    public void navigateToSettingsPage() throws Exception {
 
         LoginTestCase.loginUser();
         homePage.clickHamburgerBtn();
@@ -27,17 +25,17 @@ public class VerifySettingsPage extends BaseTestcase{
     @Story("Story: Change App PIN")
     public void verifyChangeAppPIN() throws Exception {
 
-        navigateToHelpSupportPagePage();
+        navigateToSettingsPage();
         settingsPage.changeAppPIN();
 
     }
     @Test(testName = "VerifySettingsPage", priority = 2)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will be redirected to Change App PIN Page")
-    @Story("Story: Change App PIN")
+    @Description("Test Description: User will be redirected to Custom Alert Page")
+    @Story("Story: Custom Alert")
     public void verifyCustomAlert() throws Exception {
 
-        navigateToHelpSupportPagePage();
+        navigateToSettingsPage();
         settingsPage.customAlertSettings();
 
     }

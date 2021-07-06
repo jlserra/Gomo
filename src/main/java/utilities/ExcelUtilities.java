@@ -78,7 +78,7 @@ public class ExcelUtilities {
                 }
 
                 if (value.contains("=")) {
-                    String[] keyValue = getCellValue(cell).split("=");
+                    String[] keyValue = getCellValue(cell).split("=",2);
                     tempJson.put(keyValue[0].toLowerCase(), keyValue[1]);
                 }
 

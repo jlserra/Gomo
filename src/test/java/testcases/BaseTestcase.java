@@ -48,6 +48,7 @@ public class BaseTestcase {
     public static PrivacyPolicyPage privacyPolicyPage;
     public static HelpSupportPage helpSupportPage;
     public static SettingsPage settingsPage;
+    public static LogOutPage logOutPage;
 
 //    Utilities
     public static ActionUtilities action;
@@ -84,6 +85,7 @@ public class BaseTestcase {
         privacyPolicyPage = new PrivacyPolicyPage(driver);
         helpSupportPage = new HelpSupportPage(driver);
         settingsPage = new SettingsPage(driver);
+        logOutPage = new LogOutPage(driver);
 
     }
 
