@@ -14,16 +14,16 @@ public class HelpSupportPage extends BasePage{
         this.driver = driver;
     }
 
-    @Step("Step: Click Help & Support button")
+    @Step("Step: Click Help & Support link text")
     public void clickHelpSupportBtn () throws Exception {
-        log.info("Step: Click Help & Support Button");
+        log.info("Step: Click Help & Support link text");
         action.waitForElementToBeClickable("helpSupportbtn", ConfigUtilities.Timers.slow);
         Set<String> contexts = driver.getContextHandles();
         for(String contextNames : contexts ){
             System.out.println(contextNames);
         }
         action.click("helpSupportbtn");
-        action.takeSnapShot("User clicked the  Help & Support button");
+        action.takeSnapShot("User clicked the  Help & Support link text");
         driver.context("WEBVIEW_chrome");
         System.out.println(driver.getCurrentUrl());
         Assert.assertEquals(excel.getTestdata("text1"),driver.getCurrentUrl());

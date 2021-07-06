@@ -12,7 +12,7 @@ public class VerifyHelpSupportPage extends BaseTestcase{
 
     @Test(testName = "VerifyHelpSupportPage", priority = 1)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will be redirected to Help & Support Page Page")
+    @Description("Test Description: User will be redirected to Help & Support Page")
     @Story("Story: Help & Support Page")
     public void navigateToHelpSupportPagePage() throws Exception {
 

@@ -47,6 +47,7 @@ public class BaseTestcase {
     public static HowToLoadPage howToLoadPage;
     public static PrivacyPolicyPage privacyPolicyPage;
     public static HelpSupportPage helpSupportPage;
+    public static SettingsPage settingsPage;
 
 //    Utilities
     public static ActionUtilities action;
@@ -82,6 +83,7 @@ public class BaseTestcase {
         howToLoadPage = new HowToLoadPage(driver);
         privacyPolicyPage = new PrivacyPolicyPage(driver);
         helpSupportPage = new HelpSupportPage(driver);
+        settingsPage = new SettingsPage(driver);
 
     }
 
@@ -108,6 +110,10 @@ public class BaseTestcase {
 //        capabilities.setCapability("deviceName", "6ed66a95");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("noReset", false);
+
+//        Chromdriver version '83.0.4103'
+        File chromedriverExecutable = new File(config.resourceDirectory, "chromedriver");
+        capabilities.setCapability("chromedriverExecutable", chromedriverExecutable.getAbsolutePath());
 
 //        Application Capability Configuration
 //        A.) APK Fresh Installation

@@ -14,9 +14,9 @@ public class PrivacyPolicyPage extends BasePage{
         this.driver = driver;
     }
 
-    @Step("Step: Click Privacy Policy button")
+    @Step("Step: Click Privacy Policy link text")
     public void clickPrivacyPolicyBtn () throws Exception {
-        log.info("Step: Click Privacy Policy Button");
+        log.info("Step: Click Privacy Policy link text");
         action.waitForElementToBeClickable("privacyPolicybtn", ConfigUtilities.Timers.slow);
         Set<String> contexts = driver.getContextHandles();
         for(String contextNames : contexts ){
@@ -24,7 +24,7 @@ public class PrivacyPolicyPage extends BasePage{
         }
         action.click("privacyPolicybtn");
         Thread.sleep(5000);
-        action.takeSnapShot("User clicked the  Privacy Policy button");
+        action.takeSnapShot("User clicked the  Privacy Policy link text");
         driver.context("WEBVIEW_chrome");
         System.out.println(driver.getCurrentUrl());
         Assert.assertEquals(excel.getTestdata("text1"),driver.getCurrentUrl());
