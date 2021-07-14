@@ -15,25 +15,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
     @Description("Test Description: User will check for the Account Details Page")
     @Story("Story: Account Details Page")
     public void verifyAccountDetailsPage() throws Exception {
-        getStartedPage.verifyIfGetStartedPage();
-        getStartedPage.clickBtnGetStarted();
-        welcomePage.verifyIfLoginPage();
-        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
-        welcomePage.verifyIfBtnNextIsEnabled();
-        welcomePage.clickBtnNext();
-        secureAppPage.verifyIfSecurePage();
-        secureAppPage.enterPin(excel.getTestdata("pin"));
-        secureAppPage.clickBtnNext();
-        secureAppPage.verifyIfSecurePageConfirmation();
-        secureAppPage.enterPin(excel.getTestdata("pin"));
-        secureAppPage.clickBtnNext();
-        customerProfilePage.verifyIfCustomerProfilePage();
-        customerProfilePage.enterNickname(excel.getTestdata("nickname"));
-        customerProfilePage.verifyIfBtnNextIsEnabled();
-        customerProfilePage.clickBtnNext();
-        chooseModemPage.verifyChooseModemFour();
-        modemConfigPage.verifyUserAlreadyConnected();
-        homePage.navigateToHomePage();
+        LoginTestCase.loginUser();
         homePage.clickHamburgerBtn();
         accountDetailsPage.accountDetailsPage();
         accountDetailsPage.accountDetailsPageContent();
@@ -76,7 +58,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
         accountDetailsPage.verifyProfileStatus();
     }
 
-    @Test(testName = "Verify Photo Upload", priority = 5)
+    @Test(testName = "Verify Photo Upload", priority = 6)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: Verify Photo Upload")
     @Story("Story: Photo Upload")

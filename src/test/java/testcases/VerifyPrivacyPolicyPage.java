@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyPrivacyPolicyPage extends BaseTestcase{
 
-    @Test(testName = "VerifyPrivacyPolicyPage", priority = 1)
+    @Test(testName = "NavigateToPrivacyPolicyPage", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Privacy Policy Page")
     @Story("Story: Privacy Policy Page")

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyAddNewModemPage extends BaseTestcase{
 
-    @Test(testName = "VerifyAddNewModemPage", priority = 1)
+    @Test(testName = "NavigateToAddNewModemPage", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Add New Modem Page")
     @Story("Story: Add New Modem Page")

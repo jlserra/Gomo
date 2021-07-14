@@ -19,7 +19,7 @@ public class VerifySettingsPage extends BaseTestcase{
         settingsPage.clickSettingsBtn();
     }
 
-    @Test(testName = "VerifySettingsPage", priority = 1)
+    @Test(testName = "VerifyChangeAppPIN", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Change App PIN Page")
     @Story("Story: Change App PIN")
@@ -29,7 +29,7 @@ public class VerifySettingsPage extends BaseTestcase{
         settingsPage.changeAppPIN();
 
     }
-    @Test(testName = "VerifySettingsPage", priority = 2)
+    @Test(testName = "VerifyCustomAlert", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Custom Alert Page")
     @Story("Story: Custom Alert")

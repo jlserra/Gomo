@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 @Listeners(testcases.ListenerTestcase.class)
 public class CustomerProfileTestcase extends BaseTestcase {
 
-    @Test(testName = "customerProfileEnterNickname")
+    @Test(testName = "customerProfileEnterNickname", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will enter nickname in customer profile page")
     @Story("Story: Customer Profile")
@@ -48,7 +48,7 @@ public class CustomerProfileTestcase extends BaseTestcase {
 
     }
 
-    @Test(testName = "customerProfileSkipEnterNickname", priority = 1)
+    @Test(testName = "customerProfileSkipEnterNickname", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will skip enter nickname in customer profile page")
     @Story("Story: Customer Profile")

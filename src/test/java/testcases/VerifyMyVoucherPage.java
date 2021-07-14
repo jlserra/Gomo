@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyMyVoucherPage extends BaseTestcase{
 
-    @Test(testName = "VerifyMyVoucherPage", priority = 1)
+    @Test(testName = "NavigateToMyVoucherPage", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to My Voucher Page")
     @Story("Story: My Voucher Page")
@@ -23,7 +23,7 @@ public class VerifyMyVoucherPage extends BaseTestcase{
 
     }
 
-    @Test(testName = "VerifyMyVoucherPage", priority = 2)
+    @Test(testName = "VerifyMyVoucher", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check the Voucher")
     @Story("Story: My Voucher Page")

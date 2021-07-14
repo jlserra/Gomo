@@ -12,7 +12,7 @@ import pageobjects.HowToLoadPage;
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyHowToLoadPage extends BaseTestcase{
 
-    @Test(testName = "VerifyHowToLoadPage", priority = 1)
+    @Test(testName = "NavigateToHowToLoadPage", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to How to Load Page")
     @Story("Story: How to Load page")

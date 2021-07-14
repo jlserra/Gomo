@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyChatWithUsPage extends BaseTestcase {
 
-    @Test(testName = "VerifyChatWithUsPage", priority = 1)
+    @Test(testName = "NavigateToChatWithUsModal", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Chat with us modal")
     @Story("Story: Chat with us modal")

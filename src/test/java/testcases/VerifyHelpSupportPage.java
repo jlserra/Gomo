@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 @Listeners(testcases.ListenerTestcase.class)
 public class VerifyHelpSupportPage extends BaseTestcase{
 
-    @Test(testName = "VerifyHelpSupportPage", priority = 1)
+    @Test(testName = "NavigateToHelpSupportPage", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Help & Support Page")
     @Story("Story: Help & Support Page")

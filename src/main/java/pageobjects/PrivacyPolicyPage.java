@@ -23,7 +23,7 @@ public class PrivacyPolicyPage extends BasePage{
             System.out.println(contextNames);
         }
         action.click("privacyPolicybtn");
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         action.takeSnapShot("User clicked the  Privacy Policy link text");
         driver.context("WEBVIEW_chrome");
         System.out.println(driver.getCurrentUrl());

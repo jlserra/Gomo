@@ -195,11 +195,6 @@ public class BaseTestcase {
         excel.readTestdata();
         excel.readLocators();
     }
-
-    @Test
-    public void test(){
-        System.out.println("Test");
-    }
 }
 
 
