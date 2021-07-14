@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class ActionUtilities {
@@ -392,6 +393,20 @@ public class ActionUtilities {
         RIGHT
     }
 
+    public void switchContextToWebView() {
+        Boolean isWebView = false;
+
+        do {
+            Set<String> contexts = driver.getContextHandles();
+            for (String contextNames : contexts) {
+                if (contextNames.equals("WEBVIEW_chrome")) {
+                    isWebView = true;
+                }
+            }
+        } while (!isWebView);
+
+        driver.context("WEBVIEW_chrome");
+    }
 
 
 }

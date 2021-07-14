@@ -92,15 +92,15 @@ public class ConfigUtilities extends BasePage {
     }
 
     public enum Timers {
-        superFast(500),
-        fast(1000),
-        realQuick(2000),
-        quick(4000),
-        normal(6000),
-        appStandard(12000),
-        slow(24000),
-        verySlow(30000),
-        superslow(120000);
+        superFast(10),
+        fast(20),
+        realQuick(30),
+        quick(40),
+        normal(50),
+        appStandard(60),
+        slow(80),
+        verySlow(100),
+        superslow(120);
 
         public int getValue() {
             return value;
