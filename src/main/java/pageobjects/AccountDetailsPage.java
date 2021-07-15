@@ -164,6 +164,7 @@ public class AccountDetailsPage extends BasePage{
     @Step("Step: Click Go to My Profile")
     public void clickBtnGoToMyProfile() throws Exception {
         log.info("Step: Click Go to My Profile");
+        action.scrollIntoElement("goToMyProfileBtn");
         action.takeSnapShot("User clicked Go to My Profile");
         action.waitForElementToBeClickable("goToMyProfileBtn",ConfigUtilities.Timers.slow);
         action.click("goToMyProfileBtn");
@@ -245,6 +246,14 @@ public class AccountDetailsPage extends BasePage{
         action.takeSnapShot("User clicked a specific Photo From Library");
         action.waitForElementToBeClickable("specificPhotoObj",ConfigUtilities.Timers.slow);
         action.click("specificPhotoObj");
+    }
+
+    @Step("Step: User clicked privacy policy checkbox")
+    public void clickPrivacyPolicyCheckbox() throws Exception {
+        log.info("Step: User clicked privacy policy checkbox");
+        action.waitForElementToBeClickable("profilePolicyCheckbox",ConfigUtilities.Timers.slow);
+        action.click("profilePolicyCheckbox");
+        action.takeSnapShot("User clicked privacy policy checkbox");
     }
 
 

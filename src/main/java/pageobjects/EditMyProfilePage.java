@@ -348,9 +348,9 @@ public class EditMyProfilePage extends BasePage {
     }
 
 //Edit Business Information First Page
-    @Step("Step: Verify if the user is in Edit My Profile Business Information - First Page")
+    @Step("Step: Verify if the user is in Edit My Profile Business Information")
     public void verifyIfEditMyProfileBusinessInfoPage() throws Exception {
-        log.info("Step: Verify if the user is in Edit My Profile Business Information - First Page");
+        log.info("Step: Verify if the user is in Edit My Profile Business Information");
         Assert.assertTrue(action.waitForElementToBeVisible("lblBusinessInfo", ConfigUtilities.Timers.normal));
         Assert.assertEquals(excel.getTestdata("businessInfoLbl"), action.getText("lblBusinessInfo"));
         action.takeSnapShot("Edit My Profile Business Information Page");
@@ -838,7 +838,7 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfMobileNumberTextFieldIsEnabled());
         Assert.assertTrue(verifyEmailAddressLabelIsDisplayed());
         Assert.assertTrue(verifyIfEmailAddressTextFieldIsEnabled());
-        action.swipe("lblPosition", "lblMobileNumber");
+        action.scrollIntoElement("lblMobileNumber");
         Assert.assertTrue(verifyPositionLabelIsDisplayed());
         Assert.assertTrue(verifyIfPositionDropdownIsEnabled());
         Assert.assertTrue(verifyDepartmentLabelIsDisplayed());
@@ -879,7 +879,7 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfCityDropdownIsEnabled());
         Assert.assertTrue(verifyBrgyLabelIsDisplayed());
         Assert.assertTrue(verifyIfBrgyDropdownIsEnabled());
-        action.swipe("lblBrgy", "lblFlrUnitNo");
+        action.scrollIntoElement("lblFlrUnitNo");
         Assert.assertTrue(verifyPostalCodeLabelIsDisplayed());
         Assert.assertTrue(verifyIfPostalCodeTextFieldIsEnabled());
         Assert.assertTrue(verifyLandlineNoLabelIsDisplayed());
@@ -899,7 +899,7 @@ public class EditMyProfilePage extends BasePage {
         enterSuffix(excel.getTestdata("validSuffix"));
         enterMobileNumber(excel.getTestdata("validMobileNo"));
         enterEmailAddress(excel.getTestdata("validEmailAdd"));
-        action.swipe("lblPosition", "lblMobileNumber");
+        action.scrollIntoElement("lblMobileNumber");
         choosePosition(excel.getTestdata("validPosition"));
         chooseDepartment(excel.getTestdata("validDepartment"));
     }
@@ -925,7 +925,7 @@ public class EditMyProfilePage extends BasePage {
         chooseProvince(excel.getTestdata("validProvince"));
         chooseCity(excel.getTestdata("validCity"));
         chooseBrgy(excel.getTestdata("validBrgy"));
-        action.swipe("lblBrgy", "lblFlrUnitNo");
+        action.scrollIntoElement("lblFlrUnitNo");
         enterPostalCode(excel.getTestdata("validPostal"));
         enterLandlineNo(excel.getTestdata("validLandline"));
     }
@@ -936,7 +936,7 @@ public class EditMyProfilePage extends BasePage {
         verifyIfEditMyProfilePage();
         enterMobileNumber(excel.getTestdata("invalidMobileNo"));
         Assert.assertTrue(verifyIfMobileNoErrorMsgIsDisplayed());
-        action.swipe("lblEmailAddress", "lblMobileNumber");
+        action.scrollIntoElement("lblMobileNumber");
         enterEmailAddress(excel.getTestdata("invalidEmailAdd"));
         Assert.assertTrue(verifyIfEmailAddErrorMsgIsDisplayed());
     }
@@ -945,7 +945,7 @@ public class EditMyProfilePage extends BasePage {
     public void enterInvalidValuesInBusinessInfoSecPage() throws Exception {
         log.info("Step: Enter Invalid Values In Business Information Second Page");
         verifyIfEditMyProfileBusinessInfoPage();
-        action.swipe("lblBrgy", "lblProvince");
+        action.scrollIntoElement("lblCountry");
         enterLandlineNo(excel.getTestdata("invalidLandline"));
         Assert.assertTrue(verifyIfLandlineErrorMsgIsDisplayed());
     }

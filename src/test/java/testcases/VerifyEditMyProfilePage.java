@@ -78,21 +78,21 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         editMyProfilePage.clickEditMyProfileBtn();
         editMyProfilePage.enterInvalidValuesInPersonalInfo();
         Assert.assertFalse(editMyProfilePage.VerifyIfNextBtnIsEnabled());
-        action.swipe("lblEmailAddress", "lblPosition");
+        action.scrollIntoElement("txtfieldFirstName");
         editMyProfilePage.enterValidValuesInPersonalInfo();
         editMyProfilePage.clickNextBtn();
         editMyProfilePage.enterValidValuesInBusinessInfoFirstPage();
         editMyProfilePage.clickNextBtn();
         editMyProfilePage.enterInvalidValuesInBusinessInfoSecPage();
         Assert.assertFalse(editMyProfilePage.verifyIfSaveBtnIsEnabled());
-        action.swipe("lblBrgy", "lblLandlineNo");
+        action.scrollIntoElement("lblLandlineNo");
         editMyProfilePage.enterValidValuesInBusinessInfoSecPage();
         Assert.assertTrue(editMyProfilePage.verifyIfSaveBtnIsEnabled());
     }
 
-    @Test(testName = "verifyEnterInvalidValuesInEditMyProfilePage", priority = 6)
+    @Test(testName = "verifySaveChangesInEditMyProfilePage", priority = 6)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will enter invalid values in Edit My Profile Pages")
+    @Description("Test Description: User will save changes in Edit My Profile Pages")
     @Story("Story: Edit My Profile")
     public void verifySaveChangesInEditMyProfilePage() throws Exception {
 
@@ -146,6 +146,7 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
 
         //Visit My Profile Page from Account Details Page
         accountDetailsPage.accountDetailsPage();
+        accountDetailsPage.clickPrivacyPolicyCheckbox();
         accountDetailsPage.clickGoToMyProfile();
     }
 }

@@ -4,16 +4,19 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Attachment;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -376,6 +379,18 @@ public class ActionUtilities {
 
         action.press(PointOption.point(location1)).moveTo(PointOption.point(location2)).release().perform();
         log.info("Swiping");
+    }
+
+    //for ID only
+    public void scrollIntoElement(String locator) throws Exception {
+
+        if (excel.getLocator(locator)[0].equalsIgnoreCase("id")) {
+            MobileElement element = (MobileElement) driver.findElement(MobileBy.AndroidUIAutomator(
+                    "new UiScrollable(new UiSelector().scrollable(true))" +
+                            ".scrollIntoView(new UiSelector().resourceId(\"" + excel.getLocator(locator)[1] + "\"))"));
+        } else {
+            log.warn("Waring: Unable to scroll locators that is not ID");
+        }
     }
 
     public MobileElement findElementBy(String loc) {
