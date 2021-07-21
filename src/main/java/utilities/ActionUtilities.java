@@ -136,7 +136,6 @@ public class ActionUtilities {
             log.info("Successfully clicked element : " + locator);
         } catch (Exception e) {
             log.error(e, "Unable to click element " + locator);
-            throw new Exception("Unable to click element " + locator);
         }
     }
 
@@ -148,7 +147,6 @@ public class ActionUtilities {
             log.info("Able to enter text successfully " + text);
         } catch (Exception e) {
             log.error(e, "Unable to enter text successfully " + text);
-            throw new Exception("Unable to enter text successfully " + text);
         }
     }
 
@@ -172,7 +170,6 @@ public class ActionUtilities {
             log.info("Able to get text successfully " + text);
         } catch (Exception e) {
             log.error(e, "Unable to get text from locator " + locator);
-            throw new Exception("Unable to get text from locator " + locator);
         }
         return text;
     }
@@ -196,7 +193,6 @@ public class ActionUtilities {
             log.info("Element displayed with locator " + locator);
         } catch (Exception e) {
             log.error(e, "Element not displayed with locator " + locator);
-            throw new Exception("Element not displayed with locator " + locator);
         }
         return isDisplayed;
     }
@@ -220,7 +216,6 @@ public class ActionUtilities {
             log.info("Element is enabled with locator " + locator);
         } catch (Exception e) {
             log.error(e, "Element is not enabled with locator " + locator);
-            throw new Exception("Element is not enabled with locator " + locator);
         }
         return isEnabled;
     }
@@ -245,7 +240,6 @@ public class ActionUtilities {
             log.info("Element now visible with " + locator);
         } catch (Exception e) {
             log.error(e, "Element not visible with " + locator);
-            throw new Exception("Element not visible with " + locator);
         }
         return visible;
     }
@@ -278,7 +272,6 @@ public class ActionUtilities {
             log.info("Element now clickable");
         } catch (Exception e) {
             log.error(e, "Element not clickable");
-            throw new Exception("Element not clickable " + locator);
         }
         return clickable;
     }
@@ -293,7 +286,6 @@ public class ActionUtilities {
             log.info("Element now clickable");
         } catch (Exception e) {
             log.error(e, "Element not clickable");
-            throw new Exception("Element not clickable " + locator);
         }
         return selected;
     }

@@ -85,7 +85,7 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
         editMyProfilePage.clickNextBtn();
         editMyProfilePage.enterInvalidValuesInBusinessInfoSecPage();
         Assert.assertFalse(editMyProfilePage.verifyIfSaveBtnIsEnabled());
-        action.scrollIntoElement("lblLandlineNo");
+        action.scrollIntoElement("txtfieldLandlineNo");
         editMyProfilePage.enterValidValuesInBusinessInfoSecPage();
         Assert.assertTrue(editMyProfilePage.verifyIfSaveBtnIsEnabled());
     }
@@ -146,7 +146,9 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
 
         //Visit My Profile Page from Account Details Page
         accountDetailsPage.accountDetailsPage();
-        accountDetailsPage.clickPrivacyPolicyCheckbox();
+        if(accountDetailsPage.verifyIfPrivacyPolicyExists()) {
+            accountDetailsPage.clickPrivacyPolicyCheckbox();
+        }
         accountDetailsPage.clickGoToMyProfile();
     }
 }

@@ -838,7 +838,7 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfMobileNumberTextFieldIsEnabled());
         Assert.assertTrue(verifyEmailAddressLabelIsDisplayed());
         Assert.assertTrue(verifyIfEmailAddressTextFieldIsEnabled());
-        action.scrollIntoElement("lblMobileNumber");
+        action.scrollIntoElement("txtfieldMobileNumber");
         Assert.assertTrue(verifyPositionLabelIsDisplayed());
         Assert.assertTrue(verifyIfPositionDropdownIsEnabled());
         Assert.assertTrue(verifyDepartmentLabelIsDisplayed());
@@ -879,7 +879,7 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfCityDropdownIsEnabled());
         Assert.assertTrue(verifyBrgyLabelIsDisplayed());
         Assert.assertTrue(verifyIfBrgyDropdownIsEnabled());
-        action.scrollIntoElement("lblFlrUnitNo");
+        action.scrollIntoElement("txtfieldFlrUnitNo");
         Assert.assertTrue(verifyPostalCodeLabelIsDisplayed());
         Assert.assertTrue(verifyIfPostalCodeTextFieldIsEnabled());
         Assert.assertTrue(verifyLandlineNoLabelIsDisplayed());
@@ -936,7 +936,7 @@ public class EditMyProfilePage extends BasePage {
         verifyIfEditMyProfilePage();
         enterMobileNumber(excel.getTestdata("invalidMobileNo"));
         Assert.assertTrue(verifyIfMobileNoErrorMsgIsDisplayed());
-        action.scrollIntoElement("lblMobileNumber");
+        action.scrollIntoElement("txtfieldMobileNumber");
         enterEmailAddress(excel.getTestdata("invalidEmailAdd"));
         Assert.assertTrue(verifyIfEmailAddErrorMsgIsDisplayed());
     }
@@ -945,7 +945,7 @@ public class EditMyProfilePage extends BasePage {
     public void enterInvalidValuesInBusinessInfoSecPage() throws Exception {
         log.info("Step: Enter Invalid Values In Business Information Second Page");
         verifyIfEditMyProfileBusinessInfoPage();
-        action.scrollIntoElement("lblCountry");
+        action.scrollIntoElement("dropdownCountry");
         enterLandlineNo(excel.getTestdata("invalidLandline"));
         Assert.assertTrue(verifyIfLandlineErrorMsgIsDisplayed());
     }

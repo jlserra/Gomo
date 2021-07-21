@@ -256,6 +256,13 @@ public class AccountDetailsPage extends BasePage{
         action.takeSnapShot("User clicked privacy policy checkbox");
     }
 
+    @Step("Step: Check if privacy policy exists")
+    public boolean verifyIfPrivacyPolicyExists() throws Exception {
+        log.info("Step: Check if privacy policy exists");
+        boolean isDisplayed = action.isDisplayed("profilePolicyCheckbox");
+        action.takeSnapShot("Check if privacy policy exists");
+        return isDisplayed;
+    }
 
     // ****************** STEPS ****************************** //
 

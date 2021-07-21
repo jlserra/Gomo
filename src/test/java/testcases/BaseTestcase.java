@@ -107,8 +107,8 @@ public class BaseTestcase {
 //        Android Capability Configuration
         capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("avd", "emulator-5554");
-        capabilities.setCapability("deviceName", "emulator-5554");
+//        capabilities.setCapability("avd", "emulator-5554");
+        capabilities.setCapability("deviceName", "vysor");
 //        capabilities.setCapability("deviceName", "6ed66a95");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("noReset", false);
