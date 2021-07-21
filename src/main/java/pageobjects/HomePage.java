@@ -70,6 +70,7 @@ public class HomePage extends BasePage{
     @Step("Step: Verify if Get More Data Button is Enabled")
     public Boolean verifyGetMoreDataIsEnabled() throws Exception {
         log.info("Step: Verify if Get More Data Button is Enabled");
+        action.scrollIntoElement("btnGetMoreData");
         Assert.assertTrue(action.waitForElementToBeVisible("btnGetMoreData", ConfigUtilities.Timers.slow));
         return action.isEnabled("btnGetMoreData");
     }
@@ -121,6 +122,7 @@ public class HomePage extends BasePage{
     @Step("Step: Verify if Expand Announcement Button is Enabled")
     public Boolean verifyExpandAnnouncementIsEnabled() throws Exception {
         log.info("Step: Verify if Expand Announcement Button is Enabled");
+        action.scrollIntoElement("btnXpandAnnouncement");
         Assert.assertTrue(action.waitForElementToBeVisible("btnXpandAnnouncement", ConfigUtilities.Timers.slow));
         return action.isEnabled("btnXpandAnnouncement");
     }

@@ -27,7 +27,8 @@ public class VerifyWelcomePageTestCase extends BaseTestcase{
     @Story("Story: Login")
     public void verifyErrorSpielWhenLoginInUsingInvalidNumber() throws Exception {
         String errorSpiel = "Sorry, you have entered an invalid Globe myBusiness Prepaid Internet number";
-        welcomePage.enterPrepaidNumber("09212341298");
+        verifyWelcomePage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
         welcomePage.clickBtnNext();
         assertTrue(welcomePage.verifyInvalidNumberErrorSpiel(errorSpiel));
     }
@@ -37,8 +38,10 @@ public class VerifyWelcomePageTestCase extends BaseTestcase{
     @Description("Test Description: User should get an error message")
     @Story("Story: Login")
     public void verifyLoginInUsingValidNumber() throws Exception {
+        verifyWelcomePage();
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
         welcomePage.deleteEnteredNumber();
-        welcomePage.enterPrepaidNumber("09212341294");
+        welcomePage.enterPrepaidNumber(excel.getTestdata("mobileNumber"));
         welcomePage.clickBtnNext();
         assertTrue(secureAppPage.verifyIfSecurePage());
     }
