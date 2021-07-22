@@ -15,7 +15,7 @@ public class VerifyModemConfigurationPage extends BaseTestcase {
     @Test(testName = "VerifyUserAlreadyConnected", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will click the I'm already connected button")
-    @Story("Story: User already connected")
+    @Story("Story: Modem Configuration")
     public void verifyUserAlreadyConnected() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();
@@ -40,7 +40,7 @@ public class VerifyModemConfigurationPage extends BaseTestcase {
     @Test(testName = "VerifyShowMeHowToConnect", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will click the Show Me How to Connect button")
-    @Story("Story: User clicked the Show Me How to Connect")
+    @Story("Story: Modem Configuration")
     public void verifyShowMeHowToConnect() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();

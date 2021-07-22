@@ -22,7 +22,7 @@ public class VerifySettingsPage extends BaseTestcase{
     @Test(testName = "VerifyChangeAppPIN", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Change App PIN Page")
-    @Story("Story: Change App PIN")
+    @Story("Story: Settings Page")
     public void verifyChangeAppPIN() throws Exception {
 
         navigateToSettingsPage();
@@ -32,7 +32,7 @@ public class VerifySettingsPage extends BaseTestcase{
     @Test(testName = "VerifyCustomAlert", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Custom Alert Page")
-    @Story("Story: Custom Alert")
+    @Story("Story: Settings Page")
     public void verifyCustomAlert() throws Exception {
 
         navigateToSettingsPage();

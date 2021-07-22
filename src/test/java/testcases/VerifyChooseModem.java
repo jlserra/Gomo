@@ -15,7 +15,7 @@ public class VerifyChooseModem extends BaseTestcase {
     @Test(testName = "VerifyChooseModem1", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check for the first modem")
-    @Story("Story: Choose modem 1")
+    @Story("Story: Choose modem")
     public void verifyChooseModemOne() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();
@@ -39,7 +39,7 @@ public class VerifyChooseModem extends BaseTestcase {
     @Test(testName = "VerifyChooseModem2", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check for the second modem")
-    @Story("Story: Choose modem 2")
+    @Story("Story: Choose modem")
     public void verifyChooseModemTwo() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();
@@ -63,7 +63,7 @@ public class VerifyChooseModem extends BaseTestcase {
     @Test(testName = "VerifyChooseModem3", priority = 3)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check for the third modem")
-    @Story("Story: Choose modem 3")
+    @Story("Story: Choose modem")
     public void verifyChooseModemThree() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();
@@ -87,7 +87,7 @@ public class VerifyChooseModem extends BaseTestcase {
     @Test(testName = "VerifyChooseModem4", priority = 4)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check for the fourth modem")
-    @Story("Story: Choose modem 4")
+    @Story("Story: Choose modem")
     public void verifyChooseModemFour() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();

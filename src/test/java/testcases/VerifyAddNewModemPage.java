@@ -24,7 +24,7 @@ public class VerifyAddNewModemPage extends BaseTestcase{
     @Test(testName = "VerifyWhereCanIFindTheseModal", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be able to click Where Can I Find These? link ")
-    @Story("Story:  Where Can I Find These? link")
+    @Story("Story: Add New Modem Page")
     public void verifyWhereCanIFindTheseModal() throws Exception {
 
         navigateToAddNewModemPage();
@@ -34,7 +34,7 @@ public class VerifyAddNewModemPage extends BaseTestcase{
     @Test(testName = "VerifyEnterMobileNumber", priority = 3)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be able enter Mobile Number ")
-    @Story("Story:  Enter Mobile Number")
+    @Story("Story: Add New Modem Page")
     public void verifyEnterMobileNumber() throws Exception {
 
         navigateToAddNewModemPage();
@@ -46,7 +46,7 @@ public class VerifyAddNewModemPage extends BaseTestcase{
     @Test(testName = "VerifyPromoSubscriptiontoggle", priority = 4)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be able to click Promo Subscription toggle ")
-    @Story("Story: Promo Subscription toggle")
+    @Story("Story: Add New Modem Page")
     public void verifyPromoSubscriptiontoggle() throws Exception {
 
         verifyEnterMobileNumber();
@@ -56,7 +56,7 @@ public class VerifyAddNewModemPage extends BaseTestcase{
     @Test(testName = "VerifyEnterModemNickname", priority = 5)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be able to enter a nickname ")
-    @Story("Story: Enter Modem Nickname")
+    @Story("Story: Add New Modem Page")
     public void verifyEnterModemNickname() throws Exception {
 
         verifyPromoSubscriptiontoggle();
