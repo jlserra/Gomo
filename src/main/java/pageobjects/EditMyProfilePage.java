@@ -838,11 +838,12 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfMobileNumberTextFieldIsEnabled());
         Assert.assertTrue(verifyEmailAddressLabelIsDisplayed());
         Assert.assertTrue(verifyIfEmailAddressTextFieldIsEnabled());
-        action.scrollIntoElement("txtfieldMobileNumber");
+        action.scrollIntoElement("dropdownDepartment");
         Assert.assertTrue(verifyPositionLabelIsDisplayed());
         Assert.assertTrue(verifyIfPositionDropdownIsEnabled());
         Assert.assertTrue(verifyDepartmentLabelIsDisplayed());
         Assert.assertTrue(verifyIfDepartmentDropdownIsEnabled());
+        action.scrollIntoElement("txtfieldPrepaidNumber");
     }
 
     @Step("Step: Verify Edit My Profile Business Information First Page")
@@ -879,11 +880,12 @@ public class EditMyProfilePage extends BasePage {
         Assert.assertTrue(verifyIfCityDropdownIsEnabled());
         Assert.assertTrue(verifyBrgyLabelIsDisplayed());
         Assert.assertTrue(verifyIfBrgyDropdownIsEnabled());
-        action.scrollIntoElement("txtfieldFlrUnitNo");
+        action.scrollIntoElement("txtfieldLandlineNo");
         Assert.assertTrue(verifyPostalCodeLabelIsDisplayed());
         Assert.assertTrue(verifyIfPostalCodeTextFieldIsEnabled());
         Assert.assertTrue(verifyLandlineNoLabelIsDisplayed());
         Assert.assertTrue(verifyIfLandlineNoTextFieldIsEnabled());
+        action.scrollIntoElement("txtfieldFlrUnitNo");
         verifyConsentHeaderSpiel();
         verifyConsentMsgSpiel();
     }

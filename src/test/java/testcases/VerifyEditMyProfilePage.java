@@ -15,7 +15,7 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
 
     @Test(testName = "verifyEditMyProfilePersonalInfoPage", priority = 1)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test Description: User will check for the Edit My Profile Personal Information Page")
+    @Description("Test Description: User will check for the Edit My Profile Personal Informgitation Page")
     @Story("Story: Edit My Profile")
     public void verifyEditMyProfilePersonalInfoPage() throws Exception {
 
@@ -146,7 +146,7 @@ public class VerifyEditMyProfilePage extends BaseTestcase {
 
         //Visit My Profile Page from Account Details Page
         accountDetailsPage.accountDetailsPage();
-        if(accountDetailsPage.verifyIfPrivacyPolicyExists()) {
+        if(accountDetailsPage.verifyIfPrivacyPolicyExists()){
             accountDetailsPage.clickPrivacyPolicyCheckbox();
         }
         accountDetailsPage.clickGoToMyProfile();
