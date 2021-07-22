@@ -53,11 +53,11 @@ public class SettingsPage extends BasePage{
         action.click("changeAppPIN");
         action.takeSnapShot("User clicked the Click Change App PIN");
         enterPin(excel.getTestdata("pin"));
-        Assert.assertTrue(action.waitForElementToBeClickable("nextbtn", ConfigUtilities.Timers.slow));
-        action.click("nextbtn");
+        Assert.assertTrue(action.waitForElementToBeClickable("nextbtn2", ConfigUtilities.Timers.slow));
+        action.click("nextbtn2");
         enterPin(excel.getTestdata("changepin"));
-        Assert.assertTrue(action.waitForElementToBeClickable("nextbtn", ConfigUtilities.Timers.slow));
-        action.click("nextbtn");
+        Assert.assertTrue(action.waitForElementToBeClickable("nextbtn2", ConfigUtilities.Timers.slow));
+        action.click("nextbtn2");
         Assert.assertTrue(action.waitForElementToBeClickable("okbtn", ConfigUtilities.Timers.slow));
         action.click("okbtn");
 

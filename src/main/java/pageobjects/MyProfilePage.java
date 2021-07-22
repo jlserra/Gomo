@@ -77,9 +77,9 @@ public class MyProfilePage extends BasePage{
     @Step("Step: Verify Full Name is Displayed")
     public Boolean verifyNickNameTxtIsDisplayed() throws Exception {
         log.info("Step: Verify Full Name is Displayed");
-        Assert.assertTrue(action.waitForElementToBeVisible("nickNameTxt", ConfigUtilities.Timers.slow));
-        Assert.assertEquals(excel.getTestdata("nickNameTxt"),action.getText("nickNameTxt"));
-        return action.isDisplayed("nickNameTxt");
+        Assert.assertTrue(action.waitForElementToBeVisible("nickNameTxt1", ConfigUtilities.Timers.slow));
+        Assert.assertEquals(excel.getTestdata("nickNameTxt"),action.getText("nickNameTxt1"));
+        return action.isDisplayed("nickNameTxt1");
     }
 
     @Step("Step: Verify Mobile Number Label")
