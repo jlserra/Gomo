@@ -3,22 +3,22 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="SGBBAPP Test Suite">
         <classes>
-            <class name="testcases.CustomerProfileTestcase">
-                <methods>
-                    <include name="customerProfileEnterNickname"/>
-                    <include name="customerProfileSkipEnterNickname"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyAccountDetailsPage">
-                <methods>
-                    <include name="verifyAccountDetailsPage"/>
-                    <include name="verifyGotoMyProfilePage"/>
-                    <include name="verifyEditNickname"/>
-                    <include name="verifyNumberAndStatus"/>
-                    <include name="verifyProfileStatus"/>
-                    <include name="verifyUploadPhoto"/>
-                </methods>
-            </class>
+<!--            <class name="testcases.CustomerProfileTestcase">-->
+<!--                <methods>-->
+<!--                    <include name="customerProfileEnterNickname"/>-->
+<!--                    <include name="customerProfileSkipEnterNickname"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyAccountDetailsPage">-->
+<!--                <methods>-->
+<!--                    <include name="verifyAccountDetailsPage"/>-->
+<!--                    <include name="verifyGotoMyProfilePage"/>-->
+<!--                    <include name="verifyEditNickname"/>-->
+<!--                    <include name="verifyNumberAndStatus"/>-->
+<!--                    <include name="verifyProfileStatus"/>-->
+<!--                    <include name="verifyUploadPhoto"/>-->
+<!--                </methods>-->
+<!--            </class>-->
             <class name="testcases.VerifyAddNewModemPage">
                 <methods>
                     <include name="navigateToAddNewModemPage"/>
@@ -28,118 +28,118 @@
                     <include name="verifyEnterModemNickname"/>
                 </methods>
             </class>
-            <class name="testcases.VerifyChatWithUsPage">
-                <methods>
-                    <include name="navigateToChatWithUsModal"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyChooseModem">
-                <methods>
-                    <include name="verifyChooseModemOne"/>
-                    <include name="verifyChooseModemTwo"/>
-                    <include name="verifyChooseModemThree"/>
-                    <include name="verifyChooseModemFour"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyEditMyProfilePage">
-                <methods>
-                    <include name="verifyEditMyProfilePersonalInfoPage"/>
-                    <include name="verifyEditMyProfileBusinessInfoFirstPage"/>
-                    <include name="verifyEditMyProfileBusinessInfoSecPage"/>
-                    <include name="verifyEnterValidValuesInEditMyProfilePage"/>
-                    <include name="verifyEnterInvalidValuesInEditMyProfilePage"/>
-                    <include name="verifySaveChangesInEditMyProfilePage"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyGetMoreData">
-                <methods>
-                    <include name="verifyGetMoreDataPromosPage"/>
-                    <include name="verifyGetMoreDataAddOnsPage"/>
-                    <include name="verifySMSVerificationPage"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyGetStartedTestcase">
-                <methods>
-                    <include name="verifyGetStartedPages"/>
-                    <include name="clickButtonGetStarted"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyHelpSupportPage">
-                <methods>
-                    <include name="navigateToHelpSupportPage"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyHomePage">
-                <methods>
-                    <include name="verifyHomePage"/>
-                    <include name="verifyClickRefresh"/>
-                    <include name="verifyNotificationBell"/>
-                    <include name="verifyClickAddModem"/>
-                    <include name="verifyClickHamburger"/>
-                    <include name="verifyClickGetMoreData"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyHowToLoadPage">
-                <methods>
-                    <include name="navigateToHowToLoadPage"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyLogOutPage">
-                <methods>
-                    <include name="navigateToLogOutPage"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyModemConfigurationPage">
-                <methods>
-                    <include name="verifyUserAlreadyConnected"/>
-                    <include name="verifyShowMeHowToConnect"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyMyProfilePage">
-                <methods>
-                    <include name="viewMyProfilePage"/>
-                    <include name="verifyPersonalInformation"/>
-                    <include name="verifyBusinessInformation"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyMyVoucherPage">
-                <methods>
-                    <include name="navigateToMyVoucherPage"/>
-                    <include name="verifyMyVoucher"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyNotificationPage">
-                <methods>
-                    <include name="verifyNotificationPage"/>
-                    <include name="verifyViewNotificationContent"/>
-                    <include name="verifyNotifSearchResults"/>
-                    <include name="verifyNotifSearchEmptyResults"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyPrivacyPolicyPage">
-                <methods>
-                    <include name="navigateToPrivacyPolicyPage"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifySecurePageAppPageTestCase">
-                <methods>
-                    <include name="verifySecureAppMatchingPin"/>
-                    <include name="verifySecureAppMismatchPin"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifySettingsPage">
-                <methods>
-                    <include name="verifyChangeAppPIN"/>
-                    <include name="verifyCustomAlert"/>
-                </methods>
-            </class>
-            <class name="testcases.VerifyWelcomePageTestCase">
-                <methods>
-                    <include name="verifyWelcomePage"/>
-                    <include name="verifyErrorSpielWhenLoginInUsingInvalidNumber"/>
-                    <include name="verifyLoginInUsingValidNumber"/>
-                </methods>
-            </class>
+<!--            <class name="testcases.VerifyChatWithUsPage">-->
+<!--                <methods>-->
+<!--                    <include name="navigateToChatWithUsModal"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyChooseModem">-->
+<!--                <methods>-->
+<!--                    <include name="verifyChooseModemOne"/>-->
+<!--                    <include name="verifyChooseModemTwo"/>-->
+<!--                    <include name="verifyChooseModemThree"/>-->
+<!--                    <include name="verifyChooseModemFour"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyEditMyProfilePage">-->
+<!--                <methods>-->
+<!--                    <include name="verifyEditMyProfilePersonalInfoPage"/>-->
+<!--                    <include name="verifyEditMyProfileBusinessInfoFirstPage"/>-->
+<!--                    <include name="verifyEditMyProfileBusinessInfoSecPage"/>-->
+<!--                    <include name="verifyEnterValidValuesInEditMyProfilePage"/>-->
+<!--                    <include name="verifyEnterInvalidValuesInEditMyProfilePage"/>-->
+<!--                    <include name="verifySaveChangesInEditMyProfilePage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyGetMoreData">-->
+<!--                <methods>-->
+<!--                    <include name="verifyGetMoreDataPromosPage"/>-->
+<!--                    <include name="verifyGetMoreDataAddOnsPage"/>-->
+<!--                    <include name="verifySMSVerificationPage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyGetStartedTestcase">-->
+<!--                <methods>-->
+<!--                    <include name="verifyGetStartedPages"/>-->
+<!--                    <include name="clickButtonGetStarted"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyHelpSupportPage">-->
+<!--                <methods>-->
+<!--                    <include name="navigateToHelpSupportPage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyHomePage">-->
+<!--                <methods>-->
+<!--                    <include name="verifyHomePage"/>-->
+<!--                    <include name="verifyClickRefresh"/>-->
+<!--                    <include name="verifyNotificationBell"/>-->
+<!--                    <include name="verifyClickAddModem"/>-->
+<!--                    <include name="verifyClickHamburger"/>-->
+<!--                    <include name="verifyClickGetMoreData"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyHowToLoadPage">-->
+<!--                <methods>-->
+<!--                    <include name="navigateToHowToLoadPage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyLogOutPage">-->
+<!--                <methods>-->
+<!--                    <include name="navigateToLogOutPage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyModemConfigurationPage">-->
+<!--                <methods>-->
+<!--                    <include name="verifyUserAlreadyConnected"/>-->
+<!--                    <include name="verifyShowMeHowToConnect"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyMyProfilePage">-->
+<!--                <methods>-->
+<!--                    <include name="viewMyProfilePage"/>-->
+<!--                    <include name="verifyPersonalInformation"/>-->
+<!--                    <include name="verifyBusinessInformation"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyMyVoucherPage">-->
+<!--                <methods>-->
+<!--                    <include name="navigateToMyVoucherPage"/>-->
+<!--                    <include name="verifyMyVoucher"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyNotificationPage">-->
+<!--                <methods>-->
+<!--                    <include name="verifyNotificationPage"/>-->
+<!--                    <include name="verifyViewNotificationContent"/>-->
+<!--                    <include name="verifyNotifSearchResults"/>-->
+<!--                    <include name="verifyNotifSearchEmptyResults"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyPrivacyPolicyPage">-->
+<!--                <methods>-->
+<!--                    <include name="navigateToPrivacyPolicyPage"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifySecurePageAppPageTestCase">-->
+<!--                <methods>-->
+<!--                    <include name="verifySecureAppMatchingPin"/>-->
+<!--                    <include name="verifySecureAppMismatchPin"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifySettingsPage">-->
+<!--                <methods>-->
+<!--                    <include name="verifyChangeAppPIN"/>-->
+<!--                    <include name="verifyCustomAlert"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--            <class name="testcases.VerifyWelcomePageTestCase">-->
+<!--                <methods>-->
+<!--                    <include name="verifyWelcomePage"/>-->
+<!--                    <include name="verifyErrorSpielWhenLoginInUsingInvalidNumber"/>-->
+<!--                    <include name="verifyLoginInUsingValidNumber"/>-->
+<!--                </methods>-->
+<!--            </class>-->
         </classes>
     </test>
 </suite>
