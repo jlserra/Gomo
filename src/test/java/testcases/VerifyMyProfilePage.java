@@ -44,7 +44,7 @@ public class VerifyMyProfilePage extends BaseTestcase{
     @Test(testName = "Verify Personal Information Section", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will verify the content of the Personal Information Section")
-    @Story("Story: Verify Personal Information Section")
+    @Story("Story: My Profile Page")
     public void verifyPersonalInformation() throws Exception {
         viewMyProfilePage();
         myProfilePage.verifyPersonalInfo();
@@ -53,7 +53,7 @@ public class VerifyMyProfilePage extends BaseTestcase{
     @Test(testName = "Verify Business Information Section", priority = 3)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will verify the content of the Business Information Section")
-    @Story("Story: Verify Business Information Section")
+    @Story("Story: My Profile Page")
     public void verifyBusinessInformation() throws Exception {
         viewMyProfilePage();
         myProfilePage.verifyBusinessInfo();

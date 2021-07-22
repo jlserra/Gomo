@@ -25,7 +25,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
     @Test(testName = "Verify Go to My Profile page", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will click and go to My Profile Page")
-    @Story("Story: Go to My Profile")
+    @Story("Story: Account Details Page")
     public void verifyGotoMyProfilePage() throws Exception {
         verifyAccountDetailsPage();
         accountDetailsPage.clickGoToMyProfile();
@@ -34,7 +34,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
     @Test(testName = "Verify Edit Nickname", priority = 3)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will edit nickname")
-    @Story("Story: Edit Nickname")
+    @Story("Story: Account Details Page")
     public void verifyEditNickname() throws Exception {
         verifyAccountDetailsPage();
         accountDetailsPage.editNickNameField();
@@ -43,7 +43,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
     @Test(testName = "Verify Mobile Number and Status", priority = 4)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: Verify Mobile Number and Status")
-    @Story("Story: Mobile Number and Status")
+    @Story("Story: Account Details Page")
     public void verifyNumberAndStatus() throws Exception {
         verifyAccountDetailsPage();
         accountDetailsPage.verifyNumberAndStatus();
@@ -52,7 +52,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
     @Test(testName = "Verify Profile Status", priority = 5)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: Verify Profile Status")
-    @Story("Story: Profile Status")
+    @Story("Story: Account Details Page")
     public void verifyProfileStatus() throws Exception {
         verifyAccountDetailsPage();
         accountDetailsPage.verifyProfileStatus();
@@ -61,7 +61,7 @@ public class VerifyAccountDetailsPage extends BaseTestcase{
     @Test(testName = "Verify Photo Upload", priority = 6)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: Verify Photo Upload")
-    @Story("Story: Photo Upload")
+    @Story("Story: Account Details Page")
     public void verifyUploadPhoto() throws Exception {
         verifyAccountDetailsPage();
         accountDetailsPage.verifyUploadPhoto();

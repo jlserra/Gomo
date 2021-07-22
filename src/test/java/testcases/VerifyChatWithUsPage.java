@@ -14,7 +14,7 @@ public class VerifyChatWithUsPage extends BaseTestcase {
     @Test(testName = "NavigateToChatWithUsModal", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will be redirected to Chat with us modal")
-    @Story("Story: Chat with us modal")
+    @Story("Story: Chat with us")
     public void navigateToChatWithUsModal() throws Exception {
 
         LoginTestCase.loginUser();
