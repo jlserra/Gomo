@@ -14,7 +14,7 @@ public class VerifyHomePage extends BaseTestcase{
     @Test(testName = "VerifyHomePage", priority = 1)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will check for the Home Page")
-    @Story("Story: Home Page")
+    @Story("Story: Verify Home Page")
     public void verifyHomePage() throws Exception {
         getStartedPage.verifyIfGetStartedPage();
         getStartedPage.clickBtnGetStarted();
@@ -41,7 +41,7 @@ public class VerifyHomePage extends BaseTestcase{
     @Test(testName = "VerifyClickRefresh", priority = 3)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will click for the Refresh Button")
-    @Story("Story: Verify Click Refresh Button")
+    @Story("Story: Verify Home Page")
     public void verifyClickRefresh() throws Exception {
         verifyHomePage();
         homePage.verifyClickRefreshButton();
@@ -50,7 +50,7 @@ public class VerifyHomePage extends BaseTestcase{
     @Test(testName = "VerifyClickNotificationBell", priority = 4)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will click for the Notification Bell")
-    @Story("Story: Verify Click Notification")
+    @Story("Story: Verify Home Page")
     public void verifyNotificationBell() throws Exception {
         verifyHomePage();
         homePage.verifyNotificationBell();
@@ -59,7 +59,7 @@ public class VerifyHomePage extends BaseTestcase{
     @Test(testName = "VerifyClickAddModemBtn", priority = 5)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will click for the Add Modem Button")
-    @Story("Story: Verify Click Add Modem")
+    @Story("Story: Verify Home Page")
     public void verifyClickAddModem() throws Exception {
         verifyHomePage();
         homePage.verifyClickAddModem();
@@ -77,20 +77,20 @@ public class VerifyHomePage extends BaseTestcase{
     @Test(testName = "VerifyClickGetMoreData", priority = 7)
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description: User will click for Get More Data Button")
-    @Story("Story: Verify Click Get More Data Button")
+    @Story("Story: Verify Home Page")
     public void verifyClickGetMoreData() throws Exception {
         verifyHomePage();
         homePage.verifyClickGetMoreData();
     }
 
 
-//    @Test(testName = "VerifyClickExpandAnnouncement", priority = 7)
-//    @Severity(SeverityLevel.NORMAL)
-//    @Description("Test Description: User will click the Expand Button")
-//    @Story("Story: Verify Click Expand Button")
-//    public void verifyClickExpandButtonAnnouncement() throws Exception {
-//        verifyHomePage();
-//        homePage.verifyClickExpandButtonAnnouncement();
-//    }
+    @Test(testName = "VerifyClickExpandAnnouncement", priority = 7)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description: User will click the Expand Button")
+    @Story("Story: Verify Click Expand Button")
+    public void verifyClickExpandButtonAnnouncement() throws Exception {
+        verifyHomePage();
+        homePage.verifyExpandAnnouncementIsEnabled();
+    }
 
 }
