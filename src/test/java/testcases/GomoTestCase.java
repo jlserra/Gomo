@@ -26,42 +26,42 @@ public class GomoTestCase extends BaseTestcase {
     public static void verifyCardPaymentChannelTest01() throws Exception {
         Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
     }
-    @Test(testName = "VerifyCardPaymentChannel02")
-    public static void verifyCardPaymentChannelTest02() throws Exception {
-        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
-    }
-    @Test(testName = "VerifyCardPaymentChannel03")
-    public static void verifyCardPaymentChannelTest03() throws Exception {
-        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
-    }
-    @Test(testName = "VerifyCardPaymentChannel04")
-    public static void verifyCardPaymentChannelTest04() throws Exception {
-        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
-    }
-    @Test(testName = "VerifyCardPaymentChannel05")
-    public static void verifyCardPaymentChannelTest05() throws Exception {
-        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
-    }
-    @Test(testName = "VerifyCardPaymentChannel06")
-    public static void verifyCardPaymentChannelTest06() throws Exception {
-        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
-    }
-    @Test(testName = "VerifyCardPaymentChannel07")
-    public static void verifyCardPaymentChannelTest07() throws Exception {
-        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
-    }
-    @Test(testName = "VerifyCardPaymentChannel08")
-    public static void verifyCardPaymentChannelTest08() throws Exception {
-        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
-    }
-    @Test(testName = "VerifyCardPaymentChannel09")
-    public static void verifyCardPaymentChannelTest09() throws Exception {
-        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
-    }
-    @Test(testName = "VerifyCardPaymentChannel10")
-    public static void verifyCardPaymentChannelTest10() throws Exception {
-        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
-    }
+//    @Test(testName = "VerifyCardPaymentChannel02")
+//    public static void verifyCardPaymentChannelTest02() throws Exception {
+//        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
+//    }
+//    @Test(testName = "VerifyCardPaymentChannel03")
+//    public static void verifyCardPaymentChannelTest03() throws Exception {
+//        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
+//    }
+//    @Test(testName = "VerifyCardPaymentChannel04")
+//    public static void verifyCardPaymentChannelTest04() throws Exception {
+//        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
+//    }
+//    @Test(testName = "VerifyCardPaymentChannel05")
+//    public static void verifyCardPaymentChannelTest05() throws Exception {
+//        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
+//    }
+//    @Test(testName = "VerifyCardPaymentChannel06")
+//    public static void verifyCardPaymentChannelTest06() throws Exception {
+//        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
+//    }
+//    @Test(testName = "VerifyCardPaymentChannel07")
+//    public static void verifyCardPaymentChannelTest07() throws Exception {
+//        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
+//    }
+//    @Test(testName = "VerifyCardPaymentChannel08")
+//    public static void verifyCardPaymentChannelTest08() throws Exception {
+//        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
+//    }
+//    @Test(testName = "VerifyCardPaymentChannel09")
+//    public static void verifyCardPaymentChannelTest09() throws Exception {
+//        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
+//    }
+//    @Test(testName = "VerifyCardPaymentChannel10")
+//    public static void verifyCardPaymentChannelTest10() throws Exception {
+//        Assert.assertTrue(verifyCardPaymentChannel(), "Payment method not visible");
+//    }
 
     public static boolean verifyCardPaymentChannel() throws Exception{
 
