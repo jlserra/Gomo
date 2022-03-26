@@ -23,9 +23,9 @@ import utilities.*;
 public class BaseTestcase {
 
 //    Appium and Driver
-    private URL url;
-    private DesiredCapabilities capabilities;
-    private MobileDriver<MobileElement> driver;
+    private static URL url;
+    private static DesiredCapabilities capabilities;
+    public static MobileDriver<MobileElement> driver;
 
 //    Pages
     public static BasePage basePage;
@@ -89,7 +89,7 @@ public class BaseTestcase {
 
     }
 
-    public void setupAppium() throws IOException {
+    public static void setupAppium() throws IOException {
         if (config.getPlatform().equalsIgnoreCase("android")) {
             initializeAndroidCapabilities();
         } else {
@@ -98,7 +98,7 @@ public class BaseTestcase {
     }
 
     //    Android Capabilities
-    public void initializeAndroidCapabilities() throws MalformedURLException {
+    public static void initializeAndroidCapabilities() throws MalformedURLException {
 
 //        Appium Server Configuration
         final String URL_STRING = "http://0.0.0.0:4723/wd/hub";
@@ -107,11 +107,11 @@ public class BaseTestcase {
 //        Android Capability Configuration
         capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-//        capabilities.setCapability("avd", "emulator-5554");
-        capabilities.setCapability("deviceName", "vysor");
+        capabilities.setCapability("avd", "emulator-5555");
+//        capabilities.setCapability("deviceName", "vysor");
 //        capabilities.setCapability("deviceName", "6ed66a95");
         capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("noReset", false);
+        capabilities.setCapability("noReset", true);
 
 //        Chromdriver version '83.0.4103'
         File chromedriverExecutable = new File(config.resourceDirectory, "chromedriver");
@@ -119,12 +119,12 @@ public class BaseTestcase {
 
 //        Application Capability Configuration
 //        A.) APK Fresh Installation
-        File app = new File(config.resourceDirectory, "release.apk");
-        capabilities.setCapability("app", app.getAbsolutePath());
+//        File app = new File(config.resourceDirectory, "base.apk");
+//        capabilities.setCapability("app", app.getAbsolutePath());
 
 //        B.) APK Pre-Installed
-//        capabilities.setCapability("appPackage", "ph.com.globe.mybusiness");
-//        capabilities.setCapability("appActivity", "ph.com.globe.mybusiness.SplashScreenActivity");
+        capabilities.setCapability("appPackage", "ph.gomo.gomoph");
+        capabilities.setCapability("appActivity", "ph.gomo.gomoph.MainActivity");
 
 //        Get capabilities from JSON
 //        for(Object key : config.capabilities.keySet()) {
@@ -143,7 +143,7 @@ public class BaseTestcase {
     }
 
     //    IOS Capabilities
-    public void initializeIOSCapabilities() throws MalformedURLException {
+    public static void initializeIOSCapabilities() throws MalformedURLException {
 
 //        Appium Server
         final String URL_STRING = "http://0.0.0.0:4723/wd/hub";
@@ -183,17 +183,18 @@ public class BaseTestcase {
     }
 
     @AfterMethod
-    public void afterTest() throws InterruptedException {
+    public void afterTest() throws InterruptedException, IOException {
         action.saveTextLog(LoggerUtilities.testlog);
+        action.takeSnapShot(config.getTestcase() + " - " + System.currentTimeMillis());
         driver.quit();
         Thread.sleep(1000);
     }
 
     @BeforeSuite
     public void beforeSuite() throws IOException {
-        downloadExcel();
-        excel.readTestdata();
-        excel.readLocators();
+//        downloadExcel();
+//        excel.readTestdata();
+//        excel.readLocators();
     }
 }
 
